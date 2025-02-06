@@ -129,53 +129,67 @@ public class Logina extends JFrame {
 				
 				Langilea lan = konprobazioa.lortuErabiltzailea(langilea2);
 				
-				if(lan!=null) {
-		
-				//ADMINAREN MENUAN SARTZEKO
-				if(erabiltzailea.equals("Admin") && pasahitzaFinala.equals("utopi")) {
+				int id = 0;
+				if(lan != null) {
+					id = lan.getIdLanpostua();
+				}
+				
+				int aukerak = 0;
+				
+				switch(id) {
+				case 1: 
 					dispose(); //lehioa ixten du
-					JOptionPane.showMessageDialog(null, "Ongi etorri Utopia System administratzailearen programara", "SARTU ZARA",
+					JOptionPane.showMessageDialog(null, "Ongi etorri Utopia System administratzailearen programara, "+lan.getIzena()+".", "SARTU ZARA",
 							JOptionPane.INFORMATION_MESSAGE); //Panel bat irekitzen du sartu zarela adierazten
 					
 					Printzipala p = new Printzipala(); //Printzipala interfaza definitzen du
 					p.setVisible(true); // Printzipala interfazan sartzen du, bisiblea eginez
-				}//GARRAIOAREN MENUAN SARTZEKO
-				else if(txtErabiltzailea.getText().equals("Garraio") && pasahitzaFinala.equals("utopi")) {
+					break;
+				case 2:
 					dispose();
-					JOptionPane.showMessageDialog(null, "Ongi etorri Utopia System garraiolarientzako programara", "SARTU ZARA",
-							JOptionPane.INFORMATION_MESSAGE);
-					
-					PrintzipalaGarraioa pg = new PrintzipalaGarraioa();
-					pg.setVisible(true); // Garraioen printzipalan sartzen du
-				}//GERENTEAREN MENUAN SARTZEKO
-				else if(txtErabiltzailea.getText().equals("Gerente") && pasahitzaFinala.equals("utopi")) {
-					dispose();
-					JOptionPane.showMessageDialog(null, "Ongi etorri Utopia System gerententzako programara", "SARTU ZARA",
+					JOptionPane.showMessageDialog(null, "Ongi etorri Utopia System gerententzako programara, "+lan.getIzena()+".", "SARTU ZARA",
 							JOptionPane.INFORMATION_MESSAGE);
 					
 					PrintzipalaGerentea pgr = new PrintzipalaGerentea();
 					pgr.setVisible(true); //Gerentearen printzipalan sartzen du
-				}//LANGILEAREN MENUAN SARTZEKO
-				else if(txtErabiltzailea.getText().equals("Langile") && pasahitzaFinala.equals("utopi")) {
+					break;
+				case 3:
 					dispose();
-					JOptionPane.showMessageDialog(null, "Ongi etorri Utopia System langilearentzako programara", "SARTU ZARA",
+					JOptionPane.showMessageDialog(null, "Ongi etorri Utopia System langilearentzako programara, "+lan.getIzena()+".", "SARTU ZARA",
 							JOptionPane.INFORMATION_MESSAGE);
 					
 					PrintzipalaLangilea pla = new PrintzipalaLangilea();
 					pla.setVisible(true);//Langilearen printzipalan sartzen du, bisiblea eginez.
-				
-				}else {
+					break;
+				case 4:
+					dispose();
+					JOptionPane.showMessageDialog(null, "Ongi etorri Utopia System garraiolarientzako programara, "+lan.getIzena()+".", "SARTU ZARA",
+							JOptionPane.INFORMATION_MESSAGE);
+					
+					PrintzipalaGarraioa pg = new PrintzipalaGarraioa();
+					pg.setVisible(true); // Garraioen printzipalan sartzen du
+					break;
+				default:
+					
 					JOptionPane.showMessageDialog(null, "Erabiltzailea edo pasahitza ez dira zuzenak", "ERROREA!",
 							JOptionPane.ERROR_MESSAGE);//ERROR_MESSAGE-arekin erabiltzailea edo pasahitza zuzenak ez badira mezu bat bidaltzen du
 					txtErabiltzailea.setText("");//Erabiltzailean idatzitakoa borratzeko
 					jpassPasahitza.setText("");//Pasahitzan idatzitakoa borratzeko
 					txtErabiltzailea.requestFocus();//Erabiltzailearen text arean sartzen da direktamente
+					aukerak++;
+					if(aukerak==2) {
+						JOptionPane.showMessageDialog(null, "Aukera bat geratzen zaizu", "KONTUZ!",
+								JOptionPane.INFORMATION_MESSAGE);
+					}else if(aukerak==3) {
+						JOptionPane.showMessageDialog(null, "Aukera guztiak erabili dituzu!", "KONTUZ!",
+								JOptionPane.INFORMATION_MESSAGE);
+					}
+					break;
+				
 				}
-			}else {
-				JOptionPane.showMessageDialog(null, "Konexioa ez da ondo egin!", "ERROREA!",
-						JOptionPane.ERROR_MESSAGE);
+				
 			}
-			}
+			
 		});
 		btnNewButton.setForeground(new Color(0, 0, 0));
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));

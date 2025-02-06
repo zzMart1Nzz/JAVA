@@ -15,11 +15,15 @@ import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 public class LangileakPanela extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -63,6 +67,20 @@ public class LangileakPanela extends JFrame {
 				}else {}
 			}
 		});
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(81, 66, 837, 313);
+		contentPane.add(scrollPane);
+		
+		table = new JTable();
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"ID", "Kategoria", "Lanpostua", "NAN", "Izena", "Abizena", "Telefonoa", "Posta-elektronikoa", "Erabiltzailea", "Pasahitza", "Helbidea", "Posta Kodea"
+			}
+		));
+		scrollPane.setViewportView(table);
 		btnAtera.setIcon(new ImageIcon("C:\\Users\\benat\\Downloads\\itxi(2).png"));
 		btnAtera.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAtera.setForeground(Color.WHITE);

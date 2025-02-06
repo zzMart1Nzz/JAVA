@@ -6,6 +6,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="D:/aneso/OneDrive - Goierri Eskola/24-25/_ERRONKAK_/2 ERRONKA/JAVA/DB KONEKTOREA (EZ BORRATU!!!)/mysql-connector-j-9.2.0/mysql-connector-j-9.2.0/mysql-connector-j-9.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/benat/OneDrive/Desktop/mysql-connector-j-9.1.0/mysql-connector-j-9.1.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

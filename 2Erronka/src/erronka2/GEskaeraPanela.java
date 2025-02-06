@@ -14,11 +14,15 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 public class GEskaeraPanela extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -58,6 +62,20 @@ public class GEskaeraPanela extends JFrame {
 				pgr.setVisible(true);
 			}
 		});
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(81, 66, 837, 313);
+		contentPane.add(scrollPane);
+		
+		table = new JTable();
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+					"ID", "Hornitzailea", "Pieza", "Kopurua", "Data"
+			}
+		));
+		scrollPane.setViewportView(table);
 		
 		JLabel lblNewLabel_1 = new JLabel("Gerentea");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 28));
