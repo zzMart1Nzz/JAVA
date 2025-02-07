@@ -17,15 +17,17 @@ import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
-import kudeaketak.kudeaketaProduktuak;
-import taulak.ProduktuakTaula;
 
-public class ProduktuakPanela extends JFrame {
+import kudeaketak.kudeaketaProdPrest;
+import taulak.ProdPrestTaula;
+
+
+public class ProdPrestPanela extends JFrame {
 
     private static final long serialVersionUID = 1L;
     private JPanel contentPane;
     private JTable table;
-    private kudeaketaProduktuak dao;
+    private kudeaketaProdPrest dao;
 
     /**
      * Launch the application.
@@ -34,7 +36,7 @@ public class ProduktuakPanela extends JFrame {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    ProduktuakPanela frame = new ProduktuakPanela();
+                    ProdPrestPanela frame = new ProdPrestPanela();
                     frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -46,7 +48,7 @@ public class ProduktuakPanela extends JFrame {
     /**
      * Create the frame.
      */
-    public ProduktuakPanela() {
+    public ProdPrestPanela() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 1000, 490);
         contentPane = new JPanel();
@@ -65,9 +67,9 @@ public class ProduktuakPanela extends JFrame {
         });
         contentPane.setLayout(null);
         
-        dao = new kudeaketaProduktuak();
-        List<Produktua> lista = dao.lortuProduktuak();
-        ProduktuakTaula model = new ProduktuakTaula(lista);
+        dao = new kudeaketaProdPrest();
+        List<ProduktuaPrestakuntzan> lista = dao.lortuProduktuakPrestakuntzan();
+        ProdPrestTaula model = new ProdPrestTaula(lista);
         
         table = new JTable(model);
         JScrollPane scrollPane = new JScrollPane(table);

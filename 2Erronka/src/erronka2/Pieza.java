@@ -4,35 +4,34 @@ import java.util.Objects;
 
 public class Pieza {
 	
-	private int id;
+	private int idPieza;
 	private int kategoria;
 	private String marka;
 	private String modeloa;
 	private String ezaugarriak;
 	private double erosketaPrezioa;
-	private boolean stocka;
+	private int stock;
 	
 	public Pieza() {
 	}
 
-	public Pieza(int id, int kategoria, String marka, String modeloa, String ezaugarriak, double erosketaPrezioa,
-			boolean stocka) {
-		super();
-		this.id = id;
+	public Pieza(int idPieza, int kategoria, String marka, String modeloa, String ezaugarriak, double erosketaPrezioa,
+			int stock) {
+		this.idPieza = idPieza;
 		this.kategoria = kategoria;
 		this.marka = marka;
 		this.modeloa = modeloa;
 		this.ezaugarriak = ezaugarriak;
 		this.erosketaPrezioa = erosketaPrezioa;
-		this.stocka = stocka;
+		this.stock = stock;
 	}
 
-	public int getId() {
-		return id;
+	public int getIdPieza() {
+		return idPieza;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setIdPieza(int idPieza) {
+		this.idPieza = idPieza;
 	}
 
 	public int getKategoria() {
@@ -75,54 +74,12 @@ public class Pieza {
 		this.erosketaPrezioa = erosketaPrezioa;
 	}
 
-	public boolean isStocka() {
-		return stocka;
+	public int getStock() {
+		return stock;
 	}
 
-	public void setStocka(boolean stocka) {
-		this.stocka = stocka;
+	public void setStock(int stock) {
+		this.stock = stock;
 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(erosketaPrezioa, ezaugarriak, id, kategoria, marka, modeloa, stocka);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Pieza other = (Pieza) obj;
-		return Double.doubleToLongBits(erosketaPrezioa) == Double.doubleToLongBits(other.erosketaPrezioa)
-				&& Objects.equals(ezaugarriak, other.ezaugarriak) && id == other.id && kategoria == other.kategoria
-				&& Objects.equals(marka, other.marka) && Objects.equals(modeloa, other.modeloa)
-				&& stocka == other.stocka;
-	}
-
-	@Override
-	public String toString() {
-		return "Pieza [id=" + id + ", kategoria=" + kategoria + ", marka=" + marka + ", modeloa=" + modeloa
-				+ ", ezaugarriak=" + ezaugarriak + ", erosketaPrezioa=" + erosketaPrezioa + ", stocka=" + stocka + "]";
-	}
-	
-	public void piezakIkusi() {
-		
-	}
-	
-	public void piezakSartu() {
-		
-	}
-	
-	public void piezakEguneratu() {
-		
-	}
-	
-	public void piezakEzabatu() {
-		
-	}
-	
 }

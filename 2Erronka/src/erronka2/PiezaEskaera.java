@@ -1,96 +1,90 @@
 package erronka2;
 
+import java.sql.Timestamp;
 import java.util.Objects;
 
 public class PiezaEskaera {
 
-		private int idpiezaeskaera;
-		private int idhornitzailea;
-		private int idPieza;
+		private int idPiezaEskaera;
+		private int Hornitzaile_idHornitzailea;
+		private int Pieza_idPieza;
 		private int kopurua;
+		private Timestamp data;
 		
 		public PiezaEskaera() {
-			super();
+			
 		}
-
-		public PiezaEskaera(int idpiezaeskaera, int idhornitzailea, int idPieza, int kopurua) {
-			super();
-			this.idpiezaeskaera = idpiezaeskaera;
-			this.idhornitzailea = idhornitzailea;
-			this.idPieza = idPieza;
+		
+		//KONSTRUKTOREAK
+		public PiezaEskaera(int idPiezaEskaera, int hornitzaile_idHornitzailea, int pieza_idPieza, int kopurua,
+				Timestamp data) {
+			this.idPiezaEskaera = idPiezaEskaera;
+			this.Hornitzaile_idHornitzailea = hornitzaile_idHornitzailea;
+			this.Pieza_idPieza = pieza_idPieza;
 			this.kopurua = kopurua;
+			this.data = data;
+		}
+		
+		
+		//GETTERRAK ETA SETTERRAK
+		public int getIdPiezaEskaera() {
+			return idPiezaEskaera;
 		}
 
-		public int getIdpiezaeskaera() {
-			return idpiezaeskaera;
+
+		public void setIdPiezaEskaera(int idPiezaEskaera) {
+			this.idPiezaEskaera = idPiezaEskaera;
 		}
 
-		public void setIdpiezaeskaera(int idpiezaeskaera) {
-			this.idpiezaeskaera = idpiezaeskaera;
+
+		public int getHornitzaile_idHornitzailea() {
+			return Hornitzaile_idHornitzailea;
 		}
 
-		public int getIdhornitzailea() {
-			return idhornitzailea;
+
+		public void setHornitzaile_idHornitzailea(int hornitzaile_idHornitzailea) {
+			Hornitzaile_idHornitzailea = hornitzaile_idHornitzailea;
 		}
 
-		public void setIdhornitzailea(int idhornitzailea) {
-			this.idhornitzailea = idhornitzailea;
+
+		public int getPieza_idPieza() {
+			return Pieza_idPieza;
 		}
 
-		public int getIdPieza() {
-			return idPieza;
+
+		public void setPieza_idPieza(int pieza_idPieza) {
+			Pieza_idPieza = pieza_idPieza;
 		}
 
-		public void setIdPieza(int idPieza) {
-			this.idPieza = idPieza;
-		}
 
 		public int getKopurua() {
 			return kopurua;
 		}
 
+
 		public void setKopurua(int kopurua) {
 			this.kopurua = kopurua;
 		}
 
-		@Override
-		public String toString() {
-			return "PiezaEskaera [idpiezaeskaera=" + idpiezaeskaera + ", idhornitzailea=" + idhornitzailea
-					+ ", idPieza=" + idPieza + ", kopurua=" + kopurua + "]";
+
+		public Timestamp getData() {
+			return data;
 		}
 
-		@Override
-		public int hashCode() {
-			return Objects.hash(idPieza, idhornitzailea, idpiezaeskaera, kopurua);
+
+		public void setData(Timestamp data) {
+			this.data = data;
 		}
 
-		@Override
-		public boolean equals(Object obj) {
-			if (this == obj)
-				return true;
-			if (obj == null)
-				return false;
-			if (getClass() != obj.getClass())
-				return false;
-			PiezaEskaera other = (PiezaEskaera) obj;
-			return idPieza == other.idPieza && idhornitzailea == other.idhornitzailea
-					&& idpiezaeskaera == other.idpiezaeskaera && kopurua == other.kopurua;
-		}
+		public static PiezaEskaera get(int rowIndex) {
 		
-		public void piezaEskaerakkIkusi() {
-			
+			return null;
 		}
+
+
+	
 		
-		public void piezaEskaerakSartu() {
-			
-		}
 		
-		public void piezaEskaerakEguneratu() {
-			
-		}
 		
-		public void piezaEskaerakEzabatu() {
-			
-		}
-		
+	
 }

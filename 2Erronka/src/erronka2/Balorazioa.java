@@ -1,20 +1,24 @@
 package erronka2;
 
+import java.sql.Timestamp;
 import java.util.Objects;
 
 public class Balorazioa {
 	
 	private int idBalorazioa;
-	private int idBezeroa;
-	private int idProduktua;
+	private int Bezeroa_idBezeroa;
+	private int Produktua_idProduktua;
 	private String balorazioa;
+	private Timestamp data;
 	
 	//KONSTRUKTOREAK
-	public Balorazioa(int idBalorazioa, int idBezeroa, int idProduktua, String balorazioa) {
+	public Balorazioa(int idBalorazioa, int bezeroa_idBezeroa, int produktua_idProduktua, String balorazioa,
+			Timestamp data) {
 		this.idBalorazioa = idBalorazioa;
-		this.idBezeroa = idBezeroa;
-		this.idProduktua = idProduktua;
+		this.Bezeroa_idBezeroa = bezeroa_idBezeroa;
+		this.Produktua_idProduktua = produktua_idProduktua;
 		this.balorazioa = balorazioa;
+		this.data = data;
 	}
 
 	//GETTERRAK ETA SETTERRAK
@@ -28,23 +32,23 @@ public class Balorazioa {
 	}
 
 
-	public int getIdBezeroa() {
-		return idBezeroa;
+	public int getBezeroa_idBezeroa() {
+		return Bezeroa_idBezeroa;
 	}
 
 
-	public void setIdBezeroa(int idBezeroa) {
-		this.idBezeroa = idBezeroa;
+	public void setBezeroa_idBezeroa(int bezeroa_idBezeroa) {
+		Bezeroa_idBezeroa = bezeroa_idBezeroa;
 	}
 
 
-	public int getIdProduktua() {
-		return idProduktua;
+	public int getProduktua_idProduktua() {
+		return Produktua_idProduktua;
 	}
 
 
-	public void setIdProduktua(int idProduktua) {
-		this.idProduktua = idProduktua;
+	public void setProduktua_idProduktua(int produktua_idProduktua) {
+		Produktua_idProduktua = produktua_idProduktua;
 	}
 
 
@@ -57,31 +61,14 @@ public class Balorazioa {
 		this.balorazioa = balorazioa;
 	}
 
-	//HASHCODE ETA EQUALS
-	@Override
-	public int hashCode() {
-		return Objects.hash(idBalorazioa, idBezeroa, idProduktua);
+
+	public Timestamp getData() {
+		return data;
 	}
 
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Balorazioa other = (Balorazioa) obj;
-		return idBalorazioa == other.idBalorazioa && idBezeroa == other.idBezeroa && idProduktua == other.idProduktua;
-	}
-
-	//BALORAZIOAK IKUSTEKO ERABILIKO DUGUN METODOA
-	public void  balorazioakIkusi() {
-		
-
+	public void setData(Timestamp data) {
+		this.data = data;
 	}
 	
-	
-
 }

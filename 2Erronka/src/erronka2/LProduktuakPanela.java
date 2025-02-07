@@ -34,7 +34,7 @@ public class LProduktuakPanela extends JFrame {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    ProduktuakPanela frame = new ProduktuakPanela();
+                    ProdPrestPanela frame = new ProdPrestPanela();
                     frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -59,8 +59,8 @@ public class LProduktuakPanela extends JFrame {
         btnAtzera.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                Printzipala p = new Printzipala();
-                p.setVisible(true);
+                PrintzipalaLangilea pl = new PrintzipalaLangilea();
+                pl.setVisible(true);
             }
         });
         contentPane.setLayout(null);

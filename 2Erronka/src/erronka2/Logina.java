@@ -131,7 +131,7 @@ public class Logina extends JFrame {
 				
 				int id = 0;
 				if(lan != null) {
-					id = lan.getIdLanpostua();
+					id = lan.getLanpostua_idlanpostua();
 				}
 				
 				int aukerak = 0;

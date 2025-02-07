@@ -22,8 +22,8 @@ public class kudeaketaProdPrest {
 
             while (rs.next()) {
                 
-                ProduktuaPrestakuntzan pp = mapResultSetToProduktua(rs);
-                lista.add(pp);
+                ProduktuaPrestakuntzan ppp = mapResultSetToProduktua(rs);
+                lista.add(ppp);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -44,7 +44,7 @@ public class kudeaketaProdPrest {
         );
     }
 
-    public void sortuProduktua(ProduktuaPrestakuntzan prodprest) {
+    public void sortuProduktuaPrest(ProduktuaPrestakuntzan prodprest) {
         String sql = "INSERT INTO prodprest (idProdPrest, ProduktuMota_idProduktuMota, Bezeroa_idBezeroa, marka, modeloa, ezaugarriak, egoera) VALUES (?, ?, ?, ?, ?, ?, ?)";
         
         try (Connection conn = DBKonexioa.konexioaEgin();
@@ -56,8 +56,8 @@ public class kudeaketaProdPrest {
         }
     }
 
-    // Método para actualizar un producto en la base de datos
-    public void eguneratuProduktua(ProduktuaPrestakuntzan prodprest) {
+
+    public void eguneratuProduktuaPrest(ProduktuaPrestakuntzan prodprest) {
         String sql = "UPDATE prodprest SET marka = ?, modeloa = ?, memoria = ?, ram = ?, prozesagailua = ?, tamaina = ?, sistemaEragilea = ?, kamara = ?, erresoluzioa = ?, frekuentzia = ?, kolorea = ?, salmentaPrezioa = ?, stock = ? WHERE idProduktua = ?";
         
         try (Connection conn = DBKonexioa.konexioaEgin();
@@ -70,21 +70,21 @@ public class kudeaketaProdPrest {
         }
     }
 
-    // Método para eliminar un producto de la base de datos
-    public void ezabatuProduktua(int idProduktua) {
-        String sql = "DELETE FROM produktua WHERE idProduktua = ?";
+
+    public void ezabatuProduktuaPrest(int idProdPrest) {
+        String sql = "DELETE FROM prodprest WHERE idProdPrest = ?";
         
         try (Connection conn = DBKonexioa.konexioaEgin();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
-            ps.setInt(1, idProduktua);
+            ps.setInt(1, idProdPrest);
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    // Método auxiliar para mapear un Producto a PreparedStatement
+
     private void mapProduktuaToPreparedStatement(ProduktuaPrestakuntzan prodprest, PreparedStatement ps) throws SQLException {
         ps.setString(1, prodprest.getMarka());
         ps.setString(2, prodprest.getModeloa());

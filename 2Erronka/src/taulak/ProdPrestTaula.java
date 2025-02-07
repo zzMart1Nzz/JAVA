@@ -28,15 +28,15 @@ public class ProdPrestTaula extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        ProduktuaPrestakuntzan pp = prodprest.get(rowIndex);
+        ProduktuaPrestakuntzan ppp = prodprest.get(rowIndex);
         switch (columnIndex) {
-            case 0: return pp.getIdProdPrest();
-            case 1: return pp.getProduktuMota_idProduktuMota();
-            case 2: return pp.getBezeroa_idBezeroa();
-            case 3: return pp.getMarka();
-            case 4: return pp.getModeloa();
-            case 5: return pp.getEzaugarriak();
-            case 6: return pp.getEgoera();
+            case 0: return ppp.getIdProdPrest();
+            case 1: return ppp.getProduktuMota_idProduktuMota();
+            case 2: return ppp.getBezeroa_idBezeroa();
+            case 3: return ppp.getMarka();
+            case 4: return ppp.getModeloa();
+            case 5: return ppp.getEzaugarriak();
+            case 6: return ppp.getEgoera();
             default: return null;
         }
     }

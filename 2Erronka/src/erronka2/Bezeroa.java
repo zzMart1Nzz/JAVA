@@ -11,63 +11,53 @@ import java.util.Scanner;
 public class Bezeroa {
 
 	// EZAUGARRIAK
-	private int id;
-	private String nan;
+	private int idBezeroa;
+	private String nanEdoNif;
 	private String izena;
 	private String abizena;
-	private String telefonoa;
-	private String email;
+	private String telefonoZenbakia;
+	private String postaElektronikoa;
 	private String helbidea;
 	private String herria;
 	private String postakodea;
 	private String pasahitza;
 	
-	private static final String URL = "jdbc:mysql://172.16.242.107:3306/1.erronka";
-	private static final String ERABILTZAILEA = "administratzailea";
-	private static final String PASAHITZA = "1erronka";
-
-	// SORTZAILEAK(CONSTRUCTORES)
-	public Bezeroa() {
-	}
-
 	
-	public Bezeroa(int id, String nan, String izena, String abizena, String telefonoa, String email, String helbidea,
-			String herria, String postakodea, String pasahitza) {
-		super();
-		this.id = id;
-		this.nan = nan;
+	//KONSTRUKTOREAK
+	public Bezeroa(int idBezeroa, String nanEdoNif, String izena, String abizena, String telefonoZenbakia,
+			String postaElektronikoa, String helbidea, String herria, String postakodea, String pasahitza) {
+		this.idBezeroa = idBezeroa;
+		this.nanEdoNif = nanEdoNif;
 		this.izena = izena;
 		this.abizena = abizena;
-		this.telefonoa = telefonoa;
-		this.email = email;
+		this.telefonoZenbakia = telefonoZenbakia;
+		this.postaElektronikoa = postaElektronikoa;
 		this.helbidea = helbidea;
 		this.herria = herria;
 		this.postakodea = postakodea;
 		this.pasahitza = pasahitza;
 	}
 
-
-
-	// GETTERS eta SETTERS
 	
-
-	public int getId() {
-		return id;
+	
+	//GETTERRAK ETA SETTERRAK
+	public int getIdBezeroa() {
+		return idBezeroa;
 	}
 
 
-	public void setId(int id) {
-		this.id = id;
+	public void setIdBezeroa(int idBezeroa) {
+		this.idBezeroa = idBezeroa;
 	}
 
 
-	public String getNan() {
-		return nan;
+	public String getNanEdoNif() {
+		return nanEdoNif;
 	}
 
 
-	public void setNan(String nan) {
-		this.nan = nan;
+	public void setNanEdoNif(String nanEdoNif) {
+		this.nanEdoNif = nanEdoNif;
 	}
 
 
@@ -91,23 +81,23 @@ public class Bezeroa {
 	}
 
 
-	public String getTelefonoa() {
-		return telefonoa;
+	public String getTelefonoZenbakia() {
+		return telefonoZenbakia;
 	}
 
 
-	public void setTelefonoa(String telefonoa) {
-		this.telefonoa = telefonoa;
+	public void setTelefonoZenbakia(String telefonoZenbakia) {
+		this.telefonoZenbakia = telefonoZenbakia;
 	}
 
 
-	public String getEmail() {
-		return email;
+	public String getPostaElektronikoa() {
+		return postaElektronikoa;
 	}
 
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setPostaElektronikoa(String postaElektronikoa) {
+		this.postaElektronikoa = postaElektronikoa;
 	}
 
 
@@ -139,7 +129,8 @@ public class Bezeroa {
 	public void setPostakodea(String postakodea) {
 		this.postakodea = postakodea;
 	}
-	
+
+
 	public String getPasahitza() {
 		return pasahitza;
 	}
@@ -148,100 +139,6 @@ public class Bezeroa {
 	public void setPasahitza(String pasahitza) {
 		this.pasahitza = pasahitza;
 	}
-
-
-	// TO STRING
 	
-	@Override
-	public String toString() {
-		return "Bezeroak [id=" + id + ", nan=" + nan + ", izena=" + izena + ", abizena=" + abizena + ", telefonoa="
-				+ telefonoa + ", email=" + email + ", helbidea=" + helbidea + ", herria=" + herria + ", postakodea="
-				+ postakodea + ", pasahitza=" + pasahitza + "]";
-	}
-
-
-	// HASHCODE eta EQUALS
-	
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(abizena, pasahitza, email, helbidea, herria, id, izena, nan, postakodea, telefonoa);
-	}
-
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Bezeroa other = (Bezeroa) obj;
-		return Objects.equals(abizena, other.abizena) && pasahitza == other.pasahitza && Objects.equals(email, other.email)
-				&& Objects.equals(helbidea, other.helbidea) && Objects.equals(herria, other.herria) && id == other.id
-				&& Objects.equals(izena, other.izena) && Objects.equals(nan, other.nan)
-				&& Objects.equals(postakodea, other.postakodea) && Objects.equals(telefonoa, other.telefonoa);
-	}
-
-
-	// METODOAK
-	public void bezeroakIkusi() {
-		String kontsulta = "SELECT * FROM bezeroak LIMIT ? OFFSET ?";
-		int limit = 5;
-		int offset = 0;
-		boolean jarraitu = true;
-		Scanner sc = new Scanner(System.in);
-
-		try (Connection konexioa = DriverManager.getConnection(URL, ERABILTZAILEA, PASAHITZA)) {
-			while (jarraitu) {
-				try (PreparedStatement deklarazioa = konexioa.prepareStatement(kontsulta)) {
-					deklarazioa.setInt(1, limit);
-					deklarazioa.setInt(2, offset);
-
-					try (ResultSet erantzuna = deklarazioa.executeQuery()) {
-						if (!erantzuna.isBeforeFirst()) {
-							System.out.println("Ez daude bezero gehiago erakusteko.");
-							break;
-						}
-
-						while (erantzuna.next()) {
-							int id = erantzuna.getInt("id");
-							String nan = erantzuna.getString("nanedonif");
-							String izena = erantzuna.getString("izena");
-							String abizena = erantzuna.getString("abizena");
-							String telefonoa = erantzuna.getString("telefonozenbakia");
-							String email = erantzuna.getString("postaelektronikoa");
-							String helbidea = erantzuna.getString("helbidea");
-							String herria = erantzuna.getString("herria");
-							String postakodea = erantzuna.getString("postakodea");
-							String pasahitza = erantzuna.getString("pasahitza");
-							
-							
-							
-							System.out.println("ID: " + id + "| NAN-a: " + nan + "| Izena: " + izena + "| Abizena: "
-									+ abizena + "| Telefonoa: " + telefonoa + "| Posta elektronikoa: " + email
-									+ "| Helbidea: " + helbidea + "| Herria: " + herria + "| Posta Kodea: " + postakodea + "| Pasahitza: " + pasahitza);
-						}
-					}
-				}
-
-				System.out.print("Hurrengo 5 bezeroak ikusi nahi dituzu?(bai/ez): ");
-				String erantzuna = sc.next();
-				if (erantzuna.equalsIgnoreCase("bai")) {
-					offset += limit;
-				} else {
-					jarraitu = false;
-				}
-			}
-		} catch (SQLException e) {
-			System.out.println("Zerbaitek ez du funtzionatu.");
-		}
-
-	}
-	public void bezeroakEzabatu() {
-		
-	}
-
 
 }
