@@ -18,15 +18,14 @@ public class aldaketaPiezak extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField txt_id;
-	private JTextField txt_nif;
-	private JTextField txt_izena;
-	private JTextField txt_telefonoa;
+	private JTextField txt_kategoria;
+	private JTextField txt_marka;
+	private JTextField txt_modeloa;
 	private JLabel lblNewLabel_2_1_3;
-	private JTextField txt_helbidea;
+	private JTextField txt_ezaugarriak;
 	private JLabel lblNewLabel_2_1_4;
-	private JTextField txt_herria;
-	private JTextField txt_postaKodea;
+	private JTextField txt_prezioa;
+	private JTextField txt_stock;
 	private JButton btn_aldatu;
 
 	/**
@@ -58,48 +57,37 @@ public class aldaketaPiezak extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		txt_id = new JTextField();
-		txt_id.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		txt_id.setBounds(136, 87, 106, 20);
-		contentPane.add(txt_id);
-		txt_id.setColumns(10);
-		
-		JLabel lblNewLabel_1 = new JLabel("ID:");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1.setBounds(136, 65, 44, 20);
-		contentPane.add(lblNewLabel_1);
-		
-		txt_nif = new JTextField();
-		txt_nif.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		txt_nif.setColumns(10);
-		txt_nif.setBounds(336, 87, 106, 20);
-		contentPane.add(txt_nif);
+		txt_kategoria = new JTextField();
+		txt_kategoria.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		txt_kategoria.setColumns(10);
+		txt_kategoria.setBounds(267, 95, 106, 20);
+		contentPane.add(txt_kategoria);
 		
 		JLabel lblNewLabel_2 = new JLabel("Kategoria:");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_2.setBounds(336, 67, 74, 17);
+		lblNewLabel_2.setBounds(267, 67, 74, 17);
 		contentPane.add(lblNewLabel_2);
 		
-		txt_izena = new JTextField();
-		txt_izena.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		txt_izena.setColumns(10);
-		txt_izena.setBounds(533, 87, 106, 20);
-		contentPane.add(txt_izena);
+		txt_marka = new JTextField();
+		txt_marka.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		txt_marka.setColumns(10);
+		txt_marka.setBounds(435, 95, 106, 20);
+		contentPane.add(txt_marka);
 		
 		JLabel lblNewLabel_2_1 = new JLabel("Marka:");
 		lblNewLabel_2_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_2_1.setBounds(533, 68, 65, 14);
+		lblNewLabel_2_1.setBounds(435, 68, 65, 14);
 		contentPane.add(lblNewLabel_2_1);
 		
-		txt_telefonoa = new JTextField();
-		txt_telefonoa.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		txt_telefonoa.setColumns(10);
-		txt_telefonoa.setBounds(721, 87, 106, 20);
-		contentPane.add(txt_telefonoa);
+		txt_modeloa = new JTextField();
+		txt_modeloa.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		txt_modeloa.setColumns(10);
+		txt_modeloa.setBounds(608, 95, 106, 20);
+		contentPane.add(txt_modeloa);
 		
 		JLabel lblNewLabel_2_1_1 = new JLabel("Modeloa:");
 		lblNewLabel_2_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_2_1_1.setBounds(721, 68, 91, 14);
+		lblNewLabel_2_1_1.setBounds(608, 68, 91, 14);
 		contentPane.add(lblNewLabel_2_1_1);
 		
 		lblNewLabel_2_1_3 = new JLabel("Ezaugarriak:");
@@ -107,33 +95,33 @@ public class aldaketaPiezak extends JFrame {
 		lblNewLabel_2_1_3.setBounds(267, 199, 89, 14);
 		contentPane.add(lblNewLabel_2_1_3);
 		
-		txt_helbidea = new JTextField();
-		txt_helbidea.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		txt_helbidea.setColumns(10);
-		txt_helbidea.setBounds(267, 221, 106, 20);
-		contentPane.add(txt_helbidea);
+		txt_ezaugarriak = new JTextField();
+		txt_ezaugarriak.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		txt_ezaugarriak.setColumns(10);
+		txt_ezaugarriak.setBounds(267, 221, 106, 20);
+		contentPane.add(txt_ezaugarriak);
 		
 		lblNewLabel_2_1_4 = new JLabel("Prezioa:");
 		lblNewLabel_2_1_4.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel_2_1_4.setBounds(435, 199, 71, 14);
 		contentPane.add(lblNewLabel_2_1_4);
 		
-		txt_herria = new JTextField();
-		txt_herria.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		txt_herria.setColumns(10);
-		txt_herria.setBounds(435, 221, 106, 20);
-		contentPane.add(txt_herria);
+		txt_prezioa = new JTextField();
+		txt_prezioa.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		txt_prezioa.setColumns(10);
+		txt_prezioa.setBounds(435, 221, 106, 20);
+		contentPane.add(txt_prezioa);
 		
 		JLabel lblNewLabel_2_1_4_1 = new JLabel("Stock:");
 		lblNewLabel_2_1_4_1.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel_2_1_4_1.setBounds(608, 201, 106, 14);
 		contentPane.add(lblNewLabel_2_1_4_1);
 		
-		txt_postaKodea = new JTextField();
-		txt_postaKodea.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		txt_postaKodea.setColumns(10);
-		txt_postaKodea.setBounds(608, 223, 106, 20);
-		contentPane.add(txt_postaKodea);
+		txt_stock = new JTextField();
+		txt_stock.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		txt_stock.setColumns(10);
+		txt_stock.setBounds(608, 223, 106, 20);
+		contentPane.add(txt_stock);
 		
 		JButton btnAtzera = new JButton("");
 		btnAtzera.addActionListener(new ActionListener() {

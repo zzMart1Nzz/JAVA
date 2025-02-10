@@ -43,7 +43,7 @@ public class kudeaketaPiezaEsk {
     }
 
     public void sortuPiezaEskaera(PiezaEskaera piezaEskaera) {
-        String sql = "INSERT INTO piezaeskaera (idPiezaEskaera, Hornitzaile_idHornitzailea, Pieza_idPieza, kopurua, data) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO piezaeskaera (Hornitzaile_idHornitzailea, Pieza_idPieza, kopurua, data) VALUES (?, ?, ?, ?)";
         
         try (Connection conn = DBKonexioa.konexioaEgin();
              PreparedStatement ps = conn.prepareStatement(sql)) {
@@ -55,7 +55,7 @@ public class kudeaketaPiezaEsk {
     }
 
     public void eguneratuPiezaEskaera(PiezaEskaera piezaEskaera) {
-        String sql = "UPDATE piezaeskaera SET Hornitzaile_idHornitzailea = ?, Pieza_idPieza = ?, kopurua = ?, data = ? WHERE idPieza = ?";
+        String sql = "UPDATE piezaeskaera SET Hornitzaile_idHornitzailea = ?, Pieza_idPieza = ?, kopurua = ?, data = ? WHERE idPiezaEskaera = ?";
         
         try (Connection conn = DBKonexioa.konexioaEgin();
              PreparedStatement ps = conn.prepareStatement(sql)) {

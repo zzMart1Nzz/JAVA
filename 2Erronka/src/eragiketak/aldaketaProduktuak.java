@@ -29,7 +29,7 @@ public class aldaketaProduktuak extends JFrame {
 	private JLabel lblNewLabel_2_1_4;
 	private JTextField txt_sistemaEragilea;
 	private JTextField txt_kamara;
-	private JButton btnNewButton;
+	private JButton btn_aldatu;
 	private JLabel lblNewLabel_2_1_5;
 	private JTextField txt_erresoluzioa;
 	private JTextField txt_frekuentzia;
@@ -38,7 +38,7 @@ public class aldaketaProduktuak extends JFrame {
 	private JTextField textField_11;
 	private JLabel lblNewLabel_3;
 	private JLabel lblNewLabel_2_1_4_2;
-	private JTextField textField;
+	private JTextField txt_stock;
 	private JLabel lblNewLabel_4;
 
 	/**
@@ -168,14 +168,14 @@ public class aldaketaProduktuak extends JFrame {
 		btnAtzera.setBounds(0, 0, 55, 32);
 		contentPane.add(btnAtzera);
 		
-		btnNewButton = new JButton("ALDATU");
-		btnNewButton.addActionListener(new ActionListener() {
+		btn_aldatu = new JButton("ALDATU");
+		btn_aldatu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnNewButton.setBounds(803, 324, 91, 23);
-		contentPane.add(btnNewButton);
+		btn_aldatu.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btn_aldatu.setBounds(803, 324, 91, 23);
+		contentPane.add(btn_aldatu);
 		
 		lblNewLabel_2_1_5 = new JLabel("Erresoluzioa:");
 		lblNewLabel_2_1_5.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -221,11 +221,11 @@ public class aldaketaProduktuak extends JFrame {
 		lblNewLabel_2_1_4_2.setBounds(267, 256, 71, 14);
 		contentPane.add(lblNewLabel_2_1_4_2);
 		
-		textField = new JTextField();
-		textField.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		textField.setColumns(10);
-		textField.setBounds(608, 279, 106, 20);
-		contentPane.add(textField);
+		txt_stock = new JTextField();
+		txt_stock.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		txt_stock.setColumns(10);
+		txt_stock.setBounds(608, 279, 106, 20);
+		contentPane.add(txt_stock);
 		
 		lblNewLabel_4 = new JLabel("Stock:");
 		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 14));

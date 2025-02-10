@@ -26,14 +26,14 @@ public class sartuLangileak extends JFrame {
 	private JTextField txt_abizena;
 	private JLabel lblNewLabel_2_1_4;
 	private JTextField txt_telefonoa;
-	private JTextField textField_7;
-	private JButton btnNewButton;
+	private JTextField txt_email;
+	private JButton btn_sartu;
 	private JLabel lblNewLabel_2_1_5;
-	private JTextField textField_8;
-	private JTextField textField_9;
+	private JTextField txt_erabiltzailea;
+	private JTextField txt_pasahitza;
 	private JLabel lblNewLabel_2_1_6;
-	private JTextField textField_10;
-	private JTextField textField_11;
+	private JTextField txt_helbidea;
+	private JTextField txt_postaKodea;
 	private JLabel lblNewLabel_3;
 	private JLabel lblNewLabel_2_1_4_2;
 
@@ -126,11 +126,11 @@ public class sartuLangileak extends JFrame {
 		lblNewLabel_2_1_4_1.setBounds(80, 157, 106, 14);
 		contentPane.add(lblNewLabel_2_1_4_1);
 		
-		textField_7 = new JTextField();
-		textField_7.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		textField_7.setColumns(10);
-		textField_7.setBounds(80, 182, 106, 20);
-		contentPane.add(textField_7);
+		txt_email = new JTextField();
+		txt_email.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		txt_email.setColumns(10);
+		txt_email.setBounds(80, 182, 106, 20);
+		contentPane.add(txt_email);
 		
 		JButton btnAtzera = new JButton("");
 		btnAtzera.addActionListener(new ActionListener() {
@@ -142,57 +142,57 @@ public class sartuLangileak extends JFrame {
 		btnAtzera.setBounds(0, 0, 55, 32);
 		contentPane.add(btnAtzera);
 		
-		btnNewButton = new JButton("SARTU");
-		btnNewButton.addActionListener(new ActionListener() {
+		btn_sartu = new JButton("SARTU");
+		btn_sartu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnNewButton.setBounds(803, 324, 91, 23);
-		contentPane.add(btnNewButton);
+		btn_sartu.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btn_sartu.setBounds(803, 324, 91, 23);
+		contentPane.add(btn_sartu);
 		
 		lblNewLabel_2_1_5 = new JLabel("Erabiltzailea:");
 		lblNewLabel_2_1_5.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel_2_1_5.setBounds(267, 157, 106, 14);
 		contentPane.add(lblNewLabel_2_1_5);
 		
-		textField_8 = new JTextField();
-		textField_8.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		textField_8.setColumns(10);
-		textField_8.setBounds(267, 182, 106, 20);
-		contentPane.add(textField_8);
+		txt_erabiltzailea = new JTextField();
+		txt_erabiltzailea.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		txt_erabiltzailea.setColumns(10);
+		txt_erabiltzailea.setBounds(267, 182, 106, 20);
+		contentPane.add(txt_erabiltzailea);
 		
-		textField_9 = new JTextField();
-		textField_9.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		textField_9.setColumns(10);
-		textField_9.setBounds(435, 182, 106, 20);
-		contentPane.add(textField_9);
+		txt_pasahitza = new JTextField();
+		txt_pasahitza.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		txt_pasahitza.setColumns(10);
+		txt_pasahitza.setBounds(435, 182, 106, 20);
+		contentPane.add(txt_pasahitza);
 		
 		lblNewLabel_2_1_6 = new JLabel("Pasahitza:");
 		lblNewLabel_2_1_6.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel_2_1_6.setBounds(435, 157, 106, 14);
 		contentPane.add(lblNewLabel_2_1_6);
 		
-		textField_10 = new JTextField();
-		textField_10.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		textField_10.setColumns(10);
-		textField_10.setBounds(608, 182, 106, 20);
-		contentPane.add(textField_10);
+		txt_helbidea = new JTextField();
+		txt_helbidea.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		txt_helbidea.setColumns(10);
+		txt_helbidea.setBounds(608, 182, 106, 20);
+		contentPane.add(txt_helbidea);
 		
-		textField_11 = new JTextField();
-		textField_11.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		textField_11.setColumns(10);
-		textField_11.setBounds(788, 182, 106, 20);
-		contentPane.add(textField_11);
+		txt_postaKodea = new JTextField();
+		txt_postaKodea.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		txt_postaKodea.setColumns(10);
+		txt_postaKodea.setBounds(788, 182, 106, 20);
+		contentPane.add(txt_postaKodea);
 		
 		lblNewLabel_3 = new JLabel("Posta Kodea:");
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel_3.setBounds(788, 156, 106, 17);
 		contentPane.add(lblNewLabel_3);
 		
-		lblNewLabel_2_1_4_2 = new JLabel("Email:");
+		lblNewLabel_2_1_4_2 = new JLabel("Helbidea:");
 		lblNewLabel_2_1_4_2.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_2_1_4_2.setBounds(608, 157, 55, 14);
+		lblNewLabel_2_1_4_2.setBounds(608, 157, 91, 14);
 		contentPane.add(lblNewLabel_2_1_4_2);
 		
 		JLabel lblNewLabel = new JLabel("");

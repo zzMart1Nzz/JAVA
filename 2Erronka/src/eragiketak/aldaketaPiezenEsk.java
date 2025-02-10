@@ -60,9 +60,9 @@ public class aldaketaPiezenEsk extends JFrame {
 		contentPane.add(txt_id);
 		txt_id.setColumns(10);
 		
-		JLabel lblNewLabel_1 = new JLabel("ID:");
+		JLabel lblNewLabel_1 = new JLabel("idHornitzailea:");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1.setBounds(296, 65, 44, 20);
+		lblNewLabel_1.setBounds(296, 65, 106, 20);
 		contentPane.add(lblNewLabel_1);
 		
 		txt_nif = new JTextField();
@@ -71,19 +71,19 @@ public class aldaketaPiezenEsk extends JFrame {
 		txt_nif.setBounds(589, 87, 106, 20);
 		contentPane.add(txt_nif);
 		
-		JLabel lblNewLabel_2 = new JLabel("idHornitzailea:");
+		JLabel lblNewLabel_2 = new JLabel("idPieza:");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_2.setBounds(589, 67, 106, 17);
+		lblNewLabel_2.setBounds(589, 67, 63, 17);
 		contentPane.add(lblNewLabel_2);
 		
-		JLabel lblNewLabel_2_1 = new JLabel("idPieza:");
+		JLabel lblNewLabel_2_1 = new JLabel("Kopurua:");
 		lblNewLabel_2_1.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel_2_1.setBounds(296, 198, 71, 14);
 		contentPane.add(lblNewLabel_2_1);
 		
-		lblNewLabel_2_1_3 = new JLabel("Kopurua:");
+		lblNewLabel_2_1_3 = new JLabel("Data:");
 		lblNewLabel_2_1_3.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_2_1_3.setBounds(589, 195, 89, 20);
+		lblNewLabel_2_1_3.setBounds(589, 195, 44, 20);
 		contentPane.add(lblNewLabel_2_1_3);
 		
 		txt_helbidea = new JTextField();
