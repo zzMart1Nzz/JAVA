@@ -66,7 +66,7 @@ public class kudeaketaProduktuak {
         }
     }
 
-    // Método para actualizar un producto en la base de datos
+   
     public void eguneratuProduktua(Produktua produktua) {
         String sql = "UPDATE produktua SET marka = ?, modeloa = ?, memoria = ?, ram = ?, prozesagailua = ?, tamaina = ?, sistemaEragilea = ?, kamara = ?, erresoluzioa = ?, frekuentzia = ?, kolorea = ?, salmentaPrezioa = ?, stock = ? WHERE idProduktua = ?";
         
