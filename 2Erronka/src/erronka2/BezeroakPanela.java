@@ -13,6 +13,8 @@ import javax.swing.ImageIcon;
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.JTable;
@@ -20,6 +22,8 @@ import javax.swing.JScrollPane;
 
 import kudeaketak.kudeaketaBezeroak;
 import taulak.BezeroakTaula;
+import taulak.ProduktuakTaula;
+import javax.swing.JTextField;
 
 
 public class BezeroakPanela extends JFrame {
@@ -28,6 +32,7 @@ public class BezeroakPanela extends JFrame {
     private JPanel contentPane;
     private JTable table;
     private kudeaketaBezeroak dao;
+    private JTextField txt_id;
 
     /**
      * Launch the application.
@@ -76,9 +81,24 @@ public class BezeroakPanela extends JFrame {
         scrollPane.setBounds(50, 73, 900, 300);  
         contentPane.add(scrollPane);
         
-        btnAtzera.setIcon(new ImageIcon("C:\\Users\\benat\\Downloads\\atzera 2(2).png"));
+        btnAtzera.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\atzera 2(2).png"));
         btnAtzera.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         contentPane.add(btnAtzera);
+        
+        JLabel birkargatuIko = new JLabel("");
+        birkargatuIko.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\birkargatu(1).png"));
+        birkargatuIko.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        birkargatuIko.setBounds(887, 32, 35, 35);
+        contentPane.add(birkargatuIko);
+        birkargatuIko.addMouseListener(new MouseAdapter () {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				List<Bezeroa> lista = dao.lortuBezeroak();
+		        BezeroakTaula model = new BezeroakTaula(lista);
+					
+			}
+		}); 
         
         JButton btnAtera = new JButton("");
         btnAtera.setBounds(956, 0, 32, 32);
@@ -94,20 +114,30 @@ public class BezeroakPanela extends JFrame {
                 }
             }
         });
-        btnAtera.setIcon(new ImageIcon("C:\\Users\\benat\\Downloads\\itxi(2).png"));
+        btnAtera.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\itxi(2).png"));
         btnAtera.setForeground(Color.WHITE);
         btnAtera.setBackground(new Color(255, 255, 255));
         btnAtera.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         contentPane.add(btnAtera);
+        
+        JLabel ezabatuIkonoa = new JLabel("");
+        ezabatuIkonoa.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\ezabatu(1).png"));
+        ezabatuIkonoa.setBounds(652, 392, 35, 35);
+        contentPane.add(ezabatuIkonoa);
         
         JLabel lblNewLabel_1 = new JLabel("Administratzailea");
         lblNewLabel_1.setBounds(731, 419, 247, 32);
         lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 28));
         contentPane.add(lblNewLabel_1);
         
+        txt_id = new JTextField();
+        txt_id.setBounds(345, 397, 297, 20);
+        contentPane.add(txt_id);
+        txt_id.setColumns(10);
+        
         JLabel lblNewLabel = new JLabel("");
         lblNewLabel.setBounds(0, 0, 988, 445);
-        lblNewLabel.setIcon(new ImageIcon("C:\\Users\\benat\\Downloads\\UTech java fondoa 1(2).png"));
+        lblNewLabel.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\UTech java fondoa 1(2).png"));
         contentPane.add(lblNewLabel);
     }
 }

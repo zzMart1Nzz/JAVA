@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
+import java.awt.Cursor;
+
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
@@ -44,7 +46,7 @@ public class aldaketaLangileak extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					aldaketaHornitzaileak frame = new aldaketaHornitzaileak();
+					aldaketaLangileak frame = new aldaketaLangileak();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -138,7 +140,8 @@ public class aldaketaLangileak extends JFrame {
 				dispose();
 			}
 		});
-		btnAtzera.setIcon(new ImageIcon("C:\\Users\\benat\\Downloads\\atzera 2(2).png"));
+		btnAtzera.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\atzera 2(2).png"));
+		btnAtzera.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAtzera.setBounds(0, 0, 55, 32);
 		contentPane.add(btnAtzera);
 		
@@ -196,7 +199,7 @@ public class aldaketaLangileak extends JFrame {
 		contentPane.add(lblNewLabel_2_1_4_2);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\benat\\Downloads\\UTech java fondoa 1(2).png"));
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\UTech java fondoa 1(2).png"));
 		lblNewLabel.setBounds(0, 0, 988, 445);
 		contentPane.add(lblNewLabel);
 	}

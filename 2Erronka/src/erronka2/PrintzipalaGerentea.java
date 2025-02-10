@@ -65,7 +65,7 @@ public class PrintzipalaGerentea extends JFrame {
 				}else {}
 			}
 		});
-		btnSaioaItxi.setIcon(new ImageIcon("C:\\Users\\benat\\Downloads\\saioaItxi(1).png"));
+		btnSaioaItxi.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\saioaItxi(1).png"));
 		btnSaioaItxi.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnSaioaItxi.setBounds(0, 423, 110, 32);
 		contentPane.add(btnSaioaItxi);
@@ -78,7 +78,7 @@ public class PrintzipalaGerentea extends JFrame {
 		JLabel lblBalorazioakIco_G = new JLabel("New label");
 		lblBalorazioakIco_G.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblBalorazioakIco_G.setBounds(771, 52, 134, 107);
-		lblBalorazioakIco_G.setIcon(new ImageIcon("C:\\Users\\benat\\Downloads\\balorazioak(1).png"));
+		lblBalorazioakIco_G.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\balorazioak(1).png"));
 		contentPane.add(lblBalorazioakIco_G);
 		lblBalorazioakIco_G.addMouseListener(new MouseAdapter () {
 			@Override
@@ -93,7 +93,7 @@ public class PrintzipalaGerentea extends JFrame {
 		JLabel lblEskHistoIco_G = new JLabel("New label");
 		lblEskHistoIco_G.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblEskHistoIco_G.setBounds(683, 251, 134, 107);
-		lblEskHistoIco_G.setIcon(new ImageIcon("C:\\Users\\benat\\Downloads\\eskaerenHistorikoa(1).png"));
+		lblEskHistoIco_G.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\eskaerenHistorikoa(1).png"));
 		contentPane.add(lblEskHistoIco_G);
 		lblEskHistoIco_G.addMouseListener(new MouseAdapter () {
 			@Override
@@ -108,7 +108,7 @@ public class PrintzipalaGerentea extends JFrame {
 		JLabel lblEskaeraIco_G = new JLabel("New label");
 		lblEskaeraIco_G.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblEskaeraIco_G.setBounds(593, 52, 134, 107);
-		lblEskaeraIco_G.setIcon(new ImageIcon("C:\\Users\\benat\\Downloads\\eskaerak(1).png"));
+		lblEskaeraIco_G.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\eskaerak(1).png"));
 		contentPane.add(lblEskaeraIco_G);
 		lblEskaeraIco_G.addMouseListener(new MouseAdapter () {
 			@Override
@@ -123,7 +123,7 @@ public class PrintzipalaGerentea extends JFrame {
 		JLabel lblPiezaEskIco_G = new JLabel("New label");
 		lblPiezaEskIco_G.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblPiezaEskIco_G.setBounds(513, 251, 134, 107);
-		lblPiezaEskIco_G.setIcon(new ImageIcon("C:\\Users\\benat\\Downloads\\piezenEskaera(1).png"));
+		lblPiezaEskIco_G.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\piezenEskaera(1).png"));
 		contentPane.add(lblPiezaEskIco_G);
 		lblPiezaEskIco_G.addMouseListener(new MouseAdapter () {
 			@Override
@@ -138,7 +138,7 @@ public class PrintzipalaGerentea extends JFrame {
 		JLabel lblPiezakIco_G = new JLabel("New label");
 		lblPiezakIco_G.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblPiezakIco_G.setBounds(413, 52, 134, 107);
-		lblPiezakIco_G.setIcon(new ImageIcon("C:\\Users\\benat\\Downloads\\piezak(1).png"));
+		lblPiezakIco_G.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\piezak(1).png"));
 		contentPane.add(lblPiezakIco_G);
 		lblPiezakIco_G.addMouseListener(new MouseAdapter () {
 			@Override
@@ -165,7 +165,7 @@ public class PrintzipalaGerentea extends JFrame {
 		});
 		btnAtera.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAtera.setBounds(956, 0, 32, 32);
-		btnAtera.setIcon(new ImageIcon("C:\\Users\\benat\\Downloads\\itxi(2).png"));
+		btnAtera.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\itxi(2).png"));
 		btnAtera.setForeground(Color.WHITE);
 		btnAtera.setBackground(new Color(255, 255, 255));
 		contentPane.add(btnAtera);
@@ -174,7 +174,7 @@ public class PrintzipalaGerentea extends JFrame {
 		JLabel lblHornitzaileakIco_G = new JLabel("New label");
 		lblHornitzaileakIco_G.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblHornitzaileakIco_G.setBounds(328, 251, 134, 107);
-		lblHornitzaileakIco_G.setIcon(new ImageIcon("C:\\Users\\benat\\Downloads\\hornitzaileak(1).png"));
+		lblHornitzaileakIco_G.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\hornitzaileak(1).png"));
 		contentPane.add(lblHornitzaileakIco_G);
 		lblHornitzaileakIco_G.addMouseListener(new MouseAdapter () {
 			@Override
@@ -189,7 +189,7 @@ public class PrintzipalaGerentea extends JFrame {
 		JLabel lblBezeroakIco_G = new JLabel("New label");
 		lblBezeroakIco_G.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblBezeroakIco_G.setBounds(239, 52, 134, 107);
-		lblBezeroakIco_G.setIcon(new ImageIcon("C:\\Users\\benat\\Downloads\\bezeroak(1).png"));
+		lblBezeroakIco_G.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\bezeroak(1).png"));
 		contentPane.add(lblBezeroakIco_G);
 		lblBezeroakIco_G.addMouseListener(new MouseAdapter () {
 			@Override
@@ -204,7 +204,7 @@ public class PrintzipalaGerentea extends JFrame {
 		JLabel lblProduktuakIco_G = new JLabel("");
 		lblProduktuakIco_G.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblProduktuakIco_G.setBounds(61, 52, 134, 108);
-		lblProduktuakIco_G.setIcon(new ImageIcon("C:\\Users\\benat\\Downloads\\produktuak(1).png"));
+		lblProduktuakIco_G.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\produktuak(1).png"));
 		contentPane.add(lblProduktuakIco_G);
 		lblProduktuakIco_G.addMouseListener(new MouseAdapter () {
 			@Override
@@ -219,7 +219,7 @@ public class PrintzipalaGerentea extends JFrame {
 		JLabel lblProduktPresIco_G = new JLabel("New label");
 		lblProduktPresIco_G.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblProduktPresIco_G.setBounds(148, 251, 134, 107);
-		lblProduktPresIco_G.setIcon(new ImageIcon("C:\\Users\\benat\\Downloads\\produktuakPrestakuntzan(1).png"));
+		lblProduktPresIco_G.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\produktuakPrestakuntzan(1).png"));
 		contentPane.add(lblProduktPresIco_G);
 		lblProduktPresIco_G.addMouseListener(new MouseAdapter () {
 			@Override
@@ -233,7 +233,7 @@ public class PrintzipalaGerentea extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setBounds(0, 0, 988, 445);
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\benat\\Downloads\\UTech java fondoa 1(2).png"));
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\UTech java fondoa 1(2).png"));
 		contentPane.add(lblNewLabel);
 	}
 

@@ -82,7 +82,7 @@ public class EskHistorikoPanela extends JFrame {
 				p.setVisible(true);
 			}
 		});
-		btnAtzera.setIcon(new ImageIcon("C:\\Users\\benat\\Downloads\\atzera 2(2).png"));
+		btnAtzera.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\atzera 2(2).png"));
 		btnAtzera.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAtzera.setBounds(0, 0, 55, 32);
 		contentPane.add(btnAtzera);
@@ -100,7 +100,7 @@ public class EskHistorikoPanela extends JFrame {
 				}else {}
 			}
 		});
-		btnAtera.setIcon(new ImageIcon("C:\\Users\\benat\\Downloads\\itxi(2).png"));
+		btnAtera.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\itxi(2).png"));
 		btnAtera.setForeground(Color.WHITE);
 		btnAtera.setBackground(Color.WHITE);
 		btnAtera.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -108,7 +108,7 @@ public class EskHistorikoPanela extends JFrame {
 		contentPane.add(btnAtera);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\benat\\Downloads\\UTech java fondoa 1(2).png"));
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\UTech java fondoa 1(2).png"));
 		lblNewLabel.setBounds(0, 0, 988, 445);
 		contentPane.add(lblNewLabel);
 	}

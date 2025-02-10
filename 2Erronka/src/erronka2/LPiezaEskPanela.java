@@ -4,6 +4,11 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import eragiketak.aldaketaPiezak;
+import eragiketak.sartuLangileak;
+import eragiketak.sartuPiezaEsk;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import java.awt.BorderLayout;
@@ -13,6 +18,8 @@ import javax.swing.ImageIcon;
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.JTable;
@@ -20,6 +27,9 @@ import javax.swing.JScrollPane;
 
 import kudeaketak.kudeaketaPiezaEsk;
 import taulak.PiezaEskTaula;
+import taulak.PiezakTaula;
+
+import javax.swing.JTextField;
 
 
 public class LPiezaEskPanela extends JFrame {
@@ -28,6 +38,7 @@ public class LPiezaEskPanela extends JFrame {
     private JPanel contentPane;
     private JTable table;
     private kudeaketaPiezaEsk dao;
+    private JTextField txt_id;
 
     /**
      * Launch the application.
@@ -36,7 +47,7 @@ public class LPiezaEskPanela extends JFrame {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    ProdPrestPanela frame = new ProdPrestPanela();
+                    LPiezaEskPanela frame = new LPiezaEskPanela();
                     frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -55,6 +66,59 @@ public class LPiezaEskPanela extends JFrame {
         contentPane.setBackground(new Color(255, 255, 255));
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
+        
+        JLabel birkargatuIko = new JLabel("");
+        birkargatuIko.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\birkargatu(1).png"));
+        birkargatuIko.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        birkargatuIko.setBounds(887, 32, 35, 35);
+        contentPane.add(birkargatuIko);
+        birkargatuIko.addMouseListener(new MouseAdapter () {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				List<PiezaEskaera> lista = dao.lortuPiezaEsk();
+		        PiezaEskTaula model = new PiezaEskTaula(lista);
+					
+			}
+		}); 
+        
+        JLabel plusIkonoa = new JLabel("");
+        plusIkonoa.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\gehitu(1).png"));
+        plusIkonoa.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        plusIkonoa.setBounds(61, 32, 35, 35);
+        contentPane.add(plusIkonoa);
+    	plusIkonoa.addMouseListener(new MouseAdapter () {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				sartuPiezaEsk spe = new sartuPiezaEsk();
+				spe.setVisible(true);
+				
+				
+			}
+		});
+    	
+    	JLabel aldatuIkonoa = new JLabel("");
+        aldatuIkonoa.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\editatu(1).png"));
+        aldatuIkonoa.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        aldatuIkonoa.setBounds(300, 392, 35, 35);
+        contentPane.add(aldatuIkonoa);
+        aldatuIkonoa.addMouseListener(new MouseAdapter () {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				aldaketaPiezak ap = new aldaketaPiezak();
+				ap.setVisible(true);
+				
+				
+			}
+		}); 
+        
+        JLabel ezabatuIkonoa = new JLabel("");
+        ezabatuIkonoa.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\ezabatu(1).png"));
+        ezabatuIkonoa.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        ezabatuIkonoa.setBounds(652, 392, 35, 35);
+        contentPane.add(ezabatuIkonoa);
         
         JButton btnAtzera = new JButton("");
         btnAtzera.setBounds(0, 0, 55, 32);
@@ -77,7 +141,7 @@ public class LPiezaEskPanela extends JFrame {
         scrollPane.setBounds(50, 73, 900, 300);  
         contentPane.add(scrollPane);
         
-        btnAtzera.setIcon(new ImageIcon("C:\\Users\\benat\\Downloads\\atzera 2(2).png"));
+        btnAtzera.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\atzera 2(2).png"));
         btnAtzera.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         contentPane.add(btnAtzera);
         
@@ -95,7 +159,7 @@ public class LPiezaEskPanela extends JFrame {
                 }
             }
         });
-        btnAtera.setIcon(new ImageIcon("C:\\Users\\benat\\Downloads\\itxi(2).png"));
+        btnAtera.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\itxi(2).png"));
         btnAtera.setForeground(Color.WHITE);
         btnAtera.setBackground(new Color(255, 255, 255));
         btnAtera.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -106,9 +170,14 @@ public class LPiezaEskPanela extends JFrame {
         lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 28));
         contentPane.add(lblNewLabel_1);
         
+        txt_id = new JTextField();
+        txt_id.setBounds(345, 397, 297, 20);
+        contentPane.add(txt_id);
+        txt_id.setColumns(10);
+        
         JLabel lblNewLabel = new JLabel("");
         lblNewLabel.setBounds(0, 0, 988, 445);
-        lblNewLabel.setIcon(new ImageIcon("C:\\Users\\benat\\Downloads\\UTech java fondoa 1(2).png"));
+        lblNewLabel.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\UTech java fondoa 1(2).png"));
         contentPane.add(lblNewLabel);
     }
 }

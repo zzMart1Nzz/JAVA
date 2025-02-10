@@ -16,14 +16,14 @@ public class kudeaketaProduktuak {
         List<Produktua> lista = new ArrayList<>();
         String sql = "SELECT idProduktua, ProduktuMota_idProduktuMota, marka, modeloa, memoria, ram, prozesagailua, tamaina, " +
                      "sistemaEragilea, kamara, erresoluzioa, frekuentzia, kolorea, salmentaPrezioa, stock " +
-                     "FROM produktua ORDER BY idProduktua ASC";  // Ordena por idProduktua
+                     "FROM produktua ORDER BY idProduktua ASC";  
 
         try (Connection conn = DBKonexioa.konexioaEgin(); 
              PreparedStatement pst = conn.prepareStatement(sql); 
              ResultSet rs = pst.executeQuery()) {
 
             while (rs.next()) {
-                // Mapeo de los resultados del ResultSet
+                
                 Produktua p = mapResultSetToProduktua(rs);
                 lista.add(p);
             }

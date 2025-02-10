@@ -72,7 +72,7 @@ public class Logina extends JFrame {
 				}else {}//Ezezkoa esaten badiozu ez du itxiko
 			}
 		});
-		btnAtera.setIcon(new ImageIcon("C:\\Users\\benat\\Downloads\\itxi(2).png"));
+		btnAtera.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\itxi(2).png"));
 		btnAtera.setForeground(Color.WHITE);
 		btnAtera.setBackground(new Color(255, 255, 255));
 		btnAtera.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR)); //Honen gainean dagoenean eskuan bihurtzen da kursorea(HAND_CURSOR)
@@ -196,7 +196,7 @@ public class Logina extends JFrame {
 		panel.add(btnNewButton);
 		
 		JLabel lblFondoa = new JLabel("");
-		lblFondoa.setIcon(new ImageIcon("C:\\Users\\benat\\Downloads\\UTech java fondoa 1(1).png"));
+		lblFondoa.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\UTech java fondoa 1(2).png"));
 		lblFondoa.setBounds(-11, -11, 979, 434);
 		panel.add(lblFondoa);
 	}

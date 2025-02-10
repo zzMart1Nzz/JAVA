@@ -1,25 +1,30 @@
 package erronka2;
 
+import java.sql.Timestamp;
 import java.util.Objects;
 
 public class Eskaera {
 
 	private int idEskaera;
-	private int idBezeroa;
-	private int idProduktua;
-	private int kopurua;
-	private double prezioa;
+	private String fraZkia;
+	private int Bezeroa_idBezeroa;
+	private double totala;
 	private String egoera;
+	private Timestamp data;
+	private String faktura;
 	
 	//KONSTRUKTOREAK
-	public Eskaera(int idEskaera, int idBezeroa, int idProduktua, int kopurua, double prezioa, String egoera) {
+	public Eskaera(int idEskaera, String fraZkia, int bezeroa_idBezeroa, double totala, String egoera, Timestamp data,
+			String faktura) {
 		this.idEskaera = idEskaera;
-		this.idBezeroa = idBezeroa;
-		this.idProduktua = idProduktua;
-		this.kopurua = kopurua;
-		this.prezioa = prezioa;
+		this.fraZkia = fraZkia;
+		this.Bezeroa_idBezeroa = bezeroa_idBezeroa;
+		this.totala = totala;
 		this.egoera = egoera;
+		this.data = data;
+		this.faktura = faktura;
 	}
+
 	
 	//GETTERRAK ETA SETTERRAK
 	public int getIdEskaera() {
@@ -30,36 +35,28 @@ public class Eskaera {
 		this.idEskaera = idEskaera;
 	}
 
-	public int getIdBezeroa() {
-		return idBezeroa;
+	public String getFraZkia() {
+		return fraZkia;
 	}
 
-	public void setIdBezeroa(int idBezeroa) {
-		this.idBezeroa = idBezeroa;
+	public void setFraZkia(String fraZkia) {
+		this.fraZkia = fraZkia;
 	}
 
-	public int getIdProduktua() {
-		return idProduktua;
+	public int getBezeroa_idBezeroa() {
+		return Bezeroa_idBezeroa;
 	}
 
-	public void setIdProduktua(int idProduktua) {
-		this.idProduktua = idProduktua;
+	public void setBezeroa_idBezeroa(int bezeroa_idBezeroa) {
+		Bezeroa_idBezeroa = bezeroa_idBezeroa;
 	}
 
-	public int getKopurua() {
-		return kopurua;
+	public double getTotala() {
+		return totala;
 	}
 
-	public void setKopurua(int kopurua) {
-		this.kopurua = kopurua;
-	}
-
-	public double getPrezioa() {
-		return prezioa;
-	}
-
-	public void setPrezioa(double prezioa) {
-		this.prezioa = prezioa;
+	public void setTotala(double totala) {
+		this.totala = totala;
 	}
 
 	public String getEgoera() {
@@ -69,39 +66,24 @@ public class Eskaera {
 	public void setEgoera(String egoera) {
 		this.egoera = egoera;
 	}
-	
-	//HASHCODE ETA EQUALS
-	@Override
-	public int hashCode() {
-		return Objects.hash(idBezeroa, idEskaera, idProduktua, kopurua, prezioa);
+
+	public Timestamp getData() {
+		return data;
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Eskaera other = (Eskaera) obj;
-		return idBezeroa == other.idBezeroa && idEskaera == other.idEskaera && idProduktua == other.idProduktua
-				&& kopurua == other.kopurua
-				&& Double.doubleToLongBits(prezioa) == Double.doubleToLongBits(other.prezioa);
+	public void setData(Timestamp data) {
+		this.data = data;
+	}
+
+	public String getFaktura() {
+		return faktura;
+	}
+
+	public void setFaktura(String faktura) {
+		this.faktura = faktura;
 	}
 	
-	//ESKAERA GUZTIAK IKUSTEKO
-	public void eskaerakIkusi() {
-		
-		} 
 	
-	//ESKAEREI UPDATE EGITEKO
-	public void eskaeraEguneratu() {
-		
-	}
 	
-	//ESKAERAK EZABATZEKO
-	public void eskaeraEzabatu() {
-		
-	}
+
 }
