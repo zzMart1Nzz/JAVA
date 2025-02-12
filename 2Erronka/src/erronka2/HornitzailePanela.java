@@ -125,10 +125,41 @@ public class HornitzailePanela extends JFrame {
  			}
     	});
 
-        JLabel label = new JLabel("");
-        label.setIcon(new ImageIcon(HornitzailePanela.class.getResource("/media/UTech java fondoa 1(2).png")));
-        label.setBounds(0, 0, 988, 445);
-        contentPane.add(label);
+        JLabel ezabatuIkonoa = new JLabel("");
+        ezabatuIkonoa.setIcon(new ImageIcon(HornitzailePanela.class.getResource("/media/ezabatu(1).png")));
+        ezabatuIkonoa.setBounds(652, 392, 35, 35);
+        contentPane.add(ezabatuIkonoa);
+        ezabatuIkonoa.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                try {
+                	// ID-a hartu
+	                int idHornitzailea = Integer.parseInt(txt_id.getText());
+
+	                // Hornitzailea bilatu ID-a erabiliz
+	                Hornitzailea hornitzailea = lortuHornitzaileaIdarekin(idHornitzailea);
+
+	                if (hornitzailea != null) {
+
+	                	ezabatuHornitzailea(idHornitzailea); // Produktua ezabatu
+	                	List<Hornitzailea> lista = dao.lortuHornitzaileak();
+	         	        HornitzaileakTaula model = new HornitzaileakTaula(lista);
+	         	        table.setModel(model);  // Taula eguneratu modelo berriarekin
+	                } else {
+	                    // Hornitzailea ez bada aurkitu, errore-mezua erakutsi
+	                    JOptionPane.showMessageDialog(null, "Produktua ez da aurkitu ID honekin: " + idHornitzailea, "Errorea", JOptionPane.ERROR_MESSAGE);
+	                }
+
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(null, "ID-a zenbaki baliodun bat izan behar du.", "Errorea", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
+
+                JLabel label = new JLabel("");
+                label.setIcon(new ImageIcon(HornitzailePanela.class.getResource("/media/UTech java fondoa 1(2).png")));
+                label.setBounds(0, 0, 988, 445);
+                contentPane.add(label);
 
         // Editatzeko ikonoan klik egin eta hornitzailea pasatzea
         aldatuIkonoa.addMouseListener(new MouseAdapter() {
@@ -161,5 +192,20 @@ public class HornitzailePanela extends JFrame {
             }
         }
         return null;  // Ez badago, null itzultzen da
+    }
+    private void ezabatuHornitzailea(int idHornitzailea) {
+        boolean isDeleted = dao.ezabatuHornitzailea(idHornitzailea);  // Deitu `ezabatuProduktua` metodoari
+
+        if (isDeleted) {
+
+            JOptionPane.showMessageDialog(null, "Errore bat gertatu da produktu ezabatu ezin izan delako.", "Errorea", JOptionPane.ERROR_MESSAGE);
+        } else {
+            // Taula berritu
+            List<Hornitzailea> lista = dao.lortuHornitzaileak();
+            HornitzaileakTaula model = new HornitzaileakTaula(lista);
+            table.setModel(model);  // Taula eguneratu modelo berriarekin
+            txt_id.setText("");
+            JOptionPane.showMessageDialog(null, "Produktua ezabatuta izan da.");
+        }
     }
 }

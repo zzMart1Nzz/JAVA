@@ -24,7 +24,6 @@ import javax.swing.border.EmptyBorder;
 
 import kudeaketak.kudeaketaBezeroak;
 import taulak.BezeroakTaula;
-import taulak.ProduktuakTaula;
 
 public class BezeroakPanela extends JFrame {
 
@@ -163,7 +162,7 @@ public class BezeroakPanela extends JFrame {
                 }
             }
         });
-                
+
                 JLabel birkargatuIko_1 = new JLabel("");
                 birkargatuIko_1.setIcon(new ImageIcon(BezeroakPanela.class.getResource("/media/birkargatu(1).png")));
                 birkargatuIko_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -177,8 +176,8 @@ public class BezeroakPanela extends JFrame {
             	        table.setModel(model);  // Taula eguneratu modelo berriarekin
             	    }
             	});
-                
-                
+
+
                                 JLabel lblNewLabel = new JLabel("");
                                 lblNewLabel.setBounds(0, 0, 988, 445);
                                 lblNewLabel.setIcon(new ImageIcon(BezeroakPanela.class.getResource("/media/UTech java fondoa 1(2).png")));

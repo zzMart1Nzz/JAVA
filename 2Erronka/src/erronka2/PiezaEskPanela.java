@@ -175,6 +175,9 @@ public class PiezaEskPanela extends JFrame {
 
 	                // Hornitzailea bilatu ID-a erabiliz
 	                PiezaEskaera piezaEsk = lortuPiezaEskIdarekin(idPiezaEsk);
+	                List<PiezaEskaera> lista = dao.lortuPiezaEsk();
+	     	        PiezaEskTaula model = new PiezaEskTaula(lista);
+	     	        table.setModel(model);  // Taula eguneratu modelo berriarekin
 
 	                if (piezaEsk != null) {
 

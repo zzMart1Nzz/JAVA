@@ -73,7 +73,7 @@ public class kudeaketaHornitzaileak {
     }
 
 
-    public void ezabatuHornitzailea(int idHornitzailea) {
+    public boolean ezabatuHornitzailea(int idHornitzailea) {
         String sql = "DELETE FROM hornitzailea WHERE idHornitzailea = ?";
 
         try (Connection conn = DBKonexioa.konexioaEgin();
@@ -83,7 +83,7 @@ public class kudeaketaHornitzaileak {
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
-        }
+        }return false;
     }
 
 

@@ -24,7 +24,6 @@ import javax.swing.border.EmptyBorder;
 
 import kudeaketak.kudeaketaEskaerak;
 import taulak.EskaerakTaula;
-import taulak.ProduktuakTaula;
 
 public class EskaeraPanela extends JFrame {
 

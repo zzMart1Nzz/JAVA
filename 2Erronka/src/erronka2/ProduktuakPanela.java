@@ -24,7 +24,6 @@ import javax.swing.border.EmptyBorder;
 
 import eragiketak.aldaketaProduktuak;
 import kudeaketak.kudeaketaProduktuak;
-import taulak.EskaerakTaula;
 import taulak.ProduktuakTaula;
 
 public class ProduktuakPanela extends JFrame {
@@ -110,7 +109,7 @@ public class ProduktuakPanela extends JFrame {
         contentPane.add(btnAtera);
 
         JLabel aldatuIkonoa = new JLabel("");
-        aldatuIkonoa.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\editatu(1).png"));
+        aldatuIkonoa.setIcon(new ImageIcon(ProduktuakPanela.class.getResource("/media/editatu(1).png")));
         aldatuIkonoa.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         aldatuIkonoa.setBounds(300, 392, 35, 35);
         contentPane.add(aldatuIkonoa);

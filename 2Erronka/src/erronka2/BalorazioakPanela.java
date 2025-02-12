@@ -24,7 +24,6 @@ import javax.swing.border.EmptyBorder;
 
 import kudeaketak.kudeaketaBalorazioak;
 import taulak.BalorazioakTaula;
-import taulak.EskaerakTaula;
 
 public class BalorazioakPanela extends JFrame {
 

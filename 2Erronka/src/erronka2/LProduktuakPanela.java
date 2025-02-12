@@ -83,7 +83,7 @@ public class LProduktuakPanela extends JFrame {
         scrollPane.setBounds(50, 73, 900, 300);
         contentPane.add(scrollPane);
 
-        btnAtzera.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\atzera 2(2).png"));
+        btnAtzera.setIcon(new ImageIcon(LProduktuakPanela.class.getResource("/media/atzera 2(2).png")));
         btnAtzera.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         contentPane.add(btnAtzera);
 
@@ -102,14 +102,14 @@ public class LProduktuakPanela extends JFrame {
                 }
             }
         });
-        btnAtera.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\itxi(2).png"));
+        btnAtera.setIcon(new ImageIcon(LProduktuakPanela.class.getResource("/media/itxi(2).png")));
         btnAtera.setForeground(Color.WHITE);
         btnAtera.setBackground(new Color(255, 255, 255));
         btnAtera.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         contentPane.add(btnAtera);
 
         JLabel aldatuIkonoa = new JLabel("");
-        aldatuIkonoa.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\editatu(1).png"));
+        aldatuIkonoa.setIcon(new ImageIcon(LProduktuakPanela.class.getResource("/media/editatu(1).png")));
         aldatuIkonoa.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         aldatuIkonoa.setBounds(300, 392, 35, 35);
         contentPane.add(aldatuIkonoa);
@@ -141,7 +141,7 @@ public class LProduktuakPanela extends JFrame {
         contentPane.add(lblNewLabel_1);
 
     	 JLabel birkargatuIko = new JLabel("");
-         birkargatuIko.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\birkargatu(1).png"));
+         birkargatuIko.setIcon(new ImageIcon(LProduktuakPanela.class.getResource("/media/birkargatu(1).png")));
          birkargatuIko.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
          birkargatuIko.setBounds(887, 32, 35, 35);
          contentPane.add(birkargatuIko);
@@ -160,10 +160,42 @@ public class LProduktuakPanela extends JFrame {
         contentPane.add(txt_id);
         txt_id.setColumns(10);
 
+        JLabel ezabatuIkonoa = new JLabel("");
+        ezabatuIkonoa.setIcon(new ImageIcon(LProduktuakPanela.class.getResource("/media/ezabatu(1).png")));
+        ezabatuIkonoa.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        ezabatuIkonoa.setBounds(652, 392, 35, 35);
+        contentPane.add(ezabatuIkonoa);
+        ezabatuIkonoa.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                try {
+                	// ID-a hartu
+	                int idProduktua = Integer.parseInt(txt_id.getText());
+
+	                // Hornitzailea bilatu ID-a erabiliz
+	                Produktua produktua = lortuProduktuaIdarekin(idProduktua);
+
+	                if (produktua != null) {
+
+	                	ezabatuProduktua(idProduktua); // Produktua ezabatu
+	                	List<Produktua> lista = dao.lortuProduktuak();
+	         	        ProduktuakTaula model = new ProduktuakTaula(lista);
+	         	        table.setModel(model);  // Taula eguneratu modelo berriarekin
+	                } else {
+	                    // Hornitzailea ez bada aurkitu, errore-mezua erakutsi
+	                    JOptionPane.showMessageDialog(null, "Produktua ez da aurkitu ID honekin: " + idProduktua, "Errorea", JOptionPane.ERROR_MESSAGE);
+	                }
+
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(null, "ID-a zenbaki baliodun bat izan behar du.", "Errorea", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
+
 
         JLabel lblNewLabel = new JLabel("");
         lblNewLabel.setBounds(0, 0, 988, 445);
-        lblNewLabel.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\UTech java fondoa 1(2).png"));
+        lblNewLabel.setIcon(new ImageIcon(LProduktuakPanela.class.getResource("/media/UTech java fondoa 1(2).png")));
         contentPane.add(lblNewLabel);
     }
         // Hornitzailea ID-a erabiliz bilatzeko metodoa
@@ -195,5 +227,4 @@ public class LProduktuakPanela extends JFrame {
         }
 
         }
-
 
