@@ -22,6 +22,7 @@ import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
+import eragiketak.fakturaEskaera;
 import kudeaketak.kudeaketaEskaerak;
 import taulak.EskaerakTaula;
 
@@ -122,6 +123,8 @@ public class LEskaeraPanela extends JFrame {
 					int idEskaera =Integer.parseInt(txt_id.getText());
 					kudeaketaEskaerak kudeaketa = new kudeaketaEskaerak();
 					kudeaketa.bidaliEskaera(idEskaera);
+					fakturaEskaera faktura = new fakturaEskaera();
+					faktura.sortuFaktura(idEskaera);
 				}else {}
 			}
 		});
