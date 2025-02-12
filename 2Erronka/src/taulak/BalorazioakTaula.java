@@ -1,9 +1,10 @@
 package taulak;
 
-import erronka2.Balorazioa;
+import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
-import java.util.List;
+
+import erronka2.Balorazioa;
 
 public class BalorazioakTaula extends AbstractTableModel {
 
@@ -30,11 +31,11 @@ public class BalorazioakTaula extends AbstractTableModel {
     public Object getValueAt(int rowIndex, int columnIndex) {
         Balorazioa bl = balorazioa.get(rowIndex);
         switch (columnIndex) {
-            case 0: return bl.getIdBalorazioa(); 
-            case 1: return bl.getBezeroa_idBezeroa(); 
-            case 2: return bl.getProduktua_idProduktua(); 
-            case 3: return bl.getBalorazioa(); 
-            case 4: return bl.getData(); 
+            case 0: return bl.getIdBalorazioa();
+            case 1: return bl.getBezeroa_idBezeroa();
+            case 2: return bl.getProduktua_idProduktua();
+            case 3: return bl.getBalorazioa();
+            case 4: return bl.getData();
             default: return null;
         }
     }

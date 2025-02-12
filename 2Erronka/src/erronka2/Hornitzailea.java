@@ -1,13 +1,5 @@
 package erronka2;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Objects;
-import java.util.Scanner;
-
 public class Hornitzailea {
 
 	// EZAUGARRIAK
@@ -19,8 +11,8 @@ public class Hornitzailea {
 	private String helbidea;
 	private String herria;
 	private String postakodea;
-	
-	
+
+
 	//KONSTRUKOTREA
 	public Hornitzailea(int idHornitzailea, String nif, String izena, String telefonoZenbakia, String postaElektronikoa,
 			String helbidea, String herria, String postakodea) {
@@ -113,10 +105,10 @@ public class Hornitzailea {
 	public void setPostakodea(String postakodea) {
 		this.postakodea = postakodea;
 	}
-	
-	
-	
-	
-	
+
+
+
+
+
 
 }

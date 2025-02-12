@@ -1,16 +1,15 @@
 package erronka2;
 
 import java.sql.Timestamp;
-import java.util.Objects;
 
 public class Balorazioa {
-	
+
 	private int idBalorazioa;
 	private int Bezeroa_idBezeroa;
 	private int Produktua_idProduktua;
 	private String balorazioa;
 	private Timestamp data;
-	
+
 	//KONSTRUKTOREAK
 	public Balorazioa(int idBalorazioa, int bezeroa_idBezeroa, int produktua_idProduktua, String balorazioa,
 			Timestamp data) {
@@ -70,5 +69,5 @@ public class Balorazioa {
 	public void setData(Timestamp data) {
 		this.data = data;
 	}
-	
+
 }

@@ -1,50 +1,41 @@
 package erronka2;
 
-import java.awt.EventQueue;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-import eragiketak.aldaketaPiezak;
-
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Cursor;
-import javax.swing.ImageIcon;
-import java.awt.Font;
-import javax.swing.JButton;
+import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.List;
-import java.awt.event.ActionEvent;
-import javax.swing.JTable;
-import javax.swing.JScrollPane;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.WindowConstants;
+import javax.swing.border.EmptyBorder;
+
+import eragiketak.aldaketaHornitzaileak;
 import kudeaketak.kudeaketaHornitzaileak;
 import taulak.HornitzaileakTaula;
-import taulak.ProdPrestTaula;
-
-import javax.swing.JTextField;
-
 
 public class HornitzailePanela extends JFrame {
-
     private static final long serialVersionUID = 1L;
     private JPanel contentPane;
     private JTable table;
     private kudeaketaHornitzaileak dao;
-    private JTextField textField;
     private JTextField txt_id;
 
-    /**
-     * Launch the application.
-     */
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
-            public void run() {
+            @Override
+			public void run() {
                 try {
                     HornitzailePanela frame = new HornitzailePanela();
                     frame.setVisible(true);
@@ -55,111 +46,120 @@ public class HornitzailePanela extends JFrame {
         });
     }
 
-    /**
-     * Create the frame.
-     */
     public HornitzailePanela() {
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setBounds(100, 100, 1000, 490);
         contentPane = new JPanel();
         contentPane.setBackground(new Color(255, 255, 255));
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
-        
-        JLabel ezabatuIkonoa = new JLabel("");
-        ezabatuIkonoa.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\ezabatu(1).png"));
-        ezabatuIkonoa.setBounds(652, 392, 35, 35);
-        contentPane.add(ezabatuIkonoa);
-        
-        JButton btnAtzera = new JButton("");
-        btnAtzera.setBounds(0, 0, 55, 32);
-        btnAtzera.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-                Printzipala p = new Printzipala();
-                p.setVisible(true);
-            }
-        });
+
+        dao = new kudeaketaHornitzaileak();  // Hornitzaileak kudeatzeko logika
+        List<Hornitzailea> lista = dao.lortuHornitzaileak();  // Hornitzaileen zerrenda
+        HornitzaileakTaula model = new HornitzaileakTaula(lista);  // Taula modeloa
         contentPane.setLayout(null);
-        
-        dao = new kudeaketaHornitzaileak();
-        List<Hornitzailea> lista = dao.lortuHornitzaileak();
-        HornitzaileakTaula model = new HornitzaileakTaula(lista);
-        
-        table = new JTable(model);
+
+        table = new JTable(model);  // Taula erakutsi
         JScrollPane scrollPane = new JScrollPane(table);
-        scrollPane.setBounds(50, 73, 900, 300);  
+        scrollPane.setBounds(50, 73, 900, 300);
         contentPane.add(scrollPane);
-        
-        btnAtzera.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\atzera 2(2).png"));
-        btnAtzera.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        contentPane.add(btnAtzera);
-        
-        JButton btnAtera = new JButton("");
-        btnAtera.setBounds(956, 0, 32, 32);
-        btnAtera.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                Object[] options = {"Bai", "Ez"};
-                int erantzuna = JOptionPane.showOptionDialog(null, "Programatik atera nahi duzu?", "Konfirmatu atera nahi duzun", 
-                                                            JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
-                if (erantzuna == JOptionPane.YES_OPTION) {
-                    dispose();
-                    JOptionPane.showMessageDialog(null, "Eskerrik asko aplikazioa erabiltzeagatik.", "ATERA ZARA",
-                            JOptionPane.INFORMATION_MESSAGE);
-                }
-            }
-        });
-        btnAtera.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\itxi(2).png"));
-        btnAtera.setForeground(Color.WHITE);
-        btnAtera.setBackground(new Color(255, 255, 255));
-        btnAtera.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        contentPane.add(btnAtera);
-        
-        JLabel birkargatuIko = new JLabel("");
-        birkargatuIko.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\birkargatu(1).png"));
-        birkargatuIko.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        birkargatuIko.setBounds(887, 32, 35, 35);
-        contentPane.add(birkargatuIko);
-        birkargatuIko.addMouseListener(new MouseAdapter () {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				
-				List<Hornitzailea> lista = dao.lortuHornitzaileak();
-		        HornitzaileakTaula model = new HornitzaileakTaula(lista);
-					
-			}
-		}); 
-        
+
         JLabel lblNewLabel_1 = new JLabel("Administratzailea");
-        lblNewLabel_1.setBounds(731, 419, 247, 32);
-        lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 28));
+        lblNewLabel_1.setBounds(640, 216, 84, 14);
         contentPane.add(lblNewLabel_1);
-        
+
+        // ID-a idazteko testu-kampo
+        txt_id = new JTextField();
+        txt_id.setBounds(345, 396, 297, 20);
+        contentPane.add(txt_id);
+        txt_id.setColumns(10);
+
+        // Editatzeko ikonoa
         JLabel aldatuIkonoa = new JLabel("");
-        aldatuIkonoa.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\editatu(1).png"));
+        aldatuIkonoa.setIcon(new ImageIcon(HornitzailePanela.class.getResource("/media/editatu(1).png")));
         aldatuIkonoa.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         aldatuIkonoa.setBounds(300, 392, 35, 35);
         contentPane.add(aldatuIkonoa);
-        aldatuIkonoa.addMouseListener(new MouseAdapter () {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				
-				aldaketaPiezak ap = new aldaketaPiezak();
-				ap.setVisible(true);
-				
-				
-			}
-		}); 
-        
-        txt_id = new JTextField();
-        txt_id.setBounds(345, 397, 297, 20);
-        contentPane.add(txt_id);
-        txt_id.setColumns(10);
-        
-        JLabel lblNewLabel = new JLabel("");
-        lblNewLabel.setBounds(0, 0, 988, 445);
-        lblNewLabel.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\UTech java fondoa 1(2).png"));
-        contentPane.add(lblNewLabel);
-        txt_id.setColumns(10);
+
+        JButton btnAtzera = new JButton("");
+        btnAtzera.addActionListener(new ActionListener() {
+        	@Override
+			public void actionPerformed(ActionEvent e) {
+        		 dispose();
+                 Printzipala p = new Printzipala();
+                 p.setVisible(true);
+        	}
+        });
+        btnAtzera.setIcon(new ImageIcon(HornitzailePanela.class.getResource("/media/atzera 2(2).png")));
+        btnAtzera.setBounds(0, 0, 55, 32);
+        contentPane.add(btnAtzera);
+
+        JButton btnAtera = new JButton("");
+        btnAtera.addActionListener(new ActionListener() {
+        	@Override
+			public void actionPerformed(ActionEvent e) {
+        		dispose();
+        	}
+        });
+        btnAtera.setIcon(new ImageIcon(HornitzailePanela.class.getResource("/media/itxi(2).png")));
+        btnAtera.setForeground(Color.WHITE);
+        btnAtera.setBackground(Color.WHITE);
+        btnAtera.setBounds(956, 0, 32, 32);
+        contentPane.add(btnAtera);
+
+        JLabel birkargatuIko = new JLabel("");
+        birkargatuIko.setIcon(new ImageIcon(HornitzailePanela.class.getResource("/media/birkargatu(1).png")));
+        birkargatuIko.setBounds(888, 27, 35, 35);
+        contentPane.add(birkargatuIko);
+        birkargatuIko.addMouseListener(new MouseAdapter () {
+ 			@Override
+ 			public void mouseClicked(MouseEvent e) {
+ 				dispose();
+
+ 				HornitzailePanela hp = new HornitzailePanela();
+ 				hp.setVisible(true);
+
+ 				List<Hornitzailea> lista = dao.lortuHornitzaileak();
+ 		        HornitzaileakTaula model = new HornitzaileakTaula(lista);
+
+ 			}
+    	});
+
+        JLabel label = new JLabel("");
+        label.setIcon(new ImageIcon(HornitzailePanela.class.getResource("/media/UTech java fondoa 1(2).png")));
+        label.setBounds(0, 0, 988, 445);
+        contentPane.add(label);
+
+        // Editatzeko ikonoan klik egin eta hornitzailea pasatzea
+        aldatuIkonoa.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                // ID-a hartu
+                int idHornitzailea = Integer.parseInt(txt_id.getText());
+
+                // Hornitzailea bilatu ID-a erabiliz
+                Hornitzailea hornitzailea = lortuHornitzaileaIdarekin(idHornitzailea);
+
+                if (hornitzailea != null) {
+                    // Hornitzailea aurkitu bada, datuak pasatzea eta AldaketaHornitzaileak erakustea
+                    aldaketaHornitzaileak ap = new aldaketaHornitzaileak(hornitzailea);
+                    ap.setVisible(true);  // Erakutsi
+                } else {
+                    // Hornitzailea ez bada aurkitu, errore-mezua erakutsi
+                    JOptionPane.showMessageDialog(null, "Hornitzailea ez da aurkitu ID honekin: " + idHornitzailea, "Errorea", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
+    }
+
+    // Hornitzailea ID-a erabiliz bilatzeko metodoa
+    private Hornitzailea lortuHornitzaileaIdarekin(int idHornitzailea) {
+        List<Hornitzailea> hornitzaileak = dao.lortuHornitzaileak();  // Hornitzaileak lortu
+        for (Hornitzailea hornitzailea : hornitzaileak) {
+            if (hornitzailea.getIdHornitzailea()==idHornitzailea) {
+                return hornitzailea;  // Aurkitu bada, hornitzailea bueltatzen da
+            }
+        }
+        return null;  // Ez badago, null itzultzen da
     }
 }

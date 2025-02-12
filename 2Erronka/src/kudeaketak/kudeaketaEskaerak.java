@@ -7,18 +7,18 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import erronka2.Eskaera;
 import erronka2.DBKonexioa;
+import erronka2.Eskaera;
 
 public class kudeaketaEskaerak {
 
     public List<Eskaera> lortuEskaerak() {
         List<Eskaera> lista = new ArrayList<>();
-        String sql = "SELECT idEskaera, fraZkia, Bezeroa_idBezeroa, totala, egoera, data, faktura " + 
-                     "FROM eskaera ORDER BY idEskaera ASC";  
-        
-        try (Connection conn = DBKonexioa.konexioaEgin(); 
-             PreparedStatement pst = conn.prepareStatement(sql); 
+        String sql = "SELECT idEskaera, fraZkia, Bezeroa_idBezeroa, totala, egoera, data, faktura " +
+                     "FROM eskaera ORDER BY idEskaera ASC";
+
+        try (Connection conn = DBKonexioa.konexioaEgin();
+             PreparedStatement pst = conn.prepareStatement(sql);
              ResultSet rs = pst.executeQuery()) {
 
             while (rs.next()) {
@@ -45,7 +45,7 @@ public class kudeaketaEskaerak {
 
     public void sortuEskaera(Eskaera eskaera) {
         String sql = "INSERT INTO eskaera (fraZkia, Bezeroa_idBezeroa, totala, egoera, data, faktura) VALUES (?, ?, ?, ?, ?, ?)";
-        
+
         try (Connection conn = DBKonexioa.konexioaEgin();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             mapEskaeraToPreparedStatement(eskaera, ps);
@@ -55,25 +55,38 @@ public class kudeaketaEskaerak {
         }
     }
 
-    public void eguneratuEskaera(Eskaera eskaera) {
-        String sql = "UPDATE eskaera SET fraZkia = ?, Bezeroa_idBezeroa = ?, totala = ?, egoera = ?, data = ?, faktura = ? WHERE idEskaera = ?";
-        
+    public void entregatuEskaera(int eskaera) {
+        String sql = "UPDATE eskaera SET egoera = 'entregatuta' WHERE idEskaera = ?";
+
         try (Connection conn = DBKonexioa.konexioaEgin();
              PreparedStatement ps = conn.prepareStatement(sql)) {
-            mapEskaeraToPreparedStatement(eskaera, ps);
-            ps.setInt(5, eskaera.getIdEskaera());  
+            //mapEskaeraToPreparedStatement(eskaera, ps);
+            ps.setInt(1, eskaera);
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public void ezabatuEskaera(int idEskaera) {
+    public void bidaliEskaera(int eskaera) {
+        String sql = "UPDATE eskaera SET egoera = 'bidalita' WHERE idEskaera = ?";
+
+        try (Connection conn = DBKonexioa.konexioaEgin();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            //mapEskaeraToPreparedStatement(eskaera, ps);
+            ps.setInt(1, eskaera);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void ezabatuEskaera(int eskaera) {
         String sql = "DELETE FROM eskaera WHERE idEskaera = ?";
-        
+
         try (Connection conn = DBKonexioa.konexioaEgin();
              PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setInt(1, idEskaera);
+            ps.setInt(1, eskaera);
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -81,13 +94,10 @@ public class kudeaketaEskaerak {
     }
 
     private void mapEskaeraToPreparedStatement(Eskaera eskaera, PreparedStatement ps) throws SQLException {
-        ps.setString(1, eskaera.getFraZkia());
-        ps.setInt(2, eskaera.getBezeroa_idBezeroa());
-        ps.setDouble(3, eskaera.getTotala());
-        ps.setString(4, eskaera.getEgoera());
-        ps.setTimestamp(5, eskaera.getData());
-        ps.setString(6, eskaera.getFaktura());
-        
-    
+        ps.setString(1, eskaera.getEgoera());
+
+
+
     }
+
 }

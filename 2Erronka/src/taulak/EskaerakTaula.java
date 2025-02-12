@@ -1,15 +1,16 @@
 package taulak;
 
-import erronka2.Eskaera;
+import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
-import java.util.List;
+
+import erronka2.Eskaera;
 
 public class EskaerakTaula extends AbstractTableModel {
 
     private List<Eskaera> eskaera;
     private String[] columnNames = {
-        "idEskaera", "fraZkia", "Bezeroa_idBezeroa", "totala", "data", "faktura"
+        "idEskaera", "fraZkia", "Bezeroa_idBezeroa", "totala", "egoera", "data", "faktura"
     };
 
     public EskaerakTaula(List<Eskaera> eskaera) {
@@ -36,7 +37,7 @@ public class EskaerakTaula extends AbstractTableModel {
             case 3: return es.getTotala();
             case 4: return es.getEgoera();
             case 5: return es.getData();
-            case 6: return es.getFaktura();   
+            case 6: return es.getFaktura();
             default: return null;
         }
     }

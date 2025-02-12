@@ -1,7 +1,7 @@
 package erronka2;
 
 public class ProduktuaPrestakuntzan {
-	
+
 	private int idProdPrest;
 	private int ProduktuMota_idProduktuMota;
 	private int Bezeroa_idBezeroa;
@@ -9,7 +9,7 @@ public class ProduktuaPrestakuntzan {
 	private String modeloa;
 	private String ezaugarriak;
 	private String egoera;
-	
+
 	//KONSTRUKOTEREAK
 	public ProduktuaPrestakuntzan(int idProdPrest, int produktuMota_idProduktuMota, int bezeroa_idBezeroa, String marka,
 			String modeloa, String ezaugarriak, String egoera) {
@@ -21,7 +21,7 @@ public class ProduktuaPrestakuntzan {
 		this.ezaugarriak = ezaugarriak;
 		this.egoera = egoera;
 	}
-	
+
 	//GETTERRAK ETA SETTERRAK
 	public int getIdProdPrest() {
 		return idProdPrest;
@@ -78,8 +78,8 @@ public class ProduktuaPrestakuntzan {
 	public void setEgoera(String egoera) {
 		this.egoera = egoera;
 	}
-	
-	
-	
+
+
+
 
 }

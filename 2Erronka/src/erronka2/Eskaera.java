@@ -1,7 +1,6 @@
 package erronka2;
 
 import java.sql.Timestamp;
-import java.util.Objects;
 
 public class Eskaera {
 
@@ -12,7 +11,7 @@ public class Eskaera {
 	private String egoera;
 	private Timestamp data;
 	private String faktura;
-	
+
 	//KONSTRUKTOREAK
 	public Eskaera(int idEskaera, String fraZkia, int bezeroa_idBezeroa, double totala, String egoera, Timestamp data,
 			String faktura) {
@@ -25,7 +24,7 @@ public class Eskaera {
 		this.faktura = faktura;
 	}
 
-	
+
 	//GETTERRAK ETA SETTERRAK
 	public int getIdEskaera() {
 		return idEskaera;
@@ -82,8 +81,8 @@ public class Eskaera {
 	public void setFaktura(String faktura) {
 		this.faktura = faktura;
 	}
-	
-	
-	
+
+
+
 
 }

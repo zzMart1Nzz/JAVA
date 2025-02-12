@@ -1,129 +1,142 @@
 package eragiketak;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import java.awt.Color;
-import java.awt.Cursor;
-
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
-import javax.swing.JTextField;
 import java.awt.Font;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.sql.Timestamp;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.WindowConstants;
+import javax.swing.border.EmptyBorder;
+
+import erronka2.PiezaEskaera;
 
 public class aldaketaPiezenEsk extends JFrame {
+    private JPanel contentPane;
+    private JTextField txt_idHornitzailea, txt_idPieza, txt_kopurua, txt_data;
+    private JLabel lblNewLabel;
+    private JButton btnAtzera;
+    private JLabel okIkonoa;
+    private JLabel lblID;
+    private JLabel lblid;
 
-	private static final long serialVersionUID = 1L;
-	private JPanel contentPane;
-	private JTextField txt_id;
-	private JTextField txt_nif;
-	private JLabel lblNewLabel_2_1_3;
-	private JTextField txt_helbidea;
-	private JTextField txt_herria;
-	private JButton btn_aldatu;
+    public aldaketaPiezenEsk(PiezaEskaera piezaEsk) {
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setBounds(100, 100, 1000, 490);
+        contentPane = new JPanel();
+        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        setContentPane(contentPane);
+        contentPane.setLayout(null);
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					aldaketaHornitzaileak frame = new aldaketaHornitzaileak();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+        // Testu-kampoak hornitzailearen datuekin betetzea
+        JLabel lblidHornitzailea = new JLabel("idHornitzailea");
+        lblidHornitzailea.setFont(new Font("Tahoma", Font.BOLD, 14));
+        lblidHornitzailea.setBounds(111, 93, 105, 25);
+        contentPane.add(lblidHornitzailea);
 
-	/**
-	 * Create the frame.
-	 */
-	public aldaketaPiezenEsk() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1000, 490);
-		contentPane = new JPanel();
-		contentPane.setBackground(new Color(255, 255, 255));
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        txt_idHornitzailea = new JTextField();
+        txt_idHornitzailea.setBounds(111, 129, 200, 25);
+        contentPane.add(txt_idHornitzailea);
+        txt_idHornitzailea.setText(String.valueOf(piezaEsk.getHornitzaile_idHornitzailea()));
 
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
-		
-		txt_id = new JTextField();
-		txt_id.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		txt_id.setBounds(296, 87, 106, 20);
-		contentPane.add(txt_id);
-		txt_id.setColumns(10);
-		
-		JLabel lblNewLabel_1 = new JLabel("idHornitzailea:");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1.setBounds(296, 65, 106, 20);
-		contentPane.add(lblNewLabel_1);
-		
-		txt_nif = new JTextField();
-		txt_nif.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		txt_nif.setColumns(10);
-		txt_nif.setBounds(589, 87, 106, 20);
-		contentPane.add(txt_nif);
-		
-		JLabel lblNewLabel_2 = new JLabel("idPieza:");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_2.setBounds(589, 67, 63, 17);
-		contentPane.add(lblNewLabel_2);
-		
-		JLabel lblNewLabel_2_1 = new JLabel("Kopurua:");
-		lblNewLabel_2_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_2_1.setBounds(296, 198, 71, 14);
-		contentPane.add(lblNewLabel_2_1);
-		
-		lblNewLabel_2_1_3 = new JLabel("Data:");
-		lblNewLabel_2_1_3.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_2_1_3.setBounds(589, 195, 44, 20);
-		contentPane.add(lblNewLabel_2_1_3);
-		
-		txt_helbidea = new JTextField();
-		txt_helbidea.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		txt_helbidea.setColumns(10);
-		txt_helbidea.setBounds(296, 224, 106, 20);
-		contentPane.add(txt_helbidea);
-		
-		txt_herria = new JTextField();
-		txt_herria.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		txt_herria.setColumns(10);
-		txt_herria.setBounds(589, 224, 106, 20);
-		contentPane.add(txt_herria);
-		
-		JButton btnAtzera = new JButton("");
-		btnAtzera.addActionListener(new ActionListener() {
+        JLabel lblidPieza = new JLabel("idPieza");
+        lblidPieza.setFont(new Font("Tahoma", Font.BOLD, 14));
+        lblidPieza.setBounds(384, 93, 80, 25);
+        contentPane.add(lblidPieza);
+
+        txt_idPieza = new JTextField();
+        txt_idPieza.setBounds(384, 129, 200, 25);
+        contentPane.add(txt_idPieza);
+        txt_idPieza.setText(String.valueOf(piezaEsk.getPieza_idPieza()));
+
+        JLabel lblKopurua = new JLabel("Kopurua");
+        lblKopurua.setFont(new Font("Tahoma", Font.BOLD, 14));
+        lblKopurua.setBounds(636, 93, 80, 25);
+        contentPane.add(lblKopurua);
+
+        txt_kopurua = new JTextField();
+        txt_kopurua.setBounds(636, 129, 200, 25);
+        contentPane.add(txt_kopurua);
+        txt_kopurua.setText(String.valueOf(piezaEsk.getKopurua()));
+
+        JLabel lbldata = new JLabel("Data");
+        lbldata.setFont(new Font("Tahoma", Font.BOLD, 14));
+        lbldata.setBounds(111, 174, 80, 25);
+        contentPane.add(lbldata);
+
+        txt_data = new JTextField();
+        txt_data.setBounds(111, 210, 200, 25);
+        contentPane.add(txt_data);
+
+        // Establecer la fecha actual en txt_data con formato Timestamp
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        txt_data.setText(timestamp.toString());  // Establecer el Timestamp como texto
+
+        // ID Label (bistaratu bakarrik)
+        lblID = new JLabel("ID:");
+        lblID.setFont(new Font("Tahoma", Font.BOLD, 14));
+        lblID.setBounds(111, 44, 28, 25);
+        contentPane.add(lblID);
+
+        lblid = new JLabel("");
+        lblid.setFont(new Font("Tahoma", Font.BOLD, 14));
+        lblid.setBounds(149, 44, 80, 25);
+        contentPane.add(lblid);
+        lblid.setText(String.valueOf(piezaEsk.getIdPiezaEskaera()));  // Hornitzailearen ID-a erakustea
+
+        // Atzera botoia
+        btnAtzera = new JButton("");
+        btnAtzera.addActionListener(new ActionListener() {
+            @Override
 			public void actionPerformed(ActionEvent e) {
-				dispose();
-			}
-		});
-		btnAtzera.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\atzera 2(2).png"));
-		btnAtzera.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnAtzera.setBounds(0, 0, 55, 32);
-		contentPane.add(btnAtzera);
-		
-		btn_aldatu = new JButton("ALDATU");
-		btn_aldatu.setBackground(new Color(255, 255, 255));
-		btn_aldatu.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btn_aldatu.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btn_aldatu.setBounds(803, 324, 91, 23);
-		contentPane.add(btn_aldatu);
-		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\UTech java fondoa 1(2).png"));
-		lblNewLabel.setBounds(0, 0, 988, 445);
-		contentPane.add(lblNewLabel);
-	}
+                dispose(); // Cerrar la ventana
+            }
+        });
+        btnAtzera.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\atzera 2(2).png"));
+        btnAtzera.setBounds(0, 0, 55, 32);
+        contentPane.add(btnAtzera);
+
+        // Aldaketak baieztatzeko ikonoa
+        okIkonoa = new JLabel("");
+        okIkonoa.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\ok(1).png"));
+        okIkonoa.setBounds(801, 306, 35, 35);
+        contentPane.add(okIkonoa);
+
+        // "OK" ikonoa klik egitean egindako aldaketak gordetzeko
+        okIkonoa.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                Object[] aukerak = {"Bai", "Ez"};
+                int konfirmazioa = JOptionPane.showOptionDialog(null, "Ziur zaude aldaketak gordetu nahi dituzula?", "Baieztatu",
+                        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, aukerak, aukerak[0]);
+
+                if (konfirmazioa == JOptionPane.YES_OPTION) {
+                    // Testu-kampoetatik balioak lortu
+                    String idHornitzailea = txt_idHornitzailea.getText();
+                    String idPieza = txt_idPieza.getText();
+                    String kopurua = txt_kopurua.getText();
+                    String data = txt_data.getText();
+
+                    // Realizar alguna acción con los datos (actualización de base de datos, etc.)
+
+                    // Mostrar mensaje de éxito
+                    JOptionPane.showMessageDialog(null, "Aldaketak ondo gorde dira.");
+                }
+            }
+        });
+
+        // Interfazean fondo baten gehitzea
+        lblNewLabel = new JLabel("New label");
+        lblNewLabel.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\UTech java fondoa 1(2).png"));
+        lblNewLabel.setBounds(0, 0, 988, 445);
+        contentPane.add(lblNewLabel);
+    }
 }

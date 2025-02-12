@@ -1,9 +1,10 @@
 package taulak;
 
-import erronka2.Hornitzailea;
+import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
-import java.util.List;
+
+import erronka2.Hornitzailea;
 
 public class HornitzaileakTaula extends AbstractTableModel {
 
@@ -38,8 +39,8 @@ public class HornitzaileakTaula extends AbstractTableModel {
             case 5: return h.getHelbidea();
             case 6: return h.getHerria();
             case 7: return h.getPostakodea();
-         
-          
+
+
             default: return null;
         }
     }

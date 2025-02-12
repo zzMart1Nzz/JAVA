@@ -1,15 +1,16 @@
 package taulak;
 
-import erronka2.Produktua;
+import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
-import java.util.List;
+
+import erronka2.Produktua;
 
 public class ProduktuakTaula extends AbstractTableModel {
 
     private List<Produktua> produktuak;
     private String[] columnNames = {
-        "ID", "Mota", "Marka", "Modeloa", "Memoria", "RAM", "Prozesagailua", "Tamaina", 
+        "ID", "Mota", "Marka", "Modeloa", "Memoria", "RAM", "Prozesagailua", "Tamaina",
         "Sistema Eragilea", "Kamara", "Erresoluzioa", "Frekuentzia", "Kolorea", "Prezioa", "Stock"
     };
 

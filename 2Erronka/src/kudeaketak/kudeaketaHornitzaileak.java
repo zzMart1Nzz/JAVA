@@ -7,8 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import erronka2.Hornitzailea;
 import erronka2.DBKonexioa;
+import erronka2.Hornitzailea;
 
 public class kudeaketaHornitzaileak {
 
@@ -16,14 +16,14 @@ public class kudeaketaHornitzaileak {
         List<Hornitzailea> lista = new ArrayList<>();
         String sql = "SELECT idHornitzailea, nif, izena, telefonoZenbakia, postaElektronikoa, helbidea, herria, " +
                      "postakodea " +
-                     "FROM hornitzailea ORDER BY idHornitzailea ASC";  
-        
-        try (Connection conn = DBKonexioa.konexioaEgin(); 
-             PreparedStatement pst = conn.prepareStatement(sql); 
+                     "FROM hornitzailea ORDER BY idHornitzailea ASC";
+
+        try (Connection conn = DBKonexioa.konexioaEgin();
+             PreparedStatement pst = conn.prepareStatement(sql);
              ResultSet rs = pst.executeQuery()) {
 
             while (rs.next()) {
-               
+
                 Hornitzailea h = mapResultSetToHornitzailea(rs);
                 lista.add(h);
             }
@@ -34,7 +34,7 @@ public class kudeaketaHornitzaileak {
     }
 
     private Hornitzailea mapResultSetToHornitzailea(ResultSet rs) throws SQLException {
-      
+
         return new Hornitzailea(
             rs.getInt("idHornitzailea"),
             rs.getString("nif"),
@@ -49,7 +49,7 @@ public class kudeaketaHornitzaileak {
 
     public void sortuHornitzailea(Hornitzailea hornitzailea) {
         String sql = "INSERT INTO hornitzailea (nif, izena, telefonoZenbakia, postaElektronikoa, helbidea, herria, postakodea) VALUES (?, ?, ?, ?, ?, ?, ?)";
-        
+
         try (Connection conn = DBKonexioa.konexioaEgin();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             mapHornitzaileaToPreparedStatement(hornitzailea, ps);
@@ -61,21 +61,21 @@ public class kudeaketaHornitzaileak {
 
     public void eguneratuHornitzailea (Hornitzailea hornitzailea) {
         String sql = "UPDATE hornitzailea SET nif = ?, izena = ?, telefonoZenbakia = ?, postaElektronikoa = ?, helbidea = ?, herria = ?, postakodea = ? WHERE idHornitzailea = ?";
-        
+
         try (Connection conn = DBKonexioa.konexioaEgin();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             mapHornitzaileaToPreparedStatement(hornitzailea, ps);
-            ps.setInt(13, hornitzailea.getIdHornitzailea());  
+            ps.setInt(8, hornitzailea.getIdHornitzailea());
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    
+
     public void ezabatuHornitzailea(int idHornitzailea) {
         String sql = "DELETE FROM hornitzailea WHERE idHornitzailea = ?";
-        
+
         try (Connection conn = DBKonexioa.konexioaEgin();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
@@ -87,16 +87,16 @@ public class kudeaketaHornitzaileak {
     }
 
 
-    private void mapHornitzaileaToPreparedStatement(Hornitzailea bezeroa, PreparedStatement ps) throws SQLException {
-        ps.setString(1, bezeroa.getNif());
-        ps.setString(2, bezeroa.getIzena());
-        ps.setString(3, bezeroa.getTelefonoZenbakia());
-        ps.setString(4, bezeroa.getPostaElektronikoa());
-        ps.setString(5, bezeroa.getHelbidea());
-        ps.setString(6, bezeroa.getHerria());
-        ps.setString(7, bezeroa.getPostakodea());
+    private void mapHornitzaileaToPreparedStatement(Hornitzailea hornitzailea, PreparedStatement ps) throws SQLException {
+        ps.setString(1, hornitzailea.getNif());
+        ps.setString(2, hornitzailea.getIzena());
+        ps.setString(3, hornitzailea.getTelefonoZenbakia());
+        ps.setString(4, hornitzailea.getPostaElektronikoa());
+        ps.setString(5, hornitzailea.getHelbidea());
+        ps.setString(6, hornitzailea.getHerria());
+        ps.setString(7, hornitzailea.getPostakodea());
 
-   
+
     }
 }
 

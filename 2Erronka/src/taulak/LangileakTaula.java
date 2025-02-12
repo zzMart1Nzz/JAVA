@@ -1,16 +1,16 @@
 package taulak;
 
-import erronka2.Langilea;
+import java.util.List;
+
+import javax.swing.table.AbstractTableModel;
 
 import erronka2.Langilea;
-import javax.swing.table.AbstractTableModel;
-import java.util.List;
 
 public class LangileakTaula extends AbstractTableModel {
 
     private List<Langilea> langilea;
     private String[] columnNames = {
-        "idlangilea", "lanpostua_idlanpostua", "lanpostua","nan", "izena", "abizena", "telefonoZenbakia", "postaElektronikoa", "erabiltzaileIzena", 
+        "idlangilea", "lanpostua_idlanpostua", "lanpostua","nan", "izena", "abizena", "telefonoZenbakia", "postaElektronikoa", "erabiltzaileIzena",
         "pasahitza", "helbidea", "postaKodea"
     };
 

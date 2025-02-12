@@ -1,13 +1,10 @@
 package erronka2;
 
-import java.util.Objects;
-import java.util.Scanner;
 import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Objects;
 
 public class Produktua2 {
 
@@ -114,12 +111,12 @@ public class Produktua2 {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		if (this == obj) {
 			return true;
-		if (obj == null)
+		}
+		if ((obj == null) || (getClass() != obj.getClass())) {
 			return false;
-		if (getClass() != obj.getClass())
-			return false;
+		}
 		Produktua2 other = (Produktua2) obj;
 		return Objects.equals(ezaugarriak, other.ezaugarriak) && id == other.id && idmota == other.idmota
 				&& Objects.equals(kolorea, other.kolorea) && Objects.equals(marka, other.marka)
@@ -128,7 +125,7 @@ public class Produktua2 {
 				&& stock == other.stock;
 	}
 
-	
+
 
 	// METODOAK
 	// Imprimitu metodoa, produktuen datu guztiak ematen dituena.
@@ -137,7 +134,7 @@ public class Produktua2 {
 				+ marka + "\n Modeloa: " + modeloa + "\n Salmenta prezioa: " + salmentaPrezioa + "\n Stock-a: " + stock);
 	}
 
-	
+
 	public void produktuakIkusi() {
 		String query = "SELECT * FROM Produktua";
 		try(Connection con = DBKonexioa.konexioaEgin();
@@ -156,8 +153,8 @@ public class Produktua2 {
 		}catch (SQLException e) {
             System.out.println("Error al obtener usuarios");
             e.printStackTrace();
-     
+
         }
 	}
 }
-	
+

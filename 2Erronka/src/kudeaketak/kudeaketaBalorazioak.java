@@ -14,11 +14,11 @@ public class kudeaketaBalorazioak {
 
     public List<Balorazioa> lortuBalorazioak() {
         List<Balorazioa> lista = new ArrayList<>();
-        String sql = "SELECT idBalorazioa, Bezeroa_idBezeroa, Produktua_idProduktua, balorazioa, data " + 
-                     "FROM balorazioa ORDER BY idBalorazioa ASC";  
-        
-        try (Connection conn = DBKonexioa.konexioaEgin(); 
-             PreparedStatement pst = conn.prepareStatement(sql); 
+        String sql = "SELECT idBalorazioa, Bezeroa_idBezeroa, Produktua_idProduktua, balorazioa, data " +
+                     "FROM balorazioa ORDER BY idBalorazioa ASC";
+
+        try (Connection conn = DBKonexioa.konexioaEgin();
+             PreparedStatement pst = conn.prepareStatement(sql);
              ResultSet rs = pst.executeQuery()) {
 
             while (rs.next()) {
@@ -43,7 +43,7 @@ public class kudeaketaBalorazioak {
 
     public void sortuBalorazioa(Balorazioa balorazioa) {
         String sql = "INSERT INTO balorazioa (idBalorazioa, Bezeroa_idBezeroa, Produktua_idProduktua, balorazioa, data) VALUES (?, ?, ?, ?, ?)";
-        
+
         try (Connection conn = DBKonexioa.konexioaEgin();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             mapBalorazioaToPreparedStatement(balorazioa, ps);
@@ -55,27 +55,27 @@ public class kudeaketaBalorazioak {
 
     public void eguneratuBalorazioa(Balorazioa balorazioa) {
         String sql = "UPDATE balorazioa SET Bezeroa_idBezeroa = ?, Produktua_idProduktua = ?, balorazioa = ?, data = ? WHERE idBalorazioa = ?";
-        
+
         try (Connection conn = DBKonexioa.konexioaEgin();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             mapBalorazioaToPreparedStatement(balorazioa, ps);
-            ps.setInt(5, balorazioa.getIdBalorazioa());  
+            ps.setInt(5, balorazioa.getIdBalorazioa());
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public void ezabatuBalorazioa(int idBalorazioa) {
+    public boolean ezabatuBalorazioa(int idBalorazioa) {
         String sql = "DELETE FROM balorazioa WHERE idBalorazioa = ?";
-        
+
         try (Connection conn = DBKonexioa.konexioaEgin();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setInt(1, idBalorazioa);
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
-        }
+        }return false;
     }
 
     private void mapBalorazioaToPreparedStatement(Balorazioa balorazioa, PreparedStatement ps) throws SQLException {

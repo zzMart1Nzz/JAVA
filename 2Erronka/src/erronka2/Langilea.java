@@ -1,13 +1,5 @@
 package erronka2;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Objects;
-import java.util.Scanner;
-
 public class Langilea {
 
 	// EZAUGARRIAK
@@ -23,7 +15,7 @@ public class Langilea {
 	private String pasahitza;
 	private String helbidea;
 	private String postaKodea;
-	
+
 	//KONSTRUKTOREAK
 	public Langilea(int idlangilea, int lanpostua_idlanpostua, String lanpostua, String nan, String izena,
 			String abizena, String telefonoZenbakia, String postaElektronikoa, String erabiltzaileIzena,
@@ -141,6 +133,6 @@ public class Langilea {
 	public void setPostaKodea(String postaKodea) {
 		this.postaKodea = postaKodea;
 	}
-	
+
 
 }

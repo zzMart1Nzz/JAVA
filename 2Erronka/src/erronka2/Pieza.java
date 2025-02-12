@@ -1,9 +1,7 @@
 package erronka2;
 
-import java.util.Objects;
-
 public class Pieza {
-	
+
 	private int idPieza;
 	private int kategoria;
 	private String marka;
@@ -11,7 +9,7 @@ public class Pieza {
 	private String ezaugarriak;
 	private double erosketaPrezioa;
 	private int stock;
-	
+
 	public Pieza() {
 	}
 

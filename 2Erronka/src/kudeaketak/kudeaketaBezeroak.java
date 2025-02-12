@@ -16,14 +16,14 @@ public class kudeaketaBezeroak {
         List<Bezeroa> lista = new ArrayList<>();
         String sql = "SELECT idBezeroa, nanEdoNif, izena, abizena, telefonoZenbakia, postaElektronikoa, helbidea, herria, " +
                      "postakodea, pasahitza " +
-                     "FROM bezeroa ORDER BY idBezeroa ASC";  
-        
-        try (Connection conn = DBKonexioa.konexioaEgin(); 
-             PreparedStatement pst = conn.prepareStatement(sql); 
+                     "FROM bezeroa ORDER BY idBezeroa ASC";
+
+        try (Connection conn = DBKonexioa.konexioaEgin();
+             PreparedStatement pst = conn.prepareStatement(sql);
              ResultSet rs = pst.executeQuery()) {
 
             while (rs.next()) {
-               
+
                 Bezeroa b = mapResultSetToBezeroa(rs);
                 lista.add(b);
             }
@@ -34,7 +34,7 @@ public class kudeaketaBezeroak {
     }
 
     private Bezeroa mapResultSetToBezeroa(ResultSet rs) throws SQLException {
-      
+
         return new Bezeroa(
             rs.getInt("idBezeroa"),
             rs.getString("nanEdoNif"),
@@ -51,7 +51,7 @@ public class kudeaketaBezeroak {
 
     public void sortuBezeroa(Bezeroa bezeroa) {
         String sql = "INSERT INTO bezeroa (nanEdoNif, izena, abizena, telefonoZenbakia, postaElektronikoa, helbidea, herria, postakodea, pasahitza) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        
+
         try (Connection conn = DBKonexioa.konexioaEgin();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             mapBezeroaToPreparedStatement(bezeroa, ps);
@@ -63,21 +63,21 @@ public class kudeaketaBezeroak {
 
     public void eguneratuBezeroa(Bezeroa bezeroa) {
         String sql = "UPDATE bezeroa SET nanEdoNif = ?, izena = ?, abizena = ?, telefonoZenbakia = ?, postaElektronikoa = ?, helbidea = ?, herria = ?, postakodea = ?, pasahitza = ? WHERE idBezeroa = ?";
-        
+
         try (Connection conn = DBKonexioa.konexioaEgin();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             mapBezeroaToPreparedStatement(bezeroa, ps);
-            ps.setInt(13, bezeroa.getIdBezeroa());  
+            ps.setInt(13, bezeroa.getIdBezeroa());
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    
-    public void ezabatuBezeroa(int idBezeroa) {
+
+    public boolean ezabatuBezeroa(int idBezeroa) {
         String sql = "DELETE FROM bezeroa WHERE idBezeroa = ?";
-        
+
         try (Connection conn = DBKonexioa.konexioaEgin();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
@@ -85,7 +85,7 @@ public class kudeaketaBezeroak {
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
-        }
+        }return false;
     }
 
 
@@ -99,6 +99,6 @@ public class kudeaketaBezeroak {
         ps.setString(7, bezeroa.getHerria());
         ps.setString(8, bezeroa.getPostakodea());
         ps.setString(9, bezeroa.getPasahitza());
-   
+
     }
 }

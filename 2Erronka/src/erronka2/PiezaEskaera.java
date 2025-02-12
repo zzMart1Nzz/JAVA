@@ -1,7 +1,6 @@
 package erronka2;
 
 import java.sql.Timestamp;
-import java.util.Objects;
 
 public class PiezaEskaera {
 
@@ -10,11 +9,11 @@ public class PiezaEskaera {
 		private int Pieza_idPieza;
 		private int kopurua;
 		private Timestamp data;
-		
+
 		public PiezaEskaera() {
-			
+
 		}
-		
+
 		//KONSTRUKTOREAK
 		public PiezaEskaera(int idPiezaEskaera, int hornitzaile_idHornitzailea, int pieza_idPieza, int kopurua,
 				Timestamp data) {
@@ -24,8 +23,8 @@ public class PiezaEskaera {
 			this.kopurua = kopurua;
 			this.data = data;
 		}
-		
-		
+
+
 		//GETTERRAK ETA SETTERRAK
 		public int getIdPiezaEskaera() {
 			return idPiezaEskaera;
@@ -77,14 +76,14 @@ public class PiezaEskaera {
 		}
 
 		public static PiezaEskaera get(int rowIndex) {
-		
+
 			return null;
 		}
 
 
-	
-		
-		
-		
-	
+
+
+
+
+
 }

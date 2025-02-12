@@ -1,13 +1,5 @@
 package erronka2;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Objects;
-import java.util.Scanner;
-
 public class Bezeroa {
 
 	// EZAUGARRIAK
@@ -21,8 +13,8 @@ public class Bezeroa {
 	private String herria;
 	private String postakodea;
 	private String pasahitza;
-	
-	
+
+
 	//KONSTRUKTOREAK
 	public Bezeroa(int idBezeroa, String nanEdoNif, String izena, String abizena, String telefonoZenbakia,
 			String postaElektronikoa, String helbidea, String herria, String postakodea, String pasahitza) {
@@ -38,8 +30,8 @@ public class Bezeroa {
 		this.pasahitza = pasahitza;
 	}
 
-	
-	
+
+
 	//GETTERRAK ETA SETTERRAK
 	public int getIdBezeroa() {
 		return idBezeroa;
@@ -139,6 +131,6 @@ public class Bezeroa {
 	public void setPasahitza(String pasahitza) {
 		this.pasahitza = pasahitza;
 	}
-	
+
 
 }

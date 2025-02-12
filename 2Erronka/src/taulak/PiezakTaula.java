@@ -1,9 +1,10 @@
 package taulak;
 
-import erronka2.Pieza;
+import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
-import java.util.List;
+
+import erronka2.Pieza;
 
 public class PiezakTaula extends AbstractTableModel {
 
@@ -30,7 +31,7 @@ public class PiezakTaula extends AbstractTableModel {
     public Object getValueAt(int rowIndex, int columnIndex) {
         Pieza pi = pieza.get(rowIndex);
         switch (columnIndex) {
-            case 0: return pi.getIdPieza(); 
+            case 0: return pi.getIdPieza();
             case 1: return pi.getKategoria();
             case 2:return pi.getMarka();
             case 3: return pi.getModeloa();

@@ -18,7 +18,7 @@ public class Produktua {
     private double salmentaPrezioa;
     private int stock;
 
-    public Produktua(int id, int produktuMotaId, String marka, String modeloa, String memoria, String ram, 
+    public Produktua(int id, int produktuMotaId, String marka, String modeloa, String memoria, String ram,
                      String prozesagailua, String tamaina, String sistemaEragilea, String kamara, String erresoluzioa,
                      String frekuentzia, String kolorea, double salmentaPrezioa, int stock) {
         this.id = id;

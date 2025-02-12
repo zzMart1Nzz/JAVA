@@ -1,23 +1,22 @@
 package erronka2;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-
 import java.awt.Color;
 import java.awt.Cursor;
-
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.ActionEvent;
-import java.awt.Font;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.WindowConstants;
+import javax.swing.border.EmptyBorder;
 
 public class PrintzipalaLangilea extends JFrame {
 
@@ -29,6 +28,7 @@ public class PrintzipalaLangilea extends JFrame {
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
+			@Override
 			public void run() {
 				try {
 					PrintzipalaLangilea frame = new PrintzipalaLangilea();
@@ -44,7 +44,7 @@ public class PrintzipalaLangilea extends JFrame {
 	 * Create the frame.
 	 */
 	public PrintzipalaLangilea() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1000, 490);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));
@@ -52,12 +52,13 @@ public class PrintzipalaLangilea extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JButton btnAtera = new JButton("");
 		btnAtera.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				Object[] options = {"Bai", "Ez"};
-				int erantzuna = JOptionPane.showOptionDialog(null, "Programatik atera nahi duzu?", "Konfirmatu atera nahi duzun", JOptionPane.YES_NO_OPTION, 
+				int erantzuna = JOptionPane.showOptionDialog(null, "Programatik atera nahi duzu?", "Konfirmatu atera nahi duzun", JOptionPane.YES_NO_OPTION,
 						+ JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
 				if(erantzuna == JOptionPane.YES_OPTION) {
 				dispose();
@@ -66,34 +67,35 @@ public class PrintzipalaLangilea extends JFrame {
 				}else {}
 			}
 		});
-		
+
 		JButton btnSaioaItxi = new JButton("");
 		btnSaioaItxi.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				Object[] options = {"Bai", "Ez"};
-				int erantzuna = JOptionPane.showOptionDialog(null, "Saioa itxi nahi duzu?", "SAIOA ITXI", JOptionPane.YES_NO_OPTION, 
+				int erantzuna = JOptionPane.showOptionDialog(null, "Saioa itxi nahi duzu?", "SAIOA ITXI", JOptionPane.YES_NO_OPTION,
 						+ JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
 				if(erantzuna == JOptionPane.YES_OPTION) {
 				dispose();
-				
+
 				Logina log = new Logina();
 				log.setVisible(true);
 				}else {}
 			}
 		});
-		btnSaioaItxi.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\saioaItxi(1).png"));
+		btnSaioaItxi.setIcon(new ImageIcon(PrintzipalaLangilea.class.getResource("/media/saioaItxi(1).png")));
 		btnSaioaItxi.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnSaioaItxi.setBounds(0, 423, 110, 32);
 		contentPane.add(btnSaioaItxi);
-		btnAtera.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\itxi(2).png"));
+		btnAtera.setIcon(new ImageIcon(PrintzipalaLangilea.class.getResource("/media/itxi(2).png")));
 		btnAtera.setForeground(Color.WHITE);
 		btnAtera.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAtera.setBackground(new Color(255, 255, 255));
 		btnAtera.setBounds(956, 0, 32, 32);
 		contentPane.add(btnAtera);
-		
+
 		JLabel lblBalorazioakIco_L = new JLabel("");
-		lblBalorazioakIco_L.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\balorazioak(1).png"));
+		lblBalorazioakIco_L.setIcon(new ImageIcon(PrintzipalaLangilea.class.getResource("/media/balorazioak(1).png")));
 		lblBalorazioakIco_L.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblBalorazioakIco_L.setBounds(771, 251, 134, 108);
 		contentPane.add(lblBalorazioakIco_L);
@@ -101,14 +103,14 @@ public class PrintzipalaLangilea extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				dispose();
-				
+
 				LBalorazioakPanela lbalp = new LBalorazioakPanela();
 				lbalp.setVisible(true);
 			}
-		}); 
-		
+		});
+
 		JLabel lblEskaeraIco_L = new JLabel("");
-		lblEskaeraIco_L.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\eskaerak(1).png"));
+		lblEskaeraIco_L.setIcon(new ImageIcon(PrintzipalaLangilea.class.getResource("/media/eskaerak(1).png")));
 		lblEskaeraIco_L.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblEskaeraIco_L.setBounds(771, 52, 134, 108);
 		contentPane.add(lblEskaeraIco_L);
@@ -116,14 +118,14 @@ public class PrintzipalaLangilea extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				dispose();
-			
+
 				LEskaeraPanela lep = new LEskaeraPanela();
 				lep.setVisible(true);
 			}
-		}); 
-		
+		});
+
 		JLabel lblPiezaEskIco_L = new JLabel("New label");
-		lblPiezaEskIco_L.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\piezenEskaera(1).png"));
+		lblPiezaEskIco_L.setIcon(new ImageIcon(PrintzipalaLangilea.class.getResource("/media/piezenEskaera(1).png")));
 		lblPiezaEskIco_L.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblPiezaEskIco_L.setBounds(413, 251, 134, 108);
 		contentPane.add(lblPiezaEskIco_L);
@@ -131,14 +133,14 @@ public class PrintzipalaLangilea extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				dispose();
-				
+
 				LPiezaEskPanela lpiep = new LPiezaEskPanela();
 				lpiep.setVisible(true);
 			}
-		}); 
-		
+		});
+
 		JLabel lblPiezakIco_L = new JLabel("New label");
-		lblPiezakIco_L.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\piezak(1).png"));
+		lblPiezakIco_L.setIcon(new ImageIcon(PrintzipalaLangilea.class.getResource("/media/piezak(1).png")));
 		lblPiezakIco_L.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblPiezakIco_L.setBounds(413, 52, 134, 108);
 		contentPane.add(lblPiezakIco_L);
@@ -146,14 +148,14 @@ public class PrintzipalaLangilea extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				dispose();
-				
+
 				LPiezaPanela lpip = new LPiezaPanela();
 				lpip.setVisible(true);
 			}
-		}); 
-		
+		});
+
 		JLabel lblProduktPresIco_L = new JLabel("New label");
-		lblProduktPresIco_L.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\produktuakPrestakuntzan(1).png"));
+		lblProduktPresIco_L.setIcon(new ImageIcon(PrintzipalaLangilea.class.getResource("/media/produktuakPrestakuntzan(1).png")));
 		lblProduktPresIco_L.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblProduktPresIco_L.setBounds(61, 251, 134, 108);
 		contentPane.add(lblProduktPresIco_L);
@@ -161,19 +163,19 @@ public class PrintzipalaLangilea extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				dispose();
-				
+
 				LProdPrestPanela lppp = new LProdPrestPanela();
 				lppp.setVisible(true);
 			}
-		}); 
-		
+		});
+
 		JLabel lblNewLabel_1_1 = new JLabel("Langilea");
 		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.BOLD, 28));
 		lblNewLabel_1_1.setBounds(859, 419, 119, 32);
 		contentPane.add(lblNewLabel_1_1);
-		
+
 		JLabel lblProduktuakIco_L = new JLabel("");
-		lblProduktuakIco_L.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\produktuak(1).png"));
+		lblProduktuakIco_L.setIcon(new ImageIcon(PrintzipalaLangilea.class.getResource("/media/produktuak(1).png")));
 		lblProduktuakIco_L.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblProduktuakIco_L.setBounds(61, 52, 134, 108);
 		contentPane.add(lblProduktuakIco_L);
@@ -183,13 +185,13 @@ public class PrintzipalaLangilea extends JFrame {
 				dispose();
 				LProduktuakPanela lpp = new LProduktuakPanela();
 				lpp.setVisible(true);
-				
+
 			}
-			
+
 		});
-		
+
 		JLabel lblFondoa = new JLabel("");
-		lblFondoa.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\UTech java fondoa 1(2).png"));
+		lblFondoa.setIcon(new ImageIcon(PrintzipalaLangilea.class.getResource("/media/UTech java fondoa 1(2).png")));
 		lblFondoa.setBackground(new Color(255, 255, 255));
 		lblFondoa.setBounds(0, 0, 988, 455);
 		contentPane.add(lblFondoa);

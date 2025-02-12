@@ -1,9 +1,10 @@
 package taulak;
 
-import erronka2.Bezeroa;
+import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
-import java.util.List;
+
+import erronka2.Bezeroa;
 
 public class BezeroakTaula extends AbstractTableModel {
 
@@ -40,7 +41,7 @@ public class BezeroakTaula extends AbstractTableModel {
             case 7: return b.getHerria();
             case 8: return b.getPostakodea();
             case 9: return b.getPasahitza();
-          
+
             default: return null;
         }
     }

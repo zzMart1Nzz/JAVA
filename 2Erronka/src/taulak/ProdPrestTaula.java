@@ -1,9 +1,10 @@
 package taulak;
 
-import erronka2.ProduktuaPrestakuntzan;
+import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
-import java.util.List;
+
+import erronka2.ProduktuaPrestakuntzan;
 
 public class ProdPrestTaula extends AbstractTableModel {
 

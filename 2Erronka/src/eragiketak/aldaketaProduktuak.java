@@ -1,243 +1,292 @@
 package eragiketak;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import java.awt.Color;
-import java.awt.Cursor;
-
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
-import javax.swing.JTextField;
 import java.awt.Font;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.WindowConstants;
+import javax.swing.border.EmptyBorder;
+
+import erronka2.Produktua;
+import kudeaketak.kudeaketaProduktuak;
 
 public class aldaketaProduktuak extends JFrame {
-
-	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField txt_marka;
-	private JTextField txt_modeloa;
-	private JTextField txt_memoria;
-	private JTextField txt_ram;
-	private JTextField txt_prozesagailua;
-	private JLabel lblNewLabel_2_1_2;
-	private JLabel lblNewLabel_2_1_3;
-	private JTextField txt_tamaina;
-	private JLabel lblNewLabel_2_1_4;
-	private JTextField txt_sistemaEragilea;
+	private JTextField txt_marka, txt_modeloa, txt_memoria, txt_ram, txt_prozesagailua, txt_tamaina,
+			txt_sistemaEragilea;
+	private JLabel lblNewLabel;
+	private JButton btnAtzera;
+	private JLabel okIkonoa;
+	private JLabel lblID;
+	private JLabel lblid;
 	private JTextField txt_kamara;
-	private JButton btn_aldatu;
-	private JLabel lblNewLabel_2_1_5;
 	private JTextField txt_erresoluzioa;
 	private JTextField txt_frekuentzia;
-	private JLabel lblNewLabel_2_1_6;
 	private JTextField txt_kolorea;
-	private JTextField textField_11;
-	private JLabel lblNewLabel_3;
-	private JLabel lblNewLabel_2_1_4_2;
+	private JTextField txt_prezioa;
 	private JTextField txt_stock;
-	private JLabel lblNewLabel_4;
+	private JTextField txt_idProduktuMota;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					aldaketaHornitzaileak frame = new aldaketaHornitzaileak();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
-	public aldaketaProduktuak() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	public aldaketaProduktuak(Produktua produktua) {
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1000, 490);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
+		// Testu-kampoak hornitzailearen datuekin betetzea
+		JLabel lblmarka = new JLabel("Marka");
+		lblmarka.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblmarka.setBounds(10, 65, 80, 25);
+		contentPane.add(lblmarka);
+
 		txt_marka = new JTextField();
-		txt_marka.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		txt_marka.setBounds(80, 87, 106, 20);
+		txt_marka.setBounds(10, 101, 200, 25);
 		contentPane.add(txt_marka);
-		txt_marka.setColumns(10);
-		
-		JLabel lblNewLabel_1 = new JLabel("Marka:");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1.setBounds(80, 65, 55, 20);
-		contentPane.add(lblNewLabel_1);
-		
+		txt_marka.setText(produktua.getMarka());
+
+		JLabel lblIzena = new JLabel("Modeloa");
+		lblIzena.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblIzena.setBounds(252, 65, 80, 25);
+		contentPane.add(lblIzena);
+
 		txt_modeloa = new JTextField();
-		txt_modeloa.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		txt_modeloa.setColumns(10);
-		txt_modeloa.setBounds(267, 87, 106, 20);
+		txt_modeloa.setBounds(252, 101, 200, 25);
 		contentPane.add(txt_modeloa);
-		
-		JLabel lblNewLabel_2 = new JLabel("Modeloa:");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_2.setBounds(267, 65, 71, 17);
-		contentPane.add(lblNewLabel_2);
-		
+		txt_modeloa.setText(produktua.getModeloa());
+
+		JLabel lblTelefonoa = new JLabel("Memoria");
+		lblTelefonoa.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblTelefonoa.setBounds(528, 65, 80, 25);
+		contentPane.add(lblTelefonoa);
+
 		txt_memoria = new JTextField();
-		txt_memoria.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		txt_memoria.setColumns(10);
-		txt_memoria.setBounds(435, 87, 106, 20);
+		txt_memoria.setBounds(528, 101, 200, 25);
 		contentPane.add(txt_memoria);
-		
-		JLabel lblNewLabel_2_1 = new JLabel("Memoria:");
-		lblNewLabel_2_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_2_1.setBounds(435, 70, 78, 14);
-		contentPane.add(lblNewLabel_2_1);
-		
+		txt_memoria.setText(produktua.getMemoria());
+
+		JLabel lblram = new JLabel("RAM");
+		lblram.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblram.setBounds(778, 65, 80, 25);
+		contentPane.add(lblram);
+
 		txt_ram = new JTextField();
-		txt_ram.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		txt_ram.setColumns(10);
-		txt_ram.setBounds(608, 87, 106, 20);
+		txt_ram.setBounds(778, 101, 200, 25);
 		contentPane.add(txt_ram);
-		
-		JLabel lblNewLabel_2_1_1 = new JLabel("RAM:");
-		lblNewLabel_2_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_2_1_1.setBounds(606, 70, 44, 14);
-		contentPane.add(lblNewLabel_2_1_1);
-		
+		txt_ram.setText(produktua.getRam());
+
+		JLabel lblHelbidea = new JLabel("Prozesagailua");
+		lblHelbidea.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblHelbidea.setBounds(10, 137, 200, 25);
+		contentPane.add(lblHelbidea);
+
 		txt_prozesagailua = new JTextField();
-		txt_prozesagailua.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		txt_prozesagailua.setColumns(10);
-		txt_prozesagailua.setBounds(788, 89, 106, 20);
+		txt_prozesagailua.setBounds(10, 173, 200, 25);
 		contentPane.add(txt_prozesagailua);
-		
-		lblNewLabel_2_1_2 = new JLabel("Prozesagailua:");
-		lblNewLabel_2_1_2.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_2_1_2.setBounds(788, 65, 106, 19);
-		contentPane.add(lblNewLabel_2_1_2);
-		
-		lblNewLabel_2_1_3 = new JLabel("Tamaina:");
-		lblNewLabel_2_1_3.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_2_1_3.setBounds(80, 160, 71, 14);
-		contentPane.add(lblNewLabel_2_1_3);
-		
+		txt_prozesagailua.setText(produktua.getProzesagailua());
+
+		JLabel lblHerria = new JLabel("Tamaina");
+		lblHerria.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblHerria.setBounds(252, 137, 80, 25);
+		contentPane.add(lblHerria);
+
 		txt_tamaina = new JTextField();
-		txt_tamaina.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		txt_tamaina.setColumns(10);
-		txt_tamaina.setBounds(80, 182, 106, 20);
+		txt_tamaina.setBounds(252, 173, 200, 25);
 		contentPane.add(txt_tamaina);
-		
-		lblNewLabel_2_1_4 = new JLabel("Sistema-Eragilea:");
-		lblNewLabel_2_1_4.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_2_1_4.setBounds(267, 160, 125, 14);
-		contentPane.add(lblNewLabel_2_1_4);
-		
+		txt_tamaina.setText(produktua.getTamaina());
+
+		JLabel lblPostaKodea = new JLabel("Sistema Eragilea");
+		lblPostaKodea.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblPostaKodea.setBounds(528, 137, 118, 25);
+		contentPane.add(lblPostaKodea);
+
 		txt_sistemaEragilea = new JTextField();
-		txt_sistemaEragilea.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		txt_sistemaEragilea.setColumns(10);
-		txt_sistemaEragilea.setBounds(267, 182, 106, 20);
+		txt_sistemaEragilea.setBounds(528, 173, 200, 25);
 		contentPane.add(txt_sistemaEragilea);
-		
-		JLabel lblNewLabel_2_1_4_1 = new JLabel("Kamara:");
-		lblNewLabel_2_1_4_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_2_1_4_1.setBounds(435, 160, 106, 14);
-		contentPane.add(lblNewLabel_2_1_4_1);
-		
-		txt_kamara = new JTextField();
-		txt_kamara.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		txt_kamara.setColumns(10);
-		txt_kamara.setBounds(435, 182, 106, 20);
-		contentPane.add(txt_kamara);
-		
-		JButton btnAtzera = new JButton("");
+		txt_sistemaEragilea.setText(produktua.getSistemaEragilea());
+
+		// ID Label (bistaratu bakarrik)
+		lblID = new JLabel("ID:");
+		lblID.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblID.setBounds(111, 11, 28, 25);
+		contentPane.add(lblID);
+
+		lblid = new JLabel("");
+		lblid.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblid.setBounds(149, 11, 80, 25);
+		contentPane.add(lblid);
+		lblid.setText(String.valueOf(produktua.getId())); // Hornitzailearen ID-a erakustea
+
+		// Atzera botoia
+		btnAtzera = new JButton("");
 		btnAtzera.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
+				// Botoi hau leihoa itxi edo beste ekintza bat egin behar du.
 				dispose();
 			}
 		});
-		btnAtzera.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\atzera 2(2).png"));
-		btnAtzera.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnAtzera.setIcon(
+				new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\atzera 2(2).png"));
 		btnAtzera.setBounds(0, 0, 55, 32);
 		contentPane.add(btnAtzera);
-		
-		btn_aldatu = new JButton("ALDATU");
-		btn_aldatu.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+
+		// Aldaketak baieztatzeko ikonoa
+		okIkonoa = new JLabel("");
+		okIkonoa.setIcon(
+				new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\ok(1).png"));
+		okIkonoa.setBounds(877, 368, 35, 35);
+		contentPane.add(okIkonoa);
+
+		// "OK" ikonoa klik egitean egindako aldaketak gordetzeko
+		okIkonoa.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				Object[] aukerak = { "Bai", "Ez" };
+				int konfirmazioa = JOptionPane.showOptionDialog(null, "Ziur zaude aldaketak gordetu nahi dituzula?",
+						"Baieztatu", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, aukerak,
+						aukerak[0]);
+
+				if (konfirmazioa == JOptionPane.YES_OPTION) {
+					// Testu-kampoetatik balioak lortu
+					int idProduktuMota = Integer.parseInt(txt_idProduktuMota.getText());
+					String marka = txt_marka.getText();
+					String modeloa = txt_modeloa.getText();
+					String memorira = txt_memoria.getText();
+					String ram = txt_ram.getText();
+					String prozesagailua = txt_prozesagailua.getText();
+					String tamaina = txt_tamaina.getText();
+					String sistemaEragilea = txt_sistemaEragilea.getText();
+					String kamara = txt_kamara.getText();
+					String erresoluzioa = txt_erresoluzioa.getText();
+					String frekuentzia = txt_frekuentzia.getText();
+					String kolorea = txt_kolorea.getText();
+					Double prezioa = Double.parseDouble(txt_prezioa.getText());
+					int stock = Integer.parseInt(txt_stock.getText());
+
+					// Hornitzailea eguneratzea
+					produktua.setProduktuMotaId(idProduktuMota);
+					produktua.setMarka(marka);
+					produktua.setModeloa(modeloa);
+					produktua.setMemoria(memorira);
+					produktua.setRam(ram);
+					produktua.setProzesagailua(prozesagailua);
+					produktua.setTamaina(tamaina);
+					produktua.setSistemaEragilea(sistemaEragilea);
+					produktua.setKamara(kamara);
+					produktua.setErresoluzioa(erresoluzioa);
+					produktua.setFrekuentzia(frekuentzia);
+					produktua.setKolorea(kolorea);
+					produktua.setSalmentaPrezioa(prezioa);
+					produktua.setStock(stock);
+
+					// Hornitzailea datu-basean eguneratzea
+					kudeaketaProduktuak kudeaketa = new kudeaketaProduktuak();
+					kudeaketa.eguneratuProduktua(produktua);
+
+					// Mezu bat erakustea
+					JOptionPane.showMessageDialog(null, "Aldaketak ondo gorde dira.");
+				}
 			}
 		});
-		btn_aldatu.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btn_aldatu.setBounds(803, 324, 91, 23);
-		contentPane.add(btn_aldatu);
-		
-		lblNewLabel_2_1_5 = new JLabel("Erresoluzioa:");
-		lblNewLabel_2_1_5.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_2_1_5.setBounds(608, 160, 106, 14);
-		contentPane.add(lblNewLabel_2_1_5);
-		
+
+		JLabel lblKamara = new JLabel("Kamara");
+		lblKamara.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblKamara.setBounds(778, 137, 118, 25);
+		contentPane.add(lblKamara);
+
+		txt_kamara = new JTextField();
+		txt_kamara.setText((String) null);
+		txt_kamara.setBounds(778, 173, 200, 25);
+		contentPane.add(txt_kamara);
+		txt_kamara.setText(produktua.getKamara());
+
+		JLabel lblPostaKodea_1_1 = new JLabel("Erresoluzioa");
+		lblPostaKodea_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblPostaKodea_1_1.setBounds(10, 214, 118, 25);
+		contentPane.add(lblPostaKodea_1_1);
+
 		txt_erresoluzioa = new JTextField();
-		txt_erresoluzioa.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		txt_erresoluzioa.setColumns(10);
-		txt_erresoluzioa.setBounds(608, 182, 106, 20);
+		txt_erresoluzioa.setText((String) null);
+		txt_erresoluzioa.setBounds(10, 250, 200, 25);
 		contentPane.add(txt_erresoluzioa);
-		
+		txt_erresoluzioa.setText(produktua.getErresoluzioa());
+
+		JLabel lblFruekentzia = new JLabel("Fruekentzia");
+		lblFruekentzia.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblFruekentzia.setBounds(252, 214, 118, 25);
+		contentPane.add(lblFruekentzia);
+
 		txt_frekuentzia = new JTextField();
-		txt_frekuentzia.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		txt_frekuentzia.setColumns(10);
-		txt_frekuentzia.setBounds(788, 182, 106, 20);
+		txt_frekuentzia.setText((String) null);
+		txt_frekuentzia.setBounds(252, 250, 200, 25);
 		contentPane.add(txt_frekuentzia);
-		
-		lblNewLabel_2_1_6 = new JLabel("Frekuentzia:");
-		lblNewLabel_2_1_6.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_2_1_6.setBounds(788, 160, 106, 14);
-		contentPane.add(lblNewLabel_2_1_6);
-		
+		txt_frekuentzia.setText(produktua.getFrekuentzia());
+
+		JLabel lblKolorea = new JLabel("Kolorea");
+		lblKolorea.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblKolorea.setBounds(528, 214, 118, 25);
+		contentPane.add(lblKolorea);
+
 		txt_kolorea = new JTextField();
-		txt_kolorea.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		txt_kolorea.setColumns(10);
-		txt_kolorea.setBounds(267, 277, 106, 20);
+		txt_kolorea.setText((String) null);
+		txt_kolorea.setBounds(528, 250, 200, 25);
 		contentPane.add(txt_kolorea);
-		
-		textField_11 = new JTextField();
-		textField_11.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		textField_11.setColumns(10);
-		textField_11.setBounds(435, 277, 106, 20);
-		contentPane.add(textField_11);
-		
-		lblNewLabel_3 = new JLabel("Posta Kodea:");
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_3.setBounds(435, 255, 106, 17);
-		contentPane.add(lblNewLabel_3);
-		
-		lblNewLabel_2_1_4_2 = new JLabel("Kolorea:");
-		lblNewLabel_2_1_4_2.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_2_1_4_2.setBounds(267, 256, 71, 14);
-		contentPane.add(lblNewLabel_2_1_4_2);
-		
+		txt_kolorea.setText(produktua.getKolorea());
+
+		JLabel lblPrezioa = new JLabel("Prezioa");
+		lblPrezioa.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblPrezioa.setBounds(778, 215, 118, 25);
+		contentPane.add(lblPrezioa);
+
+		txt_prezioa = new JTextField();
+		txt_prezioa.setText((String) null);
+		txt_prezioa.setBounds(778, 252, 200, 25);
+		contentPane.add(txt_prezioa);
+		txt_prezioa.setText(String.valueOf(produktua.getSalmentaPrezioa()));
+
+		JLabel lblStock = new JLabel("Stock");
+		lblStock.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblStock.setBounds(10, 286, 118, 25);
+		contentPane.add(lblStock);
+
+
 		txt_stock = new JTextField();
-		txt_stock.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		txt_stock.setColumns(10);
-		txt_stock.setBounds(608, 279, 106, 20);
+		txt_stock.setText((String) null);
+		txt_stock.setBounds(10, 322, 200, 25);
 		contentPane.add(txt_stock);
-		
-		lblNewLabel_4 = new JLabel("Stock:");
-		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_4.setBounds(608, 258, 106, 17);
-		contentPane.add(lblNewLabel_4);
-		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\UTech java fondoa 1(2).png"));
+		txt_stock.setText(String.valueOf(produktua.getStock()));
+
+		JLabel lblIdproduktua = new JLabel("idProduktuMota");
+		lblIdproduktua.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblIdproduktua.setBounds(252, 286, 118, 25);
+		contentPane.add(lblIdproduktua);
+
+		txt_idProduktuMota = new JTextField();
+		txt_idProduktuMota.setText((String) null);
+		txt_idProduktuMota.setBounds(252, 324, 200, 25);
+		contentPane.add(txt_idProduktuMota);
+		txt_idProduktuMota.setText(String.valueOf(produktua.getProduktuMotaId()));
+
+		// Interfazean fondo baten gehitzea
+		lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon(
+				"C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\UTech java fondoa 1(2).png"));
 		lblNewLabel.setBounds(0, 0, 988, 445);
 		contentPane.add(lblNewLabel);
+    }
+
+	public aldaketaProduktuak() {
+		// TODO Auto-generated constructor stub
 	}
 }
