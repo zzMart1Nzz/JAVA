@@ -73,11 +73,6 @@ public class PrintzipalaGerentea extends JFrame {
 		btnSaioaItxi.setBounds(0, 423, 110, 32);
 		contentPane.add(btnSaioaItxi);
 
-		JLabel lblNewLabel_1 = new JLabel("Gerentea");
-		lblNewLabel_1.setBounds(840, 419, 138, 32);
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 28));
-		contentPane.add(lblNewLabel_1);
-
 		JLabel lblBalorazioakIco_G = new JLabel("New label");
 		lblBalorazioakIco_G.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblBalorazioakIco_G.setBounds(771, 52, 134, 107);
@@ -96,7 +91,7 @@ public class PrintzipalaGerentea extends JFrame {
 		JLabel lblEskHistoIco_G = new JLabel("New label");
 		lblEskHistoIco_G.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblEskHistoIco_G.setBounds(683, 251, 134, 107);
-		lblEskHistoIco_G.setIcon(new ImageIcon(PrintzipalaGerentea.class.getResource("/media/eskaerenHistorikoa(1).png")));
+		lblEskHistoIco_G.setIcon(new ImageIcon(PrintzipalaGerentea.class.getResource("/media/eskaeraProduktua(1).png")));
 		contentPane.add(lblEskHistoIco_G);
 		lblEskHistoIco_G.addMouseListener(new MouseAdapter () {
 			@Override

@@ -23,6 +23,8 @@ import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
 import eragiketak.aldaketaProduktuak;
+import eragiketak.sartuLangileak;
+import eragiketak.sartuProduktuak;
 import kudeaketak.kudeaketaProduktuak;
 import taulak.ProduktuakTaula;
 
@@ -159,44 +161,12 @@ public class LProduktuakPanela extends JFrame {
         txt_id.setBounds(345, 397, 297, 20);
         contentPane.add(txt_id);
         txt_id.setColumns(10);
-
-        JLabel ezabatuIkonoa = new JLabel("");
-        ezabatuIkonoa.setIcon(new ImageIcon(LProduktuakPanela.class.getResource("/media/ezabatu(1).png")));
-        ezabatuIkonoa.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        ezabatuIkonoa.setBounds(652, 392, 35, 35);
-        contentPane.add(ezabatuIkonoa);
-        ezabatuIkonoa.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                try {
-                	// ID-a hartu
-	                int idProduktua = Integer.parseInt(txt_id.getText());
-
-	                // Hornitzailea bilatu ID-a erabiliz
-	                Produktua produktua = lortuProduktuaIdarekin(idProduktua);
-
-	                if (produktua != null) {
-
-	                	ezabatuProduktua(idProduktua); // Produktua ezabatu
-	                	List<Produktua> lista = dao.lortuProduktuak();
-	         	        ProduktuakTaula model = new ProduktuakTaula(lista);
-	         	        table.setModel(model);  // Taula eguneratu modelo berriarekin
-	                } else {
-	                    // Hornitzailea ez bada aurkitu, errore-mezua erakutsi
-	                    JOptionPane.showMessageDialog(null, "Produktua ez da aurkitu ID honekin: " + idProduktua, "Errorea", JOptionPane.ERROR_MESSAGE);
-	                }
-
-                } catch (NumberFormatException ex) {
-                    JOptionPane.showMessageDialog(null, "ID-a zenbaki baliodun bat izan behar du.", "Errorea", JOptionPane.ERROR_MESSAGE);
-                }
-            }
-        });
-
-
-        JLabel lblNewLabel = new JLabel("");
-        lblNewLabel.setBounds(0, 0, 988, 445);
-        lblNewLabel.setIcon(new ImageIcon(LProduktuakPanela.class.getResource("/media/UTech java fondoa 1(2).png")));
-        contentPane.add(lblNewLabel);
+        
+        
+                JLabel lblNewLabel = new JLabel("");
+                lblNewLabel.setBounds(0, 0, 988, 445);
+                lblNewLabel.setIcon(new ImageIcon(LProduktuakPanela.class.getResource("/media/UTech java fondoa 1(2).png")));
+                contentPane.add(lblNewLabel);
     }
         // Hornitzailea ID-a erabiliz bilatzeko metodoa
         private Produktua lortuProduktuaIdarekin(int idProduktua) {
@@ -227,4 +197,5 @@ public class LProduktuakPanela extends JFrame {
         }
 
         }
+
 

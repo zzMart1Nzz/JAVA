@@ -130,7 +130,7 @@ public class ProduktuakPanela extends JFrame {
 	                    ap.setVisible(true);  // Erakutsi
 	                } else {
 	                    // Hornitzailea ez bada aurkitu, errore-mezua erakutsi
-	                    JOptionPane.showMessageDialog(null, "Hornitzailea ez da aurkitu ID honekin: " + idProduktua, "Errorea", JOptionPane.ERROR_MESSAGE);
+	                    JOptionPane.showMessageDialog(null, "Produktuka ez da aurkitu ID honekin: " + idProduktua, "Errorea", JOptionPane.ERROR_MESSAGE);
 	                }
 	            }
 		});

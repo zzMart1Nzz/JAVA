@@ -106,13 +106,6 @@ public class ProdPrestPanela extends JFrame {
         btnAtera.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         contentPane.add(btnAtera);
 
-
-
-        JLabel lblNewLabel_1 = new JLabel("Administratzailea");
-        lblNewLabel_1.setBounds(731, 419, 247, 32);
-        lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 28));
-        contentPane.add(lblNewLabel_1);
-
     	 JLabel birkargatuIko = new JLabel("");
          birkargatuIko.setIcon(new ImageIcon(ProdPrestPanela.class.getResource("/media/birkargatu(1).png")));
          birkargatuIko.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));

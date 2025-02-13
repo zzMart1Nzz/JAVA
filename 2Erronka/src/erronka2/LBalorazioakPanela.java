@@ -31,7 +31,6 @@ public class LBalorazioakPanela extends JFrame {
     private JPanel contentPane;
     private JTable table;
     private kudeaketaBalorazioak dao;
-    private JTextField txt_id;
 
     /**
      * Launch the application.
@@ -107,13 +106,6 @@ public class LBalorazioakPanela extends JFrame {
         btnAtera.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         contentPane.add(btnAtera);
 
-
-
-        JLabel lblNewLabel_1 = new JLabel("Administratzailea");
-        lblNewLabel_1.setBounds(731, 419, 247, 32);
-        lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 28));
-        contentPane.add(lblNewLabel_1);
-
     	 JLabel birkargatuIko = new JLabel("");
          birkargatuIko.setIcon(new ImageIcon(LBalorazioakPanela.class.getResource("/media/birkargatu(1).png")));
          birkargatuIko.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -127,44 +119,6 @@ public class LBalorazioakPanela extends JFrame {
         	        table.setModel(model);  // Taula eguneratu modelo berriarekin
         	    }
         	});
-
-
-        txt_id = new JTextField();
-        txt_id.setBounds(345, 397, 297, 20);
-        contentPane.add(txt_id);
-        txt_id.setColumns(10);
-
-        JLabel ezabatuIkonoa = new JLabel("");
-        ezabatuIkonoa.setIcon(new ImageIcon(LBalorazioakPanela.class.getResource("/media/ezabatu(1).png")));
-        ezabatuIkonoa.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        ezabatuIkonoa.setBounds(652, 392, 35, 35);
-        contentPane.add(ezabatuIkonoa);
-        ezabatuIkonoa.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                try {
-                	// ID-a hartu
-	                int idBalorazioa = Integer.parseInt(txt_id.getText());
-
-	                // Hornitzailea bilatu ID-a erabiliz
-	                Balorazioa balorazioa = lortuBalorazioaIdarekin(idBalorazioa);
-
-	                if (balorazioa != null) {
-
-	                	ezabatuBalorazioa(idBalorazioa); // Produktua ezabatu
-	                	List<Balorazioa> lista = dao.lortuBalorazioak();
-	         	        BalorazioakTaula model = new BalorazioakTaula(lista);
-	         	        table.setModel(model);  // Taula eguneratu modelo berriarekin
-	                } else {
-	                    // Hornitzailea ez bada aurkitu, errore-mezua erakutsi
-	                    JOptionPane.showMessageDialog(null, "Bezeroa ez da aurkitu ID honekin: " + idBalorazioa, "Errorea", JOptionPane.ERROR_MESSAGE);
-	                }
-
-                } catch (NumberFormatException ex) {
-                    JOptionPane.showMessageDialog(null, "ID-a zenbaki baliodun bat izan behar du.", "Errorea", JOptionPane.ERROR_MESSAGE);
-                }
-            }
-        });
 
 
                 JLabel lblNewLabel = new JLabel("");
@@ -196,7 +150,7 @@ public class LBalorazioakPanela extends JFrame {
                 List<Balorazioa> lista = dao.lortuBalorazioak();
                 BalorazioakTaula model = new BalorazioakTaula(lista);
                 table.setModel(model);  // Taula eguneratu modelo berriarekin
-                txt_id.setText("");
+               
             }
         }
 

@@ -107,13 +107,6 @@ public class BezeroakPanela extends JFrame {
         btnAtera.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         contentPane.add(btnAtera);
 
-
-
-        JLabel lblNewLabel_1 = new JLabel("Administratzailea");
-        lblNewLabel_1.setBounds(731, 419, 247, 32);
-        lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 28));
-        contentPane.add(lblNewLabel_1);
-
     	 JLabel birkargatuIko = new JLabel("");
          birkargatuIko.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\birkargatu(1).png"));
          birkargatuIko.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
