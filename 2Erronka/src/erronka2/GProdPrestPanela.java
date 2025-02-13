@@ -22,6 +22,7 @@ import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
+import eragiketak.fakturaEskaera;
 import kudeaketak.kudeaketaProdPrest;
 import taulak.ProdPrestTaula;
 
