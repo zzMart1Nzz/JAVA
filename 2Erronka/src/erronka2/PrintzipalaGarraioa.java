@@ -145,12 +145,6 @@ public class PrintzipalaGarraioa extends JFrame {
 		btnSaioaItxi.setBounds(0, 423, 110, 32);
 		contentPane.add(btnSaioaItxi);
 
-
-        JLabel lblNewLabel_1 = new JLabel("Garraiolaria");
-        lblNewLabel_1.setBounds(804, 423, 174, 32);
-        lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 28));
-        contentPane.add(lblNewLabel_1);
-
     	 JLabel birkargatuIko = new JLabel("");
          birkargatuIko.setIcon(new ImageIcon(PrintzipalaGarraioa.class.getResource("/media/birkargatu(1).png")));
          birkargatuIko.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));

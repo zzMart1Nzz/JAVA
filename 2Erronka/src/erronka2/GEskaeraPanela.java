@@ -68,8 +68,8 @@ public class GEskaeraPanela extends JFrame {
             @Override
 			public void actionPerformed(ActionEvent e) {
                 dispose();
-                Printzipala p = new Printzipala();
-                p.setVisible(true);
+                PrintzipalaGerentea pg = new PrintzipalaGerentea();
+                pg.setVisible(true);
             }
         });
         contentPane.setLayout(null);

@@ -4,12 +4,12 @@ package erronka2;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.EventQueue;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.List;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -18,14 +18,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
 import kudeaketak.kudeaketaPiezaEsk;
 import taulak.PiezaEskTaula;
-import eragiketak.aldaketaPiezenEsk;
-import eragiketak.sartuPiezaEsk;
 
 public class LPiezaEskPanela extends JFrame {
 
@@ -78,8 +75,8 @@ public class LPiezaEskPanela extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                Printzipala p = new Printzipala();
-                p.setVisible(true);
+                PrintzipalaLangilea pl = new PrintzipalaLangilea();
+                pl.setVisible(true);
             }
         });
         btnAtzera.setIcon(new ImageIcon(LPiezaEskPanela.class.getResource("/media/atzera 2(2).png")));
@@ -148,8 +145,8 @@ public class LPiezaEskPanela extends JFrame {
             List<PiezaEskaera> lista = dao.lortuPiezaEsk();
             PiezaEskTaula model = new PiezaEskTaula(lista);
             table.setModel(model);  // Taula eguneratu modelo berriarekin
-            
-            
+
+
             JOptionPane.showMessageDialog(null, "Produktua ezabatuta izan da.");
         }
     }

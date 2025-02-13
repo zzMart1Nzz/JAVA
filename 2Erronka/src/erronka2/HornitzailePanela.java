@@ -24,7 +24,6 @@ import javax.swing.border.EmptyBorder;
 import eragiketak.aldaketaHornitzaileak;
 import kudeaketak.kudeaketaHornitzaileak;
 import taulak.HornitzaileakTaula;
-import taulak.PiezaEskTaula;
 
 public class HornitzailePanela extends JFrame {
     private static final long serialVersionUID = 1L;

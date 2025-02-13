@@ -3,7 +3,6 @@ package erronka2;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.EventQueue;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -18,7 +17,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
@@ -66,8 +64,8 @@ public class GEskHistorikoPanela extends JFrame {
             @Override
 			public void actionPerformed(ActionEvent e) {
                 dispose();
-                Printzipala p = new Printzipala();
-                p.setVisible(true);
+                PrintzipalaGerentea pg = new PrintzipalaGerentea();
+                pg.setVisible(true);
             }
         });
         contentPane.setLayout(null);

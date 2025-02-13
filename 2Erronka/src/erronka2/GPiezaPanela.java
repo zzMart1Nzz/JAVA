@@ -3,7 +3,6 @@ package erronka2;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.EventQueue;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -69,8 +68,8 @@ public class GPiezaPanela extends JFrame {
             @Override
 			public void actionPerformed(ActionEvent e) {
                 dispose();
-                Printzipala p = new Printzipala();
-                p.setVisible(true);
+                PrintzipalaGerentea pg = new PrintzipalaGerentea();
+                pg.setVisible(true);
             }
         });
         contentPane.setLayout(null);
@@ -220,13 +219,13 @@ public class GPiezaPanela extends JFrame {
                 JOptionPane.showMessageDialog(null, "Errore bat gertatu da produktu ezabatu ezin izan delako.", "Errorea", JOptionPane.ERROR_MESSAGE);
             } else {
 
-               
+
                 // Taula berritu
                 List<Pieza> lista = dao.lortuPiezak();
                 PiezakTaula model = new PiezakTaula(lista);
                 table.setModel(model);  // Taula eguneratu modelo berriarekin
                 txt_id.setText("");
-                
+
                 JOptionPane.showMessageDialog(null, "Produktua ezabatuta izan da.");
 
             }

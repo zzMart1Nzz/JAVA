@@ -18,12 +18,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
-import eragiketak.aldaketaPiezak;
-import eragiketak.sartuPiezak;
 import kudeaketak.kudeaketaPiezak;
 import taulak.PiezakTaula;
 
@@ -68,8 +65,8 @@ public class LPiezaPanela extends JFrame {
             @Override
 			public void actionPerformed(ActionEvent e) {
                 dispose();
-                Printzipala p = new Printzipala();
-                p.setVisible(true);
+                PrintzipalaLangilea pl = new PrintzipalaLangilea();
+                pl.setVisible(true);
             }
         });
         contentPane.setLayout(null);
@@ -153,13 +150,13 @@ public class LPiezaPanela extends JFrame {
                 JOptionPane.showMessageDialog(null, "Errore bat gertatu da produktu ezabatu ezin izan delako.", "Errorea", JOptionPane.ERROR_MESSAGE);
             } else {
 
-               
+
                 // Taula berritu
                 List<Pieza> lista = dao.lortuPiezak();
                 PiezakTaula model = new PiezakTaula(lista);
                 table.setModel(model);  // Taula eguneratu modelo berriarekin
-                
-                
+
+
                 JOptionPane.showMessageDialog(null, "Produktua ezabatuta izan da.");
 
             }

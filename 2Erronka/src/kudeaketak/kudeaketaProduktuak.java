@@ -1,7 +1,5 @@
 package kudeaketak;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -49,7 +47,7 @@ public class kudeaketaProduktuak {
             rs.getString("erresoluzioa"),
             rs.getString("frekuentzia"),
             rs.getString("kolorea"),
-            rs.getDouble("salmentaPrezioa"), 
+            rs.getDouble("salmentaPrezioa"),
             rs.getInt("stock")
         );
     }
@@ -67,11 +65,12 @@ public class kudeaketaProduktuak {
     }
 
     public void eguneratuProduktua(Produktua produktua) {
+    	System.out.println(produktua.getSalmentaPrezioa());
         String sql = "UPDATE produktua SET marka = ?, modeloa = ?, memoria = ?, ram = ?, prozesagailua = ?, tamaina = ?, sistemaEragilea = ?, kamara = ?, erresoluzioa = ?, frekuentzia = ?, kolorea = ?, salmentaPrezioa = ?, stock = ? WHERE idProduktua = ?";
 
         try (Connection conn = DBKonexioa.konexioaEgin();
              PreparedStatement ps = conn.prepareStatement(sql)) {
-            mapProduktuaToPreparedStatement(produktua, ps);
+            mapProduktuaToPreparedStatementUP(produktua, ps);
             ps.setInt(14, produktua.getId());  // Establecemos el ID para la actualización
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -110,6 +109,23 @@ public class kudeaketaProduktuak {
         ps.setString(12, produktua.getKolorea());
         ps.setDouble(13, produktua.getSalmentaPrezioa());
         ps.setInt(14, produktua.getStock());
+    }
+    private void mapProduktuaToPreparedStatementUP(Produktua produktua, PreparedStatement ps) throws SQLException {
+        
+        ps.setString(1, produktua.getMarka());
+        ps.setString(2, produktua.getModeloa());
+        ps.setString(3, produktua.getMemoria());
+        ps.setString(4, produktua.getRam());
+        ps.setString(5, produktua.getProzesagailua());
+        ps.setString(6, produktua.getTamaina());
+        ps.setString(7, produktua.getSistemaEragilea());
+        ps.setString(8, produktua.getKamara());
+        ps.setString(9, produktua.getErresoluzioa());
+        ps.setString(10, produktua.getFrekuentzia());
+        ps.setString(11, produktua.getKolorea());
+        ps.setDouble(12, produktua.getSalmentaPrezioa());
+        ps.setInt(13, produktua.getStock());
+        ps.setInt(14, produktua.getProduktuMotaId());
     }
 }
 

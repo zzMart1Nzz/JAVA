@@ -28,7 +28,7 @@ public class aldaketaPiezak extends JFrame {
     private JLabel okIkonoa;
     private JLabel lblID;
     private JLabel lblid;
-    
+
     /**
      * Abian jarri aplikazioa.
      */
@@ -175,7 +175,7 @@ public class aldaketaPiezak extends JFrame {
 
         // Interfazean fondo baten gehitzea
         lblNewLabel = new JLabel("New label");
-        lblNewLabel.setIcon(new ImageIcon(aldaketaLangileak.class.getResource("/media/UTech java fondoa 1(2).png")));;
+        lblNewLabel.setIcon(new ImageIcon(aldaketaLangileak.class.getResource("/media/UTech java fondoa 1(2).png")));
         lblNewLabel.setBounds(0, 0, 988, 445);
         contentPane.add(lblNewLabel);
     }

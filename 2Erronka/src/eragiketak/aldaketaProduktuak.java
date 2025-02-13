@@ -5,8 +5,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -19,7 +17,6 @@ import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
 import erronka2.Produktua;
-import kudeaketak.kudeaketaPiezak;
 import kudeaketak.kudeaketaProduktuak;
 
 public class aldaketaProduktuak extends JFrame {
@@ -127,7 +124,7 @@ public class aldaketaProduktuak extends JFrame {
         lblid.setFont(new Font("Tahoma", Font.BOLD, 14));
         lblid.setBounds(149, 11, 80, 25);
         contentPane.add(lblid);
-        lblid.setText(String.valueOf(produktua.getId())); // Hornitzailearen ID-a erakustea
+        lblid.setText(String.valueOf(produktua.getId())); 
 
         // Atzera botoia
         btnAtzera = new JButton("");
@@ -186,7 +183,7 @@ public class aldaketaProduktuak extends JFrame {
                      produktua.setKolorea(kolorea);
                      produktua.setSalmentaPrezioa(salmentaPrezioa);
                      produktua.setStock(stock);
-                     
+
 
                      // Hornitzailea datu-basean eguneratzea
                      kudeaketaProduktuak kudeaketa = new kudeaketaProduktuak();

@@ -115,7 +115,7 @@ public class sartuPiezaEsk extends JFrame {
 		            int idHornitzailea = Integer.parseInt(txt_idHornitzailea.getText());
 		            int idPieza = Integer.parseInt(txt_idPieza.getText());
 		            int kopurua = Integer.parseInt(txt_kopurua.getText());
-		           
+
 
 		            // 2. PiezaEskaera objektua sortu
 		            PiezaEskaera piezaEskaera = new PiezaEskaera(0, idHornitzailea, idPieza, kopurua, null);
@@ -125,7 +125,7 @@ public class sartuPiezaEsk extends JFrame {
 		            kudeaketa.sortuPiezaEskaera(piezaEskaera);
 
 		            // 4. Eraginaren arrakasta adierazi
-		       
+
 		            JOptionPane.showMessageDialog(null, "PiezaEskaera ondo sartu da.");
 		        } catch (Exception ex) {
 		            // Huts-egiteak erakutsi
@@ -150,7 +150,7 @@ public class sartuPiezaEsk extends JFrame {
 	    txt_idHornitzailea.setText("");
 	    txt_idPieza.setText("");
 	    txt_kopurua.setText("");
-	    
+
 
 	}
 }

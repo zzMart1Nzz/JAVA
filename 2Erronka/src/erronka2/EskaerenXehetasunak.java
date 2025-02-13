@@ -1,7 +1,6 @@
 package erronka2;
 
 import java.sql.Timestamp;
-import java.util.Objects;
 
 public class EskaerenXehetasunak {
 
@@ -12,8 +11,8 @@ public class EskaerenXehetasunak {
 	private double prezioa;
 	private Timestamp data;
 	private int idBezeroa;
-	
-	
+
+
 	//KONSTRUKTOREAK
 	public EskaerenXehetasunak(int idEskaeraproduktua, String fraZkia, int idProduktua, int kopurua, double prezioa,
 			Timestamp data, int idBezeroa) {

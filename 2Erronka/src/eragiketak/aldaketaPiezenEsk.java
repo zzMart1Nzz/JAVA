@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.Timestamp;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -15,6 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
+
 import erronka2.PiezaEskaera;
 import kudeaketak.kudeaketaPiezaEsk;
 
@@ -128,17 +130,17 @@ public class aldaketaPiezenEsk extends JFrame {
                     int idHornitzailea = Integer.parseInt(txt_idHornitzailea.getText());
                     int idPieza = Integer.parseInt(txt_idPieza.getText());
                     int kopurua = Integer.parseInt(txt_kopurua.getText());
-                    Timestamp data = Timestamp.valueOf(txt_data.getText()); 
+                    Timestamp data = Timestamp.valueOf(txt_data.getText());
 
                     // Realizar alguna acción con los datos (actualización de base de datos, etc.)
                     piezaEsk.setHornitzaile_idHornitzailea(idHornitzailea);
                     piezaEsk.setPieza_idPieza(idPieza); // Asegúrate de usar el método correcto
                     piezaEsk.setKopurua(kopurua);
                     piezaEsk.setData(data);
-                    
+
                     kudeaketaPiezaEsk kudeaketa = new kudeaketaPiezaEsk();
                     kudeaketa.eguneratuPiezaEskaera(piezaEsk);
-                            
+
                     // Mostrar mensaje de éxito
                     JOptionPane.showMessageDialog(null, "Aldaketak ondo gorde dira.");
                 }

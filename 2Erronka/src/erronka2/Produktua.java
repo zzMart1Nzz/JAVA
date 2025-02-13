@@ -1,7 +1,5 @@
 package erronka2;
 
-import java.math.BigDecimal;
-
 public class Produktua {
 
     private int id;
@@ -19,7 +17,7 @@ public class Produktua {
     private String kolorea;
     private Double salmentaPrezioa;
     private int stock;
-    
+
     //KONSTRUKTOREAK
 	public Produktua(int id, int produktuMotaId, String marka, String modeloa, String memoria, String ram,
 			String prozesagailua, String tamaina, String sistemaEragilea, String kamara, String erresoluzioa,
@@ -161,5 +159,5 @@ public class Produktua {
 		this.stock = stock;
 	}
 
-    
+
 }

@@ -23,7 +23,6 @@ import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
 import eragiketak.aldaketaProduktuak;
-import eragiketak.sartuLangileak;
 import eragiketak.sartuProduktuak;
 import kudeaketak.kudeaketaProduktuak;
 import taulak.ProduktuakTaula;
@@ -193,7 +192,7 @@ public class ProduktuakPanela extends JFrame {
                 }
             }
         });
-        
+
         JLabel gehituIkonoa = new JLabel("");
         gehituIkonoa.setIcon(new ImageIcon(ProduktuakPanela.class.getResource("/media/gehitu(1).png")));
         gehituIkonoa.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -206,8 +205,8 @@ public class ProduktuakPanela extends JFrame {
             	spr.setVisible(true);
             }
         });
-        
-        
+
+
                 JLabel lblNewLabel = new JLabel("");
                 lblNewLabel.setBounds(0, 0, 988, 445);
                 lblNewLabel.setIcon(new ImageIcon(ProduktuakPanela.class.getResource("/media/UTech java fondoa 1(2).png")));
@@ -227,11 +226,11 @@ public class ProduktuakPanela extends JFrame {
             boolean isDeleted = dao.ezabatuProduktua(idProduktua);  // Deitu `ezabatuProduktua` metodoari
 
             if (isDeleted) {
-
-                JOptionPane.showMessageDialog(null, "Errore bat gertatu da produktu ezabatu ezin izan delako.", "Errorea", JOptionPane.ERROR_MESSAGE);
-            } else {
-
                 JOptionPane.showMessageDialog(null, "Produktua ezabatuta izan da.");
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Errore bat gertatu da produktu ezabatu ezin izan delako.", "Errorea", JOptionPane.ERROR_MESSAGE);
+
 
                 // Taula berritu
                 List<Produktua> lista = dao.lortuProduktuak();

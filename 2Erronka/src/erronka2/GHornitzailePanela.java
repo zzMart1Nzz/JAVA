@@ -24,7 +24,6 @@ import javax.swing.border.EmptyBorder;
 import eragiketak.aldaketaHornitzaileak;
 import kudeaketak.kudeaketaHornitzaileak;
 import taulak.HornitzaileakTaula;
-import taulak.PiezaEskTaula;
 
 public class GHornitzailePanela extends JFrame {
     private static final long serialVersionUID = 1L;
@@ -87,8 +86,8 @@ public class GHornitzailePanela extends JFrame {
         	@Override
 			public void actionPerformed(ActionEvent e) {
         		 dispose();
-                 Printzipala p = new Printzipala();
-                 p.setVisible(true);
+                 PrintzipalaGerentea pg = new PrintzipalaGerentea();
+                 pg.setVisible(true);
         	}
         });
         btnAtzera.setIcon(new ImageIcon(GHornitzailePanela.class.getResource("/media/atzera 2(2).png")));

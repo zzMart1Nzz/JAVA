@@ -1,7 +1,9 @@
 package taulak;
 
 import java.util.List;
+
 import javax.swing.table.AbstractTableModel;
+
 import erronka2.PiezaEskaera;
 
 public class PiezaEskTaula extends AbstractTableModel {

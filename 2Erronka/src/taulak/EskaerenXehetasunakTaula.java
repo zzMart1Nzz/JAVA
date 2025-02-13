@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
-
 import erronka2.EskaerenXehetasunak;
 
 public class EskaerenXehetasunakTaula extends AbstractTableModel {

@@ -68,8 +68,8 @@ public class LEskaeraPanela extends JFrame {
             @Override
 			public void actionPerformed(ActionEvent e) {
                 dispose();
-                Printzipala p = new Printzipala();
-                p.setVisible(true);
+                PrintzipalaLangilea pl = new PrintzipalaLangilea();
+                pl.setVisible(true);
             }
         });
         contentPane.setLayout(null);

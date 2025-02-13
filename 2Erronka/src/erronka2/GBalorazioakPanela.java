@@ -3,7 +3,6 @@ package erronka2;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.EventQueue;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -67,8 +66,8 @@ public class GBalorazioakPanela extends JFrame {
             @Override
 			public void actionPerformed(ActionEvent e) {
                 dispose();
-                Printzipala p = new Printzipala();
-                p.setVisible(true);
+                PrintzipalaGerentea pg = new PrintzipalaGerentea();
+                pg.setVisible(true);
             }
         });
         contentPane.setLayout(null);

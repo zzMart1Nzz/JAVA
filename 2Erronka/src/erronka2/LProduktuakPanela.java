@@ -23,8 +23,6 @@ import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
 import eragiketak.aldaketaProduktuak;
-import eragiketak.sartuLangileak;
-import eragiketak.sartuProduktuak;
 import kudeaketak.kudeaketaProduktuak;
 import taulak.ProduktuakTaula;
 
@@ -70,8 +68,8 @@ public class LProduktuakPanela extends JFrame {
             @Override
 			public void actionPerformed(ActionEvent e) {
                 dispose();
-                Printzipala p = new Printzipala();
-                p.setVisible(true);
+                PrintzipalaLangilea pl = new PrintzipalaLangilea();
+                pl.setVisible(true);
             }
         });
         contentPane.setLayout(null);
@@ -161,8 +159,8 @@ public class LProduktuakPanela extends JFrame {
         txt_id.setBounds(345, 397, 297, 20);
         contentPane.add(txt_id);
         txt_id.setColumns(10);
-        
-        
+
+
                 JLabel lblNewLabel = new JLabel("");
                 lblNewLabel.setBounds(0, 0, 988, 445);
                 lblNewLabel.setIcon(new ImageIcon(LProduktuakPanela.class.getResource("/media/UTech java fondoa 1(2).png")));

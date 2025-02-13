@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.List;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -22,10 +23,10 @@ import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
-import kudeaketak.kudeaketaPiezaEsk;
-import taulak.PiezaEskTaula;
 import eragiketak.aldaketaPiezenEsk;
 import eragiketak.sartuPiezaEsk;
+import kudeaketak.kudeaketaPiezaEsk;
+import taulak.PiezaEskTaula;
 
 public class GPiezaEskPanela extends JFrame {
 
@@ -79,8 +80,8 @@ public class GPiezaEskPanela extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                Printzipala p = new Printzipala();
-                p.setVisible(true);
+                PrintzipalaGerentea pg = new PrintzipalaGerentea();
+                pg.setVisible(true);
             }
         });
         btnAtzera.setIcon(new ImageIcon(GPiezaEskPanela.class.getResource("/media/atzera 2(2).png")));
@@ -219,7 +220,7 @@ public class GPiezaEskPanela extends JFrame {
             PiezaEskTaula model = new PiezaEskTaula(lista);
             table.setModel(model);  // Taula eguneratu modelo berriarekin
             txt_id.setText("");
-            
+
             JOptionPane.showMessageDialog(null, "Produktua ezabatuta izan da.");
         }
     }

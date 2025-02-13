@@ -138,7 +138,7 @@ public class sartuPiezak extends JFrame {
 		    @Override
 			public void actionPerformed(ActionEvent e) {
 		        // Formularioan dauden datuak jasotzea
-		        
+
 		        int kategoria = Integer.parseInt(txt_kategoria.getText());  // Datuak egokitu behar dira
 		        String marka = txt_marka.getText();
 		        String modeloa = txt_modeloa.getText();
@@ -148,12 +148,12 @@ public class sartuPiezak extends JFrame {
 
 		        // Pieza objektu bat sortu
 		        Pieza pieza = new Pieza(
-		        		0, 
-		        		kategoria, 
-		        		marka, 
-		        		modeloa, 
-		        		ezaugarriak, 
-		        		erosketaPrezioa, 
+		        		0,
+		        		kategoria,
+		        		marka,
+		        		modeloa,
+		        		ezaugarriak,
+		        		erosketaPrezioa,
 		        		stock);
 
 		        // kudeaketaPiezak klasea erabili pieza datu-basean sartzeko
@@ -171,18 +171,18 @@ public class sartuPiezak extends JFrame {
 		btn_aldatu.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btn_aldatu.setBounds(803, 324, 35, 35);
 		contentPane.add(btn_aldatu);
-		
+
 		txt_stock = new JTextField();
 		txt_stock.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txt_stock.setColumns(10);
 		txt_stock.setBounds(721, 223, 106, 20);
 		contentPane.add(txt_stock);
-		
+
 		JLabel lblNewLabel_2_1_4_1 = new JLabel("Stock:");
 		lblNewLabel_2_1_4_1.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel_2_1_4_1.setBounds(721, 198, 71, 14);
 		contentPane.add(lblNewLabel_2_1_4_1);
-		
+
 				JLabel lblNewLabel = new JLabel("");
 				lblNewLabel.setIcon(new ImageIcon(sartuPiezak.class.getResource("/media/UTech java fondoa 1(2).png")));
 				lblNewLabel.setBounds(0, 0, 988, 445);
@@ -190,7 +190,7 @@ public class sartuPiezak extends JFrame {
 	}
 
 	private void garbitu() {
-	    
+
 	    txt_kategoria.setText("");
 	    txt_marka.setText("");
 	    txt_modeloa.setText("");

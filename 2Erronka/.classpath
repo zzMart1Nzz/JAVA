@@ -7,31 +7,31 @@
 	</classpathentry>
 	<classpathentry excluding="resources/media/" kind="src" path="src"/>
 	<classpathentry kind="src" path="resources"/>
-	<classpathentry kind="lib" path="C:/Users/benat/OneDrive/Desktop/mysql-connector-j-9.1.0/mysql-connector-j-9.1.0.jar">
+	<classpathentry kind="lib" path="C:/Users/anere/OneDrive - Goierri Eskola/Escritorio/UTechJava/JAVA/2Erronka/resources/Lib/commons-logging-1.2.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/benat/Downloads/pdfbox-2.0.19.jar">
+	<classpathentry kind="lib" path="C:/Users/anere/OneDrive - Goierri Eskola/Escritorio/UTechJava/JAVA/2Erronka/resources/Lib/commons-net-3.11.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/anere/OneDrive - Goierri Eskola/Escritorio/UTechJava/JAVA/2Erronka/resources/Lib/fontbox-2.0.19.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/benat/Downloads/commons-logging-1.2.jar">
+	<classpathentry kind="lib" path="C:/Users/anere/OneDrive - Goierri Eskola/Escritorio/UTechJava/JAVA/2Erronka/resources/Lib/mysql-connector-j-9.2.0.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/benat/Downloads/pdfbox-tools-2.0.19.jar">
+	<classpathentry kind="lib" path="C:/Users/anere/OneDrive - Goierri Eskola/Escritorio/UTechJava/JAVA/2Erronka/resources/Lib/pdfbox-2.0.19.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/benat/Downloads/fontbox-2.0.19.jar">
+	<classpathentry kind="lib" path="C:/Users/anere/OneDrive - Goierri Eskola/Escritorio/UTechJava/JAVA/2Erronka/resources/Lib/pdfbox-tools-2.0.19.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/benat/Downloads/commons-net-3.11.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

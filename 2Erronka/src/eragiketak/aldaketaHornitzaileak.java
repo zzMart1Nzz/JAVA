@@ -1,5 +1,6 @@
 package eragiketak;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,7 +19,6 @@ import javax.swing.border.EmptyBorder;
 
 import erronka2.Hornitzailea;
 import kudeaketak.kudeaketaHornitzaileak;
-import java.awt.Color;
 
 public class aldaketaHornitzaileak extends JFrame {
     private JPanel contentPane;
