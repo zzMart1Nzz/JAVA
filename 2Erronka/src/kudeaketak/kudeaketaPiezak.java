@@ -44,7 +44,7 @@ public class kudeaketaPiezak {
     }
 
     public void sortuPieza(Pieza pieza) {
-        String sql = "INSERT INTO pieza (kategoria, marka, modeloa, ezaugarriak, erosketaPrezioa, Stock) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO pieza (kategoria, marka, modeloa, ezaugarriak, erosketaPrezioa, stock) VALUES (?, ?, ?, ?, ?, ?)";
 
         try (Connection conn = DBKonexioa.konexioaEgin();
              PreparedStatement ps = conn.prepareStatement(sql)) {
@@ -56,7 +56,7 @@ public class kudeaketaPiezak {
     }
 
     public void eguneratuPieza(Pieza pieza) {
-        String sql = "UPDATE pieza  marka = ?, modeloa = ?, ezaugarriak = ?, erosketaPrezioa = ?, Stock = ? WHERE idPieza = ?";
+        String sql = "UPDATE pieza SET kategoria = ?, marka = ?, modeloa = ?, ezaugarriak = ?, erosketaPrezioa = ?, Stock = ? WHERE idPieza = ?";
 
         try (Connection conn = DBKonexioa.konexioaEgin();
              PreparedStatement ps = conn.prepareStatement(sql)) {
@@ -81,10 +81,11 @@ public class kudeaketaPiezak {
     }
 
     private void mapPiezaToPreparedStatement(Pieza pieza, PreparedStatement ps) throws SQLException {
-        ps.setString(1, pieza.getMarka());
-        ps.setString(2, pieza.getModeloa());
-        ps.setString(3, pieza.getEzaugarriak());
-        ps.setDouble(4, pieza.getErosketaPrezioa());
-        ps.setInt(5, pieza.getStock());
+    	ps.setInt(1, pieza.getKategoria());
+        ps.setString(2, pieza.getMarka());
+        ps.setString(3, pieza.getModeloa());
+        ps.setString(4, pieza.getEzaugarriak());
+        ps.setDouble(5, pieza.getErosketaPrezioa());
+        ps.setInt(6, pieza.getStock());
     }
 }

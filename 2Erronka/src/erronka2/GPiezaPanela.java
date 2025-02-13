@@ -27,7 +27,6 @@ import eragiketak.sartuPiezak;
 import kudeaketak.kudeaketaPiezak;
 import taulak.PiezakTaula;
 
-
 public class GPiezaPanela extends JFrame {
 
     private static final long serialVersionUID = 1L;
@@ -70,8 +69,8 @@ public class GPiezaPanela extends JFrame {
             @Override
 			public void actionPerformed(ActionEvent e) {
                 dispose();
-                PrintzipalaGerentea pg = new PrintzipalaGerentea();
-                pg.setVisible(true);
+                Printzipala p = new Printzipala();
+                p.setVisible(true);
             }
         });
         contentPane.setLayout(null);
@@ -85,7 +84,7 @@ public class GPiezaPanela extends JFrame {
         scrollPane.setBounds(50, 73, 900, 300);
         contentPane.add(scrollPane);
 
-        btnAtzera.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\atzera 2(2).png"));
+        btnAtzera.setIcon(new ImageIcon(GPiezaPanela.class.getResource("/media/atzera 2(2).png")));
         btnAtzera.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         contentPane.add(btnAtzera);
 
@@ -104,64 +103,51 @@ public class GPiezaPanela extends JFrame {
                 }
             }
         });
-
-        JLabel birkargatuIko = new JLabel("");
-        birkargatuIko.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\birkargatu(1).png"));
-        birkargatuIko.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        birkargatuIko.setBounds(887, 32, 35, 35);
-        contentPane.add(birkargatuIko);
-        birkargatuIko.addMouseListener(new MouseAdapter () {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-
-				List<Pieza> lista = dao.lortuPiezak();
-		        PiezakTaula model = new PiezakTaula(lista);
-
-			}
-		});
-
-        JLabel aldatuIkonoa = new JLabel("");
-        aldatuIkonoa.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\editatu(1).png"));
-        aldatuIkonoa.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        aldatuIkonoa.setBounds(300, 392, 35, 35);
-        contentPane.add(aldatuIkonoa);
-        aldatuIkonoa.addMouseListener(new MouseAdapter () {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-
-				aldaketaPiezak ap = new aldaketaPiezak();
-				ap.setVisible(true);
-
-
-			}
-		});
-
-        btnAtera.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\itxi(2).png"));
+        btnAtera.setIcon(new ImageIcon(GPiezaPanela.class.getResource("/media/itxi(2).png")));
         btnAtera.setForeground(Color.WHITE);
         btnAtera.setBackground(new Color(255, 255, 255));
         btnAtera.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         contentPane.add(btnAtera);
 
-        JLabel plusIkonoa = new JLabel("");
-        plusIkonoa.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\gehitu(1).png"));
-        plusIkonoa.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        plusIkonoa.setBounds(61, 32, 35, 35);
-        contentPane.add(plusIkonoa);
-    	plusIkonoa.addMouseListener(new MouseAdapter () {
+        JLabel aldatuIkonoa = new JLabel("");
+        aldatuIkonoa.setIcon(new ImageIcon(GPiezaPanela.class.getResource("/media/editatu(1).png")));
+        aldatuIkonoa.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        aldatuIkonoa.setBounds(300, 392, 35, 35);
+        contentPane.add(aldatuIkonoa);
+        aldatuIkonoa.addMouseListener(new MouseAdapter () {
 			@Override
-			public void mouseClicked(MouseEvent e) {
+	            public void mouseClicked(MouseEvent e) {
+	                // ID-a hartu
+	                int idPieza = Integer.parseInt(txt_id.getText());
 
-				sartuPiezak sp = new sartuPiezak();
-				sp.setVisible(true);
+	                // Hornitzailea bilatu ID-a erabiliz
+	                Pieza pieza = lortuPiezaIdarekin(idPieza);
 
-
-			}
+	                if (pieza != null) {
+	                    // Hornitzailea aurkitu bada, datuak pasatzea eta AldaketaHornitzaileak erakustea
+	                    aldaketaPiezak ap = new aldaketaPiezak(pieza);
+	                    ap.setVisible(true);  // Erakutsi
+	                } else {
+	                    // Hornitzailea ez bada aurkitu, errore-mezua erakutsi
+	                    JOptionPane.showMessageDialog(null, "Eskatutako pieza ez da aurkitu ID honekin: " + idPieza, "Errorea", JOptionPane.ERROR_MESSAGE);
+	                }
+	            }
 		});
 
-        JLabel lblNewLabel_1 = new JLabel("Administratzailea");
-        lblNewLabel_1.setBounds(731, 419, 247, 32);
-        lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 28));
-        contentPane.add(lblNewLabel_1);
+    	 JLabel birkargatuIko = new JLabel("");
+         birkargatuIko.setIcon(new ImageIcon(GPiezaPanela.class.getResource("/media/birkargatu(1).png")));
+         birkargatuIko.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+         birkargatuIko.setBounds(887, 32, 35, 35);
+         contentPane.add(birkargatuIko);
+         birkargatuIko.addMouseListener(new MouseAdapter() {
+        	    @Override
+        	    public void mouseClicked(MouseEvent e) {
+        	        List<Pieza> lista = dao.lortuPiezak();
+        	        PiezakTaula model = new PiezakTaula(lista);
+        	        table.setModel(model);  // Taula eguneratu modelo berriarekin
+        	    }
+        	});
+
 
         txt_id = new JTextField();
         txt_id.setBounds(345, 397, 297, 20);
@@ -169,14 +155,82 @@ public class GPiezaPanela extends JFrame {
         txt_id.setColumns(10);
 
         JLabel ezabatuIkonoa = new JLabel("");
-        ezabatuIkonoa.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\ezabatu(1).png"));
+        ezabatuIkonoa.setIcon(new ImageIcon(GPiezaPanela.class.getResource("/media/ezabatu(1).png")));
         ezabatuIkonoa.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         ezabatuIkonoa.setBounds(652, 392, 35, 35);
         contentPane.add(ezabatuIkonoa);
+        ezabatuIkonoa.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                try {
+                	// ID-a hartu
+	                int idPieza = Integer.parseInt(txt_id.getText());
 
-        JLabel lblNewLabel = new JLabel("");
-        lblNewLabel.setBounds(0, 0, 988, 445);
-        lblNewLabel.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\UTech java fondoa 1(2).png"));
-        contentPane.add(lblNewLabel);
+	                // Hornitzailea bilatu ID-a erabiliz
+	                Pieza pieza = lortuPiezaIdarekin(idPieza);
+
+	                if (pieza != null) {
+
+	                	ezabatuPieza(idPieza); // Produktua ezabatu
+	                } else {
+	                    // Hornitzailea ez bada aurkitu, errore-mezua erakutsi
+	                    JOptionPane.showMessageDialog(null, "Produktua ez da aurkitu ID honekin: " + idPieza, "Errorea", JOptionPane.ERROR_MESSAGE);
+	                }
+
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(null, "ID-a zenbaki baliodun bat izan behar du.", "Errorea", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
+
+        JLabel gehituIkonoa = new JLabel("");
+        gehituIkonoa.setIcon(new ImageIcon(GPiezaPanela.class.getResource("/media/gehitu(1).png")));
+        gehituIkonoa.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        gehituIkonoa.setBounds(65, 27, 35, 35);
+        contentPane.add(gehituIkonoa);
+        gehituIkonoa.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+            	sartuPiezak spe = new sartuPiezak();
+            	spe.setVisible(true);
+            }
+        });
+
+
+                JLabel lblNewLabel = new JLabel("");
+                lblNewLabel.setBounds(0, 0, 988, 445);
+                lblNewLabel.setIcon(new ImageIcon(GPiezaPanela.class.getResource("/media/UTech java fondoa 1(2).png")));
+                contentPane.add(lblNewLabel);
     }
-}
+        // Hornitzailea ID-a erabiliz bilatzeko metodoa
+        private Pieza lortuPiezaIdarekin(int idPieza) {
+            List<Pieza> piezak = dao.lortuPiezak();  // Hornitzaileak lortu
+            for (Pieza pieza : piezak) {
+                if (pieza.getIdPieza()==idPieza) {
+                    return pieza;  // Aurkitu bada, hornitzailea bueltatzen da
+                }
+            }
+            return null;  // Ez badago, null itzultzen da
+        }
+        private void ezabatuPieza(int idPiezaEsk) {
+            boolean isDeleted = dao.ezabatuPieza(idPiezaEsk);  // Deitu `ezabatuProduktua` metodoari
+
+            if (isDeleted) {
+
+                JOptionPane.showMessageDialog(null, "Errore bat gertatu da produktu ezabatu ezin izan delako.", "Errorea", JOptionPane.ERROR_MESSAGE);
+            } else {
+
+               
+                // Taula berritu
+                List<Pieza> lista = dao.lortuPiezak();
+                PiezakTaula model = new PiezakTaula(lista);
+                table.setModel(model);  // Taula eguneratu modelo berriarekin
+                txt_id.setText("");
+                
+                JOptionPane.showMessageDialog(null, "Produktua ezabatuta izan da.");
+
+            }
+        }
+
+        }
+

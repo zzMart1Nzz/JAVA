@@ -22,15 +22,15 @@ import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
-import kudeaketak.kudeaketaBalorazioak;
-import taulak.BalorazioakTaula;
+import kudeaketak.kudeaketaEskaerenXehetasunak;
+import taulak.EskaerenXehetasunakTaula;
 
-public class LBalorazioakPanela extends JFrame {
+public class EskXehetasunakPanela extends JFrame {
 
     private static final long serialVersionUID = 1L;
     private JPanel contentPane;
     private JTable table;
-    private kudeaketaBalorazioak dao;
+    private kudeaketaEskaerenXehetasunak dao;
 
     /**
      * Launch the application.
@@ -40,7 +40,7 @@ public class LBalorazioakPanela extends JFrame {
             @Override
 			public void run() {
                 try {
-                    LBalorazioakPanela frame = new LBalorazioakPanela();
+                    EskXehetasunakPanela frame = new EskXehetasunakPanela();
                     frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -52,7 +52,7 @@ public class LBalorazioakPanela extends JFrame {
     /**
      * Create the frame.
      */
-    public LBalorazioakPanela() {
+    public EskXehetasunakPanela() {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setBounds(100, 100, 1000, 490);
         contentPane = new JPanel();
@@ -72,16 +72,16 @@ public class LBalorazioakPanela extends JFrame {
         });
         contentPane.setLayout(null);
 
-        dao = new kudeaketaBalorazioak();
-        List<Balorazioa> lista = dao.lortuBalorazioak();
-        BalorazioakTaula model = new BalorazioakTaula(lista);
+        dao = new kudeaketaEskaerenXehetasunak();
+        List<EskaerenXehetasunak> lista = dao.lortuEskaerenXehetasunak();
+        EskaerenXehetasunakTaula model = new EskaerenXehetasunakTaula(lista);
 
         table = new JTable(model);
         JScrollPane scrollPane = new JScrollPane(table);
         scrollPane.setBounds(50, 73, 900, 300);
         contentPane.add(scrollPane);
 
-        btnAtzera.setIcon(new ImageIcon(LBalorazioakPanela.class.getResource("/media/atzera 2(2).png")));
+        btnAtzera.setIcon(new ImageIcon(EskXehetasunakPanela.class.getResource("/media/atzera 2(2).png")));
         btnAtzera.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         contentPane.add(btnAtzera);
 
@@ -100,58 +100,29 @@ public class LBalorazioakPanela extends JFrame {
                 }
             }
         });
-        btnAtera.setIcon(new ImageIcon(LBalorazioakPanela.class.getResource("/media/itxi(2).png")));
+        btnAtera.setIcon(new ImageIcon(EskXehetasunakPanela.class.getResource("/media/itxi(2).png")));
         btnAtera.setForeground(Color.WHITE);
         btnAtera.setBackground(new Color(255, 255, 255));
         btnAtera.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         contentPane.add(btnAtera);
 
     	 JLabel birkargatuIko = new JLabel("");
-         birkargatuIko.setIcon(new ImageIcon(LBalorazioakPanela.class.getResource("/media/birkargatu(1).png")));
+         birkargatuIko.setIcon(new ImageIcon(EskXehetasunakPanela.class.getResource("/media/birkargatu(1).png")));
          birkargatuIko.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
          birkargatuIko.setBounds(887, 32, 35, 35);
          contentPane.add(birkargatuIko);
          birkargatuIko.addMouseListener(new MouseAdapter() {
-        	    @Override
-        	    public void mouseClicked(MouseEvent e) {
-        	        List<Balorazioa> lista = dao.lortuBalorazioak();
-        	        BalorazioakTaula model = new BalorazioakTaula(lista);
-        	        table.setModel(model);  // Taula eguneratu modelo berriarekin
-        	    }
-        	});
+     	    @Override
+     	    public void mouseClicked(MouseEvent e) {
+     	        List<EskaerenXehetasunak> lista = dao.lortuEskaerenXehetasunak();
+     	        EskaerenXehetasunakTaula model = new EskaerenXehetasunakTaula(lista);
+     	        table.setModel(model);  // Taula eguneratu modelo berriarekin
+     	    }
+     	});
 
-
-                JLabel lblNewLabel = new JLabel("");
-                lblNewLabel.setBounds(0, 0, 988, 445);
-                lblNewLabel.setIcon(new ImageIcon(LBalorazioakPanela.class.getResource("/media/UTech java fondoa 1(2).png")));
-                contentPane.add(lblNewLabel);
+        JLabel lblNewLabel = new JLabel("");
+        lblNewLabel.setBounds(0, 0, 988, 445);
+        lblNewLabel.setIcon(new ImageIcon(EskXehetasunakPanela.class.getResource("/media/UTech java fondoa 1(2).png")));
+        contentPane.add(lblNewLabel);
     }
-        // Hornitzailea ID-a erabiliz bilatzeko metodoa
-        private Balorazioa lortuBalorazioaIdarekin(int idBalorazioa) {
-            List<Balorazioa> balorazioak = dao.lortuBalorazioak();  // Hornitzaileak lortu
-            for (Balorazioa balorazioa : balorazioak) {
-                if (balorazioa.getIdBalorazioa()==idBalorazioa) {
-                    return balorazioa;  // Aurkitu bada, hornitzailea bueltatzen da
-                }
-            }
-            return null;  // Ez badago, null itzultzen da
-        }
-        private void ezabatuBalorazioa(int idBalorazioa) {
-            boolean isDeleted = dao.ezabatuBalorazioa(idBalorazioa);  // Deitu `ezabatuProduktua` metodoari
-
-            if (isDeleted) {
-
-                JOptionPane.showMessageDialog(null, "Errore bat gertatu da produktu ezabatu ezin izan delako.", "Errorea", JOptionPane.ERROR_MESSAGE);
-            } else {
-
-                JOptionPane.showMessageDialog(null, "Produktua ezabatuta izan da.");
-
-                // Taula berritu
-                List<Balorazioa> lista = dao.lortuBalorazioak();
-                BalorazioakTaula model = new BalorazioakTaula(lista);
-                table.setModel(model);  // Taula eguneratu modelo berriarekin
-               
-            }
-        }
-
-        }
+}

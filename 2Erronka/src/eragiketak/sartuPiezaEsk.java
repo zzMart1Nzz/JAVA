@@ -11,6 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
@@ -25,9 +26,7 @@ public class sartuPiezaEsk extends JFrame {
 	private JPanel contentPane;
 	private JTextField txt_idHornitzailea;
 	private JTextField txt_idPieza;
-	private JLabel lblNewLabel_2_1_3;
 	private JTextField txt_kopurua;
-	private JTextField txt_data;
 	private JButton btn_sartu;
 
 	/**
@@ -87,22 +86,11 @@ public class sartuPiezaEsk extends JFrame {
 		lblNewLabel_2_1.setBounds(296, 198, 71, 14);
 		contentPane.add(lblNewLabel_2_1);
 
-		lblNewLabel_2_1_3 = new JLabel("Data:");
-		lblNewLabel_2_1_3.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_2_1_3.setBounds(589, 195, 44, 20);
-		contentPane.add(lblNewLabel_2_1_3);
-
 		txt_kopurua = new JTextField();
 		txt_kopurua.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txt_kopurua.setColumns(10);
 		txt_kopurua.setBounds(296, 224, 106, 20);
 		contentPane.add(txt_kopurua);
-
-		txt_data = new JTextField();
-		txt_data.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		txt_data.setColumns(10);
-		txt_data.setBounds(589, 224, 106, 20);
-		contentPane.add(txt_data);
 
 		JButton btnAtzera = new JButton("");
 		btnAtzera.addActionListener(new ActionListener() {
@@ -111,12 +99,13 @@ public class sartuPiezaEsk extends JFrame {
 				dispose();
 			}
 		});
-		btnAtzera.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\atzera 2(2).png"));
+		btnAtzera.setIcon(new ImageIcon(sartuPiezaEsk.class.getResource("/media/atzera 2(2).png")));
 		btnAtzera.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAtzera.setBounds(0, 0, 55, 32);
 		contentPane.add(btnAtzera);
 
-		btn_sartu = new JButton("SARTU");
+		btn_sartu = new JButton("");
+		btn_sartu.setIcon(new ImageIcon(sartuPiezaEsk.class.getResource("/media/ok(1).png")));
 		btn_sartu.setBackground(new Color(255, 255, 255));
 		btn_sartu.addActionListener(new ActionListener() {
 		    @Override
@@ -126,24 +115,22 @@ public class sartuPiezaEsk extends JFrame {
 		            int idHornitzailea = Integer.parseInt(txt_idHornitzailea.getText());
 		            int idPieza = Integer.parseInt(txt_idPieza.getText());
 		            int kopurua = Integer.parseInt(txt_kopurua.getText());
-		            String dataStr = txt_data.getText();
-
-		            // 'dataStr' kate hori Timestamp objektu bihurtu (data eta ordua)
-		            java.sql.Timestamp data = java.sql.Timestamp.valueOf(dataStr);
+		           
 
 		            // 2. PiezaEskaera objektua sortu
-		            PiezaEskaera piezaEskaera = new PiezaEskaera(0, idHornitzailea, idPieza, kopurua, data);
+		            PiezaEskaera piezaEskaera = new PiezaEskaera(0, idHornitzailea, idPieza, kopurua, null);
 
 		            // 3. Datu-basean sartu
 		            kudeaketaPiezaEsk kudeaketa = new kudeaketaPiezaEsk();
 		            kudeaketa.sortuPiezaEskaera(piezaEskaera);
 
 		            // 4. Eraginaren arrakasta adierazi
-		            System.out.println("PiezaEskaera ondo sartu da.");
+		       
+		            JOptionPane.showMessageDialog(null, "PiezaEskaera ondo sartu da.");
 		        } catch (Exception ex) {
 		            // Huts-egiteak erakutsi
 		            ex.printStackTrace();
-		            System.out.println("Errore bat gertatu da PiezaEskaera sartzerakoan: " + ex.getMessage());
+		            JOptionPane.showMessageDialog(null,"Errore bat gertatu da PiezaEskaera sartzerakoan");
 		        }
 		        garbitu();
 		    }
@@ -151,11 +138,11 @@ public class sartuPiezaEsk extends JFrame {
 
 		btn_sartu.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btn_sartu.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btn_sartu.setBounds(803, 324, 91, 23);
+		btn_sartu.setBounds(803, 324, 35, 35);
 		contentPane.add(btn_sartu);
 
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\UTech java fondoa 1(2).png"));
+		lblNewLabel.setIcon(new ImageIcon(sartuPiezaEsk.class.getResource("/media/UTech java fondoa 1(2).png")));
 		lblNewLabel.setBounds(0, 0, 988, 445);
 		contentPane.add(lblNewLabel);
 	}
@@ -163,7 +150,7 @@ public class sartuPiezaEsk extends JFrame {
 	    txt_idHornitzailea.setText("");
 	    txt_idPieza.setText("");
 	    txt_kopurua.setText("");
-	    txt_data.setText("");
+	    
 
 	}
 }

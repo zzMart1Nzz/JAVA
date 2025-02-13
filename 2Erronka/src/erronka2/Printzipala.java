@@ -73,13 +73,8 @@ public class Printzipala extends JFrame {
 		btnSaioaItxi.setBounds(0, 423, 110, 32);
 		contentPane.add(btnSaioaItxi);
 
-		JLabel lblNewLabel_1 = new JLabel("Administratzailea");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 28));
-		lblNewLabel_1.setBounds(731, 419, 247, 32);
-		contentPane.add(lblNewLabel_1);
-
 		JLabel lblEskHistoIco = new JLabel("New label");
-		lblEskHistoIco.setIcon(new ImageIcon(Printzipala.class.getResource("/media/eskaerenHistorikoa(1).png")));
+		lblEskHistoIco.setIcon(new ImageIcon(Printzipala.class.getResource("/media/eskaeraProduktua(1).png")));
 		lblEskHistoIco.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblEskHistoIco.setBounds(771, 251, 134, 107);
 		contentPane.add(lblEskHistoIco);
@@ -87,7 +82,7 @@ public class Printzipala extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				dispose();
-				EskHistorikoPanela ehp = new EskHistorikoPanela();
+				EskXehetasunakPanela ehp = new EskXehetasunakPanela();
 				ehp.setVisible(true);
 
 

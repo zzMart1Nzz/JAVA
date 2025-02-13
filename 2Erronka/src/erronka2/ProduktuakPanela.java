@@ -23,6 +23,8 @@ import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
 import eragiketak.aldaketaProduktuak;
+import eragiketak.sartuLangileak;
+import eragiketak.sartuProduktuak;
 import kudeaketak.kudeaketaProduktuak;
 import taulak.ProduktuakTaula;
 
@@ -128,7 +130,7 @@ public class ProduktuakPanela extends JFrame {
 	                    ap.setVisible(true);  // Erakutsi
 	                } else {
 	                    // Hornitzailea ez bada aurkitu, errore-mezua erakutsi
-	                    JOptionPane.showMessageDialog(null, "Hornitzailea ez da aurkitu ID honekin: " + idProduktua, "Errorea", JOptionPane.ERROR_MESSAGE);
+	                    JOptionPane.showMessageDialog(null, "Produktuka ez da aurkitu ID honekin: " + idProduktua, "Errorea", JOptionPane.ERROR_MESSAGE);
 	                }
 	            }
 		});
@@ -191,12 +193,25 @@ public class ProduktuakPanela extends JFrame {
                 }
             }
         });
-
-
-        JLabel lblNewLabel = new JLabel("");
-        lblNewLabel.setBounds(0, 0, 988, 445);
-        lblNewLabel.setIcon(new ImageIcon(ProduktuakPanela.class.getResource("/media/UTech java fondoa 1(2).png")));
-        contentPane.add(lblNewLabel);
+        
+        JLabel gehituIkonoa = new JLabel("");
+        gehituIkonoa.setIcon(new ImageIcon(ProduktuakPanela.class.getResource("/media/gehitu(1).png")));
+        gehituIkonoa.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        gehituIkonoa.setBounds(65, 27, 35, 35);
+        contentPane.add(gehituIkonoa);
+        gehituIkonoa.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+            	sartuProduktuak spr = new sartuProduktuak();
+            	spr.setVisible(true);
+            }
+        });
+        
+        
+                JLabel lblNewLabel = new JLabel("");
+                lblNewLabel.setBounds(0, 0, 988, 445);
+                lblNewLabel.setIcon(new ImageIcon(ProduktuakPanela.class.getResource("/media/UTech java fondoa 1(2).png")));
+                contentPane.add(lblNewLabel);
     }
         // Hornitzailea ID-a erabiliz bilatzeko metodoa
         private Produktua lortuProduktuaIdarekin(int idProduktua) {

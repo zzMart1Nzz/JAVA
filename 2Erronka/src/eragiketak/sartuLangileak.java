@@ -147,12 +147,13 @@ public class sartuLangileak extends JFrame {
 				dispose();
 			}
 		});
-		btnAtzera.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\atzera 2(2).png"));
+		btnAtzera.setIcon(new ImageIcon(sartuLangileak.class.getResource("/media/atzera 2(2).png")));
 		btnAtzera.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAtzera.setBounds(0, 0, 55, 32);
 		contentPane.add(btnAtzera);
 
-		btn_sartu = new JButton("SARTU");
+		btn_sartu = new JButton("");
+		btn_sartu.setIcon(new ImageIcon(sartuLangileak.class.getResource("/media/ok(1).png")));
 		btn_sartu.addActionListener(new ActionListener() {
 		    @Override
 			public void actionPerformed(ActionEvent e) {
@@ -208,7 +209,7 @@ public class sartuLangileak extends JFrame {
 
 
 		btn_sartu.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btn_sartu.setBounds(803, 324, 91, 23);
+		btn_sartu.setBounds(803, 324, 35, 35);
 		contentPane.add(btn_sartu);
 
 		lblNewLabel_2_1_5 = new JLabel("Erabiltzailea:");
@@ -267,7 +268,7 @@ public class sartuLangileak extends JFrame {
 		contentPane.add(lblNewLabel_2_1_7);
 
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\UTech java fondoa 1(2).png"));
+		lblNewLabel.setIcon(new ImageIcon(sartuLangileak.class.getResource("/media/UTech java fondoa 1(2).png")));
 		lblNewLabel.setBounds(0, 0, 988, 445);
 		contentPane.add(lblNewLabel);
 	}

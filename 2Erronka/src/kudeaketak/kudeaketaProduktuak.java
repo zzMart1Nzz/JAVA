@@ -1,5 +1,7 @@
 package kudeaketak;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -23,7 +25,6 @@ public class kudeaketaProduktuak {
              ResultSet rs = pst.executeQuery()) {
 
             while (rs.next()) {
-
                 Produktua p = mapResultSetToProduktua(rs);
                 lista.add(p);
             }
@@ -34,7 +35,6 @@ public class kudeaketaProduktuak {
     }
 
     private Produktua mapResultSetToProduktua(ResultSet rs) throws SQLException {
-
         return new Produktua(
             rs.getInt("idProduktua"),
             rs.getInt("ProduktuMota_idProduktuMota"),
@@ -49,7 +49,7 @@ public class kudeaketaProduktuak {
             rs.getString("erresoluzioa"),
             rs.getString("frekuentzia"),
             rs.getString("kolorea"),
-            rs.getDouble("salmentaPrezioa"),
+            rs.getDouble("salmentaPrezioa"), 
             rs.getInt("stock")
         );
     }
@@ -65,7 +65,6 @@ public class kudeaketaProduktuak {
             e.printStackTrace();
         }
     }
-
 
     public void eguneratuProduktua(Produktua produktua) {
         String sql = "UPDATE produktua SET marka = ?, modeloa = ?, memoria = ?, ram = ?, prozesagailua = ?, tamaina = ?, sistemaEragilea = ?, kamara = ?, erresoluzioa = ?, frekuentzia = ?, kolorea = ?, salmentaPrezioa = ?, stock = ? WHERE idProduktua = ?";
@@ -86,18 +85,18 @@ public class kudeaketaProduktuak {
 
         try (Connection conn = DBKonexioa.konexioaEgin();
              PreparedStatement ps = conn.prepareStatement(sql)) {
-
             ps.setInt(1, idProduktua);
             ps.executeUpdate();
+            return true;
         } catch (SQLException e) {
             e.printStackTrace();
+            return false;
         }
-		return false;
     }
 
     // Método auxiliar para mapear un Producto a PreparedStatement
     private void mapProduktuaToPreparedStatement(Produktua produktua, PreparedStatement ps) throws SQLException {
-    	ps.setInt(1, produktua.getProduktuMotaId());
+        ps.setInt(1, produktua.getProduktuMotaId());
         ps.setString(2, produktua.getMarka());
         ps.setString(3, produktua.getModeloa());
         ps.setString(4, produktua.getMemoria());
@@ -113,3 +112,4 @@ public class kudeaketaProduktuak {
         ps.setInt(14, produktua.getStock());
     }
 }
+

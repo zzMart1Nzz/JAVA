@@ -169,11 +169,6 @@ public class PrintzipalaLangilea extends JFrame {
 			}
 		});
 
-		JLabel lblNewLabel_1_1 = new JLabel("Langilea");
-		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.BOLD, 28));
-		lblNewLabel_1_1.setBounds(859, 419, 119, 32);
-		contentPane.add(lblNewLabel_1_1);
-
 		JLabel lblProduktuakIco_L = new JLabel("");
 		lblProduktuakIco_L.setIcon(new ImageIcon(PrintzipalaLangilea.class.getResource("/media/produktuak(1).png")));
 		lblProduktuakIco_L.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));

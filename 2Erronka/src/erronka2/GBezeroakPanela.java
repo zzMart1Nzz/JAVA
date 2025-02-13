@@ -25,14 +25,12 @@ import javax.swing.border.EmptyBorder;
 import kudeaketak.kudeaketaBezeroak;
 import taulak.BezeroakTaula;
 
-
 public class GBezeroakPanela extends JFrame {
 
     private static final long serialVersionUID = 1L;
     private JPanel contentPane;
     private JTable table;
     private kudeaketaBezeroak dao;
-    private JTextField txt_id;
 
     /**
      * Launch the application.
@@ -42,7 +40,7 @@ public class GBezeroakPanela extends JFrame {
             @Override
 			public void run() {
                 try {
-                    GProdPrestPanela frame = new GProdPrestPanela();
+                    GBezeroakPanela frame = new GBezeroakPanela();
                     frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -68,8 +66,8 @@ public class GBezeroakPanela extends JFrame {
             @Override
 			public void actionPerformed(ActionEvent e) {
                 dispose();
-                PrintzipalaGerentea pg = new PrintzipalaGerentea();
-                pg.setVisible(true);
+                Printzipala p = new Printzipala();
+                p.setVisible(true);
             }
         });
         contentPane.setLayout(null);
@@ -83,24 +81,9 @@ public class GBezeroakPanela extends JFrame {
         scrollPane.setBounds(50, 73, 900, 300);
         contentPane.add(scrollPane);
 
-        btnAtzera.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\atzera 2(2).png"));
+        btnAtzera.setIcon(new ImageIcon(GBezeroakPanela.class.getResource("/media/atzera 2(2).png")));
         btnAtzera.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         contentPane.add(btnAtzera);
-
-        JLabel birkargatuIko = new JLabel("");
-        birkargatuIko.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\birkargatu(1).png"));
-        birkargatuIko.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        birkargatuIko.setBounds(887, 32, 35, 35);
-        contentPane.add(birkargatuIko);
-        birkargatuIko.addMouseListener(new MouseAdapter () {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-
-				List<Bezeroa> lista = dao.lortuBezeroak();
-		        BezeroakTaula model = new BezeroakTaula(lista);
-
-			}
-		});
 
         JButton btnAtera = new JButton("");
         btnAtera.setBounds(956, 0, 32, 32);
@@ -117,30 +100,72 @@ public class GBezeroakPanela extends JFrame {
                 }
             }
         });
-        btnAtera.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\itxi(2).png"));
+        btnAtera.setIcon(new ImageIcon(GBezeroakPanela.class.getResource("/media/itxi(2).png")));
         btnAtera.setForeground(Color.WHITE);
         btnAtera.setBackground(new Color(255, 255, 255));
         btnAtera.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         contentPane.add(btnAtera);
 
-        JLabel ezabatuIkonoa = new JLabel("");
-        ezabatuIkonoa.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\ezabatu(1).png"));
-        ezabatuIkonoa.setBounds(652, 392, 35, 35);
-        contentPane.add(ezabatuIkonoa);
+    	 JLabel birkargatuIko = new JLabel("");
+         birkargatuIko.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\birkargatu(1).png"));
+         birkargatuIko.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+         birkargatuIko.setBounds(887, 32, 35, 35);
+         contentPane.add(birkargatuIko);
+         birkargatuIko.addMouseListener(new MouseAdapter() {
+        	    @Override
+        	    public void mouseClicked(MouseEvent e) {
+        	        List<Bezeroa> lista = dao.lortuBezeroak();
+        	        BezeroakTaula model = new BezeroakTaula(lista);
+        	        table.setModel(model);  // Taula eguneratu modelo berriarekin
+        	    }
+        	});
 
-        JLabel lblNewLabel_1 = new JLabel("Administratzailea");
-        lblNewLabel_1.setBounds(731, 419, 247, 32);
-        lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 28));
-        contentPane.add(lblNewLabel_1);
+                JLabel birkargatuIko_1 = new JLabel("");
+                birkargatuIko_1.setIcon(new ImageIcon(GBezeroakPanela.class.getResource("/media/birkargatu(1).png")));
+                birkargatuIko_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+                birkargatuIko_1.setBounds(887, 32, 35, 35);
+                contentPane.add(birkargatuIko_1);
+                birkargatuIko.addMouseListener(new MouseAdapter() {
+            	    @Override
+            	    public void mouseClicked(MouseEvent e) {
+            	        List<Bezeroa> lista = dao.lortuBezeroak();
+            	        BezeroakTaula model = new BezeroakTaula(lista);
+            	        table.setModel(model);  // Taula eguneratu modelo berriarekin
+            	    }
+            	});
 
-        txt_id = new JTextField();
-        txt_id.setBounds(345, 397, 297, 20);
-        contentPane.add(txt_id);
-        txt_id.setColumns(10);
 
-        JLabel lblNewLabel = new JLabel("");
-        lblNewLabel.setBounds(0, 0, 988, 445);
-        lblNewLabel.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\UTech java fondoa 1(2).png"));
-        contentPane.add(lblNewLabel);
+                                JLabel lblNewLabel = new JLabel("");
+                                lblNewLabel.setBounds(0, 0, 988, 445);
+                                lblNewLabel.setIcon(new ImageIcon(GBezeroakPanela.class.getResource("/media/UTech java fondoa 1(2).png")));
+                                contentPane.add(lblNewLabel);
     }
-}
+        // Hornitzailea ID-a erabiliz bilatzeko metodoa
+        private Bezeroa lortuBezeroaIdarekin(int idBezeroa) {
+            List<Bezeroa> bezeroak = dao.lortuBezeroak();  // Hornitzaileak lortu
+            for (Bezeroa bezeroa : bezeroak) {
+                if (bezeroa.getIdBezeroa()==idBezeroa) {
+                    return bezeroa;  // Aurkitu bada, hornitzailea bueltatzen da
+                }
+            }
+            return null;  // Ez badago, null itzultzen da
+        }
+        private void ezabatuBezeroa(int idBezeroa) {
+            boolean isDeleted = dao.ezabatuBezeroa(idBezeroa);  // Deitu `ezabatuProduktua` metodoari
+
+            if (isDeleted) {
+
+                JOptionPane.showMessageDialog(null, "Errore bat gertatu da produktu ezabatu ezin izan delako.", "Errorea", JOptionPane.ERROR_MESSAGE);
+            } else {
+
+
+                // Taula berritu
+                List<Bezeroa> lista = dao.lortuBezeroak();
+                BezeroakTaula model = new BezeroakTaula(lista);
+                table.setModel(model);  // Taula eguneratu modelo berriarekin
+                
+                
+                JOptionPane.showMessageDialog(null, "Produktua ezabatuta izan da.");
+            }
+        }
+        }

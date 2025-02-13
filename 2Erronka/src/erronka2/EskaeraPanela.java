@@ -22,7 +22,6 @@ import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
-import eragiketak.fakturaEskaera;
 import kudeaketak.kudeaketaEskaerak;
 import taulak.EskaerakTaula;
 
@@ -130,13 +129,6 @@ public class EskaeraPanela extends JFrame {
 				}else {}
 			}
 		});
-
-
-
-        JLabel lblNewLabel_1 = new JLabel("Administratzailea");
-        lblNewLabel_1.setBounds(731, 419, 247, 32);
-        lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 28));
-        contentPane.add(lblNewLabel_1);
 
     	 JLabel birkargatuIko = new JLabel("");
          birkargatuIko.setIcon(new ImageIcon(EskaeraPanela.class.getResource("/media/birkargatu(1).png")));
