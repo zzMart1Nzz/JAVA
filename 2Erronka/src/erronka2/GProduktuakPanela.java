@@ -23,6 +23,8 @@ import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
 import eragiketak.aldaketaProduktuak;
+import eragiketak.sartuLangileak;
+import eragiketak.sartuProduktuak;
 import kudeaketak.kudeaketaProduktuak;
 import taulak.ProduktuakTaula;
 
@@ -191,12 +193,12 @@ public class GProduktuakPanela extends JFrame {
                 }
             }
         });
-
-
-        JLabel lblNewLabel = new JLabel("");
-        lblNewLabel.setBounds(0, 0, 988, 445);
-        lblNewLabel.setIcon(new ImageIcon(GProduktuakPanela.class.getResource("/media/UTech java fondoa 1(2).png")));
-        contentPane.add(lblNewLabel);
+        
+        
+                JLabel lblNewLabel = new JLabel("");
+                lblNewLabel.setBounds(0, 0, 988, 445);
+                lblNewLabel.setIcon(new ImageIcon(GProduktuakPanela.class.getResource("/media/UTech java fondoa 1(2).png")));
+                contentPane.add(lblNewLabel);
     }
         // Hornitzailea ID-a erabiliz bilatzeko metodoa
         private Produktua lortuProduktuaIdarekin(int idProduktua) {
@@ -227,4 +229,5 @@ public class GProduktuakPanela extends JFrame {
         }
 
         }
+
 

@@ -1,5 +1,6 @@
 package eragiketak;
 
+import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -27,6 +28,28 @@ public class aldaketaPiezak extends JFrame {
     private JLabel okIkonoa;
     private JLabel lblID;
     private JLabel lblid;
+    
+    /**
+     * Abian jarri aplikazioa.
+     */
+    public static void main(String[] args) {
+        EventQueue.invokeLater(new Runnable() {
+            @Override
+			public void run() {
+                try {
+                    aldaketaPiezak frame = new aldaketaPiezak();
+                    frame.setVisible(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    /**
+     * Sortu leihoa
+     * @param langilea
+     */
 
     public aldaketaPiezak(Pieza pieza) {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -107,13 +130,13 @@ public class aldaketaPiezak extends JFrame {
                 dispose();
             }
         });
-        btnAtzera.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\atzera 2(2).png"));
+        btnAtzera.setIcon(new ImageIcon(aldaketaLangileak.class.getResource("/media/atzera 2(2).png")));
         btnAtzera.setBounds(0, 0, 55, 32);
         contentPane.add(btnAtzera);
 
         // Aldaketak baieztatzeko ikonoa
         okIkonoa = new JLabel("");
-        okIkonoa.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\ok(1).png"));
+        okIkonoa.setIcon(new ImageIcon(aldaketaLangileak.class.getResource("/media/ok(1).png")));
         okIkonoa.setBounds(801, 306, 35, 35);
         contentPane.add(okIkonoa);
 
@@ -152,7 +175,7 @@ public class aldaketaPiezak extends JFrame {
 
         // Interfazean fondo baten gehitzea
         lblNewLabel = new JLabel("New label");
-        lblNewLabel.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\UTech java fondoa 1(2).png"));
+        lblNewLabel.setIcon(new ImageIcon(aldaketaLangileak.class.getResource("/media/UTech java fondoa 1(2).png")));;
         lblNewLabel.setBounds(0, 0, 988, 445);
         contentPane.add(lblNewLabel);
     }

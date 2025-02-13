@@ -18,6 +18,7 @@ import javax.swing.border.EmptyBorder;
 
 import erronka2.Hornitzailea;
 import kudeaketak.kudeaketaHornitzaileak;
+import java.awt.Color;
 
 public class aldaketaHornitzaileak extends JFrame {
     private JPanel contentPane;
@@ -32,6 +33,7 @@ public class aldaketaHornitzaileak extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setBounds(100, 100, 1000, 490);
         contentPane = new JPanel();
+        contentPane.setBackground(new Color(255, 255, 255));
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
         contentPane.setLayout(null);
@@ -128,13 +130,13 @@ public class aldaketaHornitzaileak extends JFrame {
                 dispose();
             }
         });
-        btnAtzera.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\atzera 2(2).png"));
+        btnAtzera.setIcon(new ImageIcon(aldaketaHornitzaileak.class.getResource("/media/atzera 2(2).png")));
         btnAtzera.setBounds(0, 0, 55, 32);
         contentPane.add(btnAtzera);
 
         // Aldaketak baieztatzeko ikonoa
         okIkonoa = new JLabel("");
-        okIkonoa.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\ok(1).png"));
+        okIkonoa.setIcon(new ImageIcon(aldaketaHornitzaileak.class.getResource("/media/ok(1).png")));
         okIkonoa.setBounds(801, 306, 35, 35);
         contentPane.add(okIkonoa);
 
@@ -177,7 +179,7 @@ public class aldaketaHornitzaileak extends JFrame {
 
         // Interfazean fondo baten gehitzea
         lblNewLabel = new JLabel("New label");
-        lblNewLabel.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\UTech java fondoa 1(2).png"));
+        lblNewLabel.setIcon(new ImageIcon(aldaketaHornitzaileak.class.getResource("/media/UTech java fondoa 1(2).png")));
         lblNewLabel.setBounds(0, 0, 988, 445);
         contentPane.add(lblNewLabel);
     }

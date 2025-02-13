@@ -201,13 +201,14 @@ public class BezeroakPanela extends JFrame {
                 JOptionPane.showMessageDialog(null, "Errore bat gertatu da produktu ezabatu ezin izan delako.", "Errorea", JOptionPane.ERROR_MESSAGE);
             } else {
 
-                JOptionPane.showMessageDialog(null, "Produktua ezabatuta izan da.");
 
                 // Taula berritu
                 List<Bezeroa> lista = dao.lortuBezeroak();
                 BezeroakTaula model = new BezeroakTaula(lista);
                 table.setModel(model);  // Taula eguneratu modelo berriarekin
                 txt_id.setText("");
+                
+                JOptionPane.showMessageDialog(null, "Produktua ezabatuta izan da.");
             }
         }
         }

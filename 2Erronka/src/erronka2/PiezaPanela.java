@@ -192,6 +192,7 @@ public class PiezaPanela extends JFrame {
 
         JLabel gehituIkonoa = new JLabel("");
         gehituIkonoa.setIcon(new ImageIcon(PiezaPanela.class.getResource("/media/gehitu(1).png")));
+        gehituIkonoa.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         gehituIkonoa.setBounds(65, 27, 35, 35);
         contentPane.add(gehituIkonoa);
         gehituIkonoa.addMouseListener(new MouseAdapter() {
@@ -226,13 +227,15 @@ public class PiezaPanela extends JFrame {
                 JOptionPane.showMessageDialog(null, "Errore bat gertatu da produktu ezabatu ezin izan delako.", "Errorea", JOptionPane.ERROR_MESSAGE);
             } else {
 
-                JOptionPane.showMessageDialog(null, "Produktua ezabatuta izan da.");
-
+               
                 // Taula berritu
                 List<Pieza> lista = dao.lortuPiezak();
                 PiezakTaula model = new PiezakTaula(lista);
                 table.setModel(model);  // Taula eguneratu modelo berriarekin
                 txt_id.setText("");
+                
+                JOptionPane.showMessageDialog(null, "Produktua ezabatuta izan da.");
+
             }
         }
 

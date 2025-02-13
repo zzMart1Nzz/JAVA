@@ -82,7 +82,7 @@ public class GEskaeraPanela extends JFrame {
         scrollPane.setBounds(50, 73, 900, 300);
         contentPane.add(scrollPane);
 
-        btnAtzera.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\atzera 2(2).png"));
+        btnAtzera.setIcon(new ImageIcon(GEskaeraPanela.class.getResource("/media/atzera 2(2).png")));
         btnAtzera.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         contentPane.add(btnAtzera);
 
@@ -101,14 +101,14 @@ public class GEskaeraPanela extends JFrame {
                 }
             }
         });
-        btnAtera.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\itxi(2).png"));
+        btnAtera.setIcon(new ImageIcon(GEskaeraPanela.class.getResource("/media/itxi(2).png")));
         btnAtera.setForeground(Color.WHITE);
         btnAtera.setBackground(new Color(255, 255, 255));
         btnAtera.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         contentPane.add(btnAtera);
 
         JLabel okIkonoa = new JLabel("");
-        okIkonoa.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\ok(1).png"));
+        okIkonoa.setIcon(new ImageIcon(GEskaeraPanela.class.getResource("/media/ok(1).png")));
         okIkonoa.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         okIkonoa.setBounds(300, 392, 35, 35);
         contentPane.add(okIkonoa);
@@ -122,6 +122,10 @@ public class GEskaeraPanela extends JFrame {
 					int idEskaera =Integer.parseInt(txt_id.getText());
 					kudeaketaEskaerak kudeaketa = new kudeaketaEskaerak();
 					kudeaketa.bidaliEskaera(idEskaera);
+					List<Eskaera> lista = dao.lortuEskaerak();
+	     	        EskaerakTaula model = new EskaerakTaula(lista);
+	     	        table.setModel(model);  // Taula eguneratu modelo berriarekin
+	     	        txt_id.setText("");
 				}else {}
 			}
 		});
@@ -134,19 +138,18 @@ public class GEskaeraPanela extends JFrame {
         contentPane.add(lblNewLabel_1);
 
     	 JLabel birkargatuIko = new JLabel("");
-         birkargatuIko.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\birkargatu(1).png"));
+         birkargatuIko.setIcon(new ImageIcon(GEskaeraPanela.class.getResource("/media/birkargatu(1).png")));
          birkargatuIko.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
          birkargatuIko.setBounds(887, 32, 35, 35);
          contentPane.add(birkargatuIko);
-         birkargatuIko.addMouseListener(new MouseAdapter () {
- 			@Override
- 			public void mouseClicked(MouseEvent e) {
-
- 				List<Eskaera> lista = dao.lortuEskaerak();
- 		        EskaerakTaula model = new EskaerakTaula(lista);
-
- 			}
- 		});
+         birkargatuIko.addMouseListener(new MouseAdapter() {
+     	    @Override
+     	    public void mouseClicked(MouseEvent e) {
+     	        List<Eskaera> lista = dao.lortuEskaerak();
+     	        EskaerakTaula model = new EskaerakTaula(lista);
+     	        table.setModel(model);  // Taula eguneratu modelo berriarekin
+     	    }
+     	});
 
         txt_id = new JTextField();
         txt_id.setBounds(345, 397, 297, 20);
@@ -155,7 +158,7 @@ public class GEskaeraPanela extends JFrame {
 
         JLabel lblNewLabel = new JLabel("");
         lblNewLabel.setBounds(0, 0, 988, 445);
-        lblNewLabel.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\UTech java fondoa 1(2).png"));
+        lblNewLabel.setIcon(new ImageIcon(GEskaeraPanela.class.getResource("/media/UTech java fondoa 1(2).png")));
         contentPane.add(lblNewLabel);
     }
 }

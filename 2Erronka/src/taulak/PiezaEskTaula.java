@@ -1,25 +1,21 @@
 package taulak;
 
 import java.util.List;
-
 import javax.swing.table.AbstractTableModel;
-
 import erronka2.PiezaEskaera;
 
 public class PiezaEskTaula extends AbstractTableModel {
+    private static final long serialVersionUID = 1L;
+    private List<PiezaEskaera> piezaEskaeraList;
+    private String[] columnNames = { "ID", "Hornitzaile ID", "Pieza ID", "Kopurua", "Data" };
 
-    private List<PiezaEskaera> piezaEskaera;
-    private String[] columnNames = {
-        "idPiezaEskaera", "Hornitzaile_idHornitzailea", "Pieza_idPieza", "kopurua", "data"
-    };
-
-    public PiezaEskTaula(List<PiezaEskaera> piezaEskaera) {
-        this.piezaEskaera = piezaEskaera;
+    public PiezaEskTaula(List<PiezaEskaera> piezaEskaeraList) {
+        this.piezaEskaeraList = piezaEskaeraList;
     }
 
     @Override
     public int getRowCount() {
-        return piezaEskaera.size();
+        return piezaEskaeraList.size();
     }
 
     @Override
@@ -28,23 +24,45 @@ public class PiezaEskTaula extends AbstractTableModel {
     }
 
     @Override
+    public String getColumnName(int column) {
+        return columnNames[column];
+    }
+
+    @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        PiezaEskaera pe = PiezaEskaera.get(rowIndex);
-        switch (columnIndex) {
-            case 0: return pe.getIdPiezaEskaera();
-            case 1: return pe.getHornitzaile_idHornitzailea();
-            case 2: return pe.getPieza_idPieza();
-            case 3: return pe.getKopurua();
-            case 4: return pe.getData();
-            default: return null;
+        PiezaEskaera pe = piezaEskaeraList.get(rowIndex);
+        if (pe != null) {
+            switch (columnIndex) {
+                case 0:
+                    return pe.getIdPiezaEskaera();
+                case 1:
+                    return pe.getHornitzaile_idHornitzailea();
+                case 2:
+                    return pe.getPieza_idPieza();
+                case 3:
+                    return pe.getKopurua();
+                case 4:
+                    return pe.getData();
+                default:
+                    return null;
+            }
+        } else {
+            return "N/A";
         }
     }
 
     @Override
-    public String getColumnName(int column) {
-        if (column >= 0 && column < columnNames.length) {
-            return columnNames[column];
+    public Class<?> getColumnClass(int columnIndex) {
+        switch (columnIndex) {
+            case 0:
+            case 1:
+            case 2:
+            case 3:
+                return Integer.class;
+            case 4:
+                return java.sql.Timestamp.class;
+            default:
+                return String.class;
         }
-        return null;
     }
 }

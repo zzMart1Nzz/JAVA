@@ -110,7 +110,7 @@ public class LangileakPanela extends JFrame {
         contentPane.add(btnAtera);
 
         JLabel aldatuIkonoa = new JLabel("");
-        aldatuIkonoa.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\editatu(1).png"));
+        aldatuIkonoa.setIcon(new ImageIcon(LangileakPanela.class.getResource("/media/editatu(1).png")));
         aldatuIkonoa.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         aldatuIkonoa.setBounds(300, 392, 35, 35);
         contentPane.add(aldatuIkonoa);
@@ -192,6 +192,7 @@ public class LangileakPanela extends JFrame {
 
         JLabel gehituIkonoa = new JLabel("");
         gehituIkonoa.setIcon(new ImageIcon(LangileakPanela.class.getResource("/media/gehitu(1).png")));
+        gehituIkonoa.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         gehituIkonoa.setBounds(65, 27, 35, 35);
         contentPane.add(gehituIkonoa);
         gehituIkonoa.addMouseListener(new MouseAdapter() {

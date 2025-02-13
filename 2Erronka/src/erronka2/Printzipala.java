@@ -79,7 +79,7 @@ public class Printzipala extends JFrame {
 		contentPane.add(lblNewLabel_1);
 
 		JLabel lblEskHistoIco = new JLabel("New label");
-		lblEskHistoIco.setIcon(new ImageIcon(Printzipala.class.getResource("/media/eskaerenHistorikoa(1).png")));
+		lblEskHistoIco.setIcon(new ImageIcon(Printzipala.class.getResource("/media/eskaeraProduktua(1).png")));
 		lblEskHistoIco.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblEskHistoIco.setBounds(771, 251, 134, 107);
 		contentPane.add(lblEskHistoIco);
@@ -87,7 +87,7 @@ public class Printzipala extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				dispose();
-				EskHistorikoPanela ehp = new EskHistorikoPanela();
+				EskXehetasunakPanela ehp = new EskXehetasunakPanela();
 				ehp.setVisible(true);
 
 

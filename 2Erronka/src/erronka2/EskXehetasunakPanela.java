@@ -22,16 +22,15 @@ import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
-import kudeaketak.kudeaketaEskaerak;
-import taulak.EskaerakTaula;
+import kudeaketak.kudeaketaEskaerenXehetasunak;
+import taulak.EskaerenXehetasunakTaula;
 
-public class LEskaeraPanela extends JFrame {
+public class EskXehetasunakPanela extends JFrame {
 
     private static final long serialVersionUID = 1L;
     private JPanel contentPane;
     private JTable table;
-    private kudeaketaEskaerak dao;
-    private JTextField txt_id;
+    private kudeaketaEskaerenXehetasunak dao;
 
     /**
      * Launch the application.
@@ -41,7 +40,7 @@ public class LEskaeraPanela extends JFrame {
             @Override
 			public void run() {
                 try {
-                    LEskaeraPanela frame = new LEskaeraPanela();
+                    EskXehetasunakPanela frame = new EskXehetasunakPanela();
                     frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -53,7 +52,7 @@ public class LEskaeraPanela extends JFrame {
     /**
      * Create the frame.
      */
-    public LEskaeraPanela() {
+    public EskXehetasunakPanela() {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setBounds(100, 100, 1000, 490);
         contentPane = new JPanel();
@@ -73,16 +72,16 @@ public class LEskaeraPanela extends JFrame {
         });
         contentPane.setLayout(null);
 
-        dao = new kudeaketaEskaerak();
-        List<Eskaera> lista = dao.lortuEskaerak();
-        EskaerakTaula model = new EskaerakTaula(lista);
+        dao = new kudeaketaEskaerenXehetasunak();
+        List<EskaerenXehetasunak> lista = dao.lortuEskaerenXehetasunak();
+        EskaerenXehetasunakTaula model = new EskaerenXehetasunakTaula(lista);
 
         table = new JTable(model);
         JScrollPane scrollPane = new JScrollPane(table);
         scrollPane.setBounds(50, 73, 900, 300);
         contentPane.add(scrollPane);
 
-        btnAtzera.setIcon(new ImageIcon(LEskaeraPanela.class.getResource("/media/atzera 2(2).png")));
+        btnAtzera.setIcon(new ImageIcon(EskXehetasunakPanela.class.getResource("/media/atzera 2(2).png")));
         btnAtzera.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         contentPane.add(btnAtzera);
 
@@ -101,34 +100,11 @@ public class LEskaeraPanela extends JFrame {
                 }
             }
         });
-        btnAtera.setIcon(new ImageIcon(LEskaeraPanela.class.getResource("/media/itxi(2).png")));
+        btnAtera.setIcon(new ImageIcon(EskXehetasunakPanela.class.getResource("/media/itxi(2).png")));
         btnAtera.setForeground(Color.WHITE);
         btnAtera.setBackground(new Color(255, 255, 255));
         btnAtera.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         contentPane.add(btnAtera);
-
-        JLabel okIkonoa = new JLabel("");
-        okIkonoa.setIcon(new ImageIcon(LEskaeraPanela.class.getResource("/media/ok(1).png")));
-        okIkonoa.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        okIkonoa.setBounds(300, 392, 35, 35);
-        contentPane.add(okIkonoa);
-        okIkonoa.addMouseListener(new MouseAdapter () {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				Object[] opzioak = {"Bai", "Ez"};
-				int konfirmazioa = JOptionPane.showOptionDialog(null, "Eskaera bidalita dago?", "BAIEZTATU", JOptionPane.YES_NO_OPTION,
-						+ JOptionPane.QUESTION_MESSAGE, null, opzioak, opzioak[0]);
-				if(konfirmazioa == JOptionPane.YES_OPTION) {
-					int idEskaera =Integer.parseInt(txt_id.getText());
-					kudeaketaEskaerak kudeaketa = new kudeaketaEskaerak();
-					kudeaketa.bidaliEskaera(idEskaera);
-					List<Eskaera> lista = dao.lortuEskaerak();
-	     	        EskaerakTaula model = new EskaerakTaula(lista);
-	     	        table.setModel(model);  // Taula eguneratu modelo berriarekin
-	     	        txt_id.setText("");
-				}else {}
-			}
-		});
 
 
 
@@ -138,27 +114,22 @@ public class LEskaeraPanela extends JFrame {
         contentPane.add(lblNewLabel_1);
 
     	 JLabel birkargatuIko = new JLabel("");
-         birkargatuIko.setIcon(new ImageIcon(LEskaeraPanela.class.getResource("/media/birkargatu(1).png")));
+         birkargatuIko.setIcon(new ImageIcon(EskXehetasunakPanela.class.getResource("/media/birkargatu(1).png")));
          birkargatuIko.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
          birkargatuIko.setBounds(887, 32, 35, 35);
          contentPane.add(birkargatuIko);
          birkargatuIko.addMouseListener(new MouseAdapter() {
      	    @Override
      	    public void mouseClicked(MouseEvent e) {
-     	        List<Eskaera> lista = dao.lortuEskaerak();
-     	        EskaerakTaula model = new EskaerakTaula(lista);
+     	        List<EskaerenXehetasunak> lista = dao.lortuEskaerenXehetasunak();
+     	        EskaerenXehetasunakTaula model = new EskaerenXehetasunakTaula(lista);
      	        table.setModel(model);  // Taula eguneratu modelo berriarekin
      	    }
      	});
 
-        txt_id = new JTextField();
-        txt_id.setBounds(345, 397, 297, 20);
-        contentPane.add(txt_id);
-        txt_id.setColumns(10);
-
         JLabel lblNewLabel = new JLabel("");
         lblNewLabel.setBounds(0, 0, 988, 445);
-        lblNewLabel.setIcon(new ImageIcon(LEskaeraPanela.class.getResource("/media/UTech java fondoa 1(2).png")));
+        lblNewLabel.setIcon(new ImageIcon(EskXehetasunakPanela.class.getResource("/media/UTech java fondoa 1(2).png")));
         contentPane.add(lblNewLabel);
     }
 }

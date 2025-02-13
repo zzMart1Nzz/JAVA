@@ -31,7 +31,6 @@ public class ProdPrestPanela extends JFrame {
     private JPanel contentPane;
     private JTable table;
     private kudeaketaProdPrest dao;
-    private JTextField txt_id;
 
     /**
      * Launch the application.
@@ -129,41 +128,6 @@ public class ProdPrestPanela extends JFrame {
         	});
 
 
-        txt_id = new JTextField();
-        txt_id.setBounds(345, 397, 297, 20);
-        contentPane.add(txt_id);
-        txt_id.setColumns(10);
-
-        JLabel ezabatuIkonoa = new JLabel("");
-        ezabatuIkonoa.setIcon(new ImageIcon(ProdPrestPanela.class.getResource("/media/ezabatu(1).png")));
-        ezabatuIkonoa.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        ezabatuIkonoa.setBounds(652, 392, 35, 35);
-        contentPane.add(ezabatuIkonoa);
-        ezabatuIkonoa.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                try {
-                	// ID-a hartu
-	                int idProdPrest = Integer.parseInt(txt_id.getText());
-
-	                // Hornitzailea bilatu ID-a erabiliz
-	                ProduktuaPrestakuntzan prodPrest = lortuProdPrestIdarekin(idProdPrest);
-
-	                if (prodPrest != null) {
-
-	                	ezabatuBalorazioa(idProdPrest); // Produktua ezabatu
-	                } else {
-	                    // Hornitzailea ez bada aurkitu, errore-mezua erakutsi
-	                    JOptionPane.showMessageDialog(null, "Bezeroa ez da aurkitu ID honekin: " + idProdPrest, "Errorea", JOptionPane.ERROR_MESSAGE);
-	                }
-
-                } catch (NumberFormatException ex) {
-                    JOptionPane.showMessageDialog(null, "ID-a zenbaki baliodun bat izan behar du.", "Errorea", JOptionPane.ERROR_MESSAGE);
-                }
-            }
-        });
-
-
                 JLabel lblNewLabel = new JLabel("");
                 lblNewLabel.setBounds(0, 0, 988, 445);
                 lblNewLabel.setIcon(new ImageIcon(ProdPrestPanela.class.getResource("/media/UTech java fondoa 1(2).png")));
@@ -189,11 +153,7 @@ public class ProdPrestPanela extends JFrame {
 
                 JOptionPane.showMessageDialog(null, "Produktua ezabatuta izan da.");
 
-                // Taula berritu
-                List<ProduktuaPrestakuntzan> lista = dao.lortuProduktuakPrestakuntzan();
-                ProdPrestTaula model = new ProdPrestTaula(lista);
-                table.setModel(model);  // Taula eguneratu modelo berriarekin
-                txt_id.setText("");
+               
             }
         }
 

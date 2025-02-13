@@ -34,20 +34,19 @@ public class kudeaketaPiezaEsk {
     private PiezaEskaera mapResultSetToPiezaEsk(ResultSet rs) throws SQLException {
         return new PiezaEskaera(
             rs.getInt("idPiezaEskaera"),
-            rs.getInt("Hornitzaile_idHornitzailea"),
+            rs.getInt("Hornitzailea_idHornitzailea"),
             rs.getInt("Pieza_idPieza"),
             rs.getInt("kopurua"),
             rs.getTimestamp("data")
-
         );
     }
 
     public void sortuPiezaEskaera(PiezaEskaera piezaEskaera) {
-        String sql = "INSERT INTO piezaeskaera (Hornitzaile_idHornitzailea, Pieza_idPieza, kopurua, data) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO piezaeskaera (Hornitzailea_idHornitzailea, Pieza_idPieza, kopurua) VALUES (?, ?, ?)";
 
         try (Connection conn = DBKonexioa.konexioaEgin();
              PreparedStatement ps = conn.prepareStatement(sql)) {
-            mapPiezaEskaeraToPreparedStatement(piezaEskaera, ps);
+            mapPiezaEskaeraToPreparedStatementForInsert(piezaEskaera, ps);
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -55,11 +54,11 @@ public class kudeaketaPiezaEsk {
     }
 
     public void eguneratuPiezaEskaera(PiezaEskaera piezaEskaera) {
-        String sql = "UPDATE piezaeskaera SET Hornitzaile_idHornitzailea = ?, Pieza_idPieza = ?, kopurua = ?, data = ? WHERE idPiezaEskaera = ?";
+        String sql = "UPDATE piezaeskaera SET Hornitzailea_idHornitzailea = ?, Pieza_idPieza = ?, kopurua = ?, data = ? WHERE idPiezaEskaera = ?";
 
         try (Connection conn = DBKonexioa.konexioaEgin();
              PreparedStatement ps = conn.prepareStatement(sql)) {
-            mapPiezaEskaeraToPreparedStatement(piezaEskaera, ps);
+            mapPiezaEskaeraToPreparedStatementForUpdate(piezaEskaera, ps);
             ps.setInt(5, piezaEskaera.getIdPiezaEskaera());
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -67,25 +66,30 @@ public class kudeaketaPiezaEsk {
         }
     }
 
-    public boolean ezabatuPiezaEskaera(int idProduktua) {
-        String sql = "DELETE FROM produktua WHERE idProduktua = ?";
+    public boolean ezabatuPiezaEskaera(int idPiezaEskaera) {
+        String sql = "DELETE FROM piezaeskaera WHERE idPiezaEskaera = ?";
 
         try (Connection conn = DBKonexioa.konexioaEgin();
              PreparedStatement ps = conn.prepareStatement(sql)) {
-
-            ps.setInt(1, idProduktua);
+            ps.setInt(1, idPiezaEskaera);
             ps.executeUpdate();
+            return true;
         } catch (SQLException e) {
             e.printStackTrace();
+            return false;
         }
-		return false;
     }
 
-    private void mapPiezaEskaeraToPreparedStatement(PiezaEskaera piezaEskaera, PreparedStatement ps) throws SQLException {
+    private void mapPiezaEskaeraToPreparedStatementForInsert(PiezaEskaera piezaEskaera, PreparedStatement ps) throws SQLException {
+        ps.setInt(1, piezaEskaera.getHornitzaile_idHornitzailea());
+        ps.setInt(2, piezaEskaera.getPieza_idPieza());
+        ps.setInt(3, piezaEskaera.getKopurua());
+    }
+
+    private void mapPiezaEskaeraToPreparedStatementForUpdate(PiezaEskaera piezaEskaera, PreparedStatement ps) throws SQLException {
         ps.setInt(1, piezaEskaera.getHornitzaile_idHornitzailea());
         ps.setInt(2, piezaEskaera.getPieza_idPieza());
         ps.setInt(3, piezaEskaera.getKopurua());
         ps.setTimestamp(4, piezaEskaera.getData());
-
     }
 }

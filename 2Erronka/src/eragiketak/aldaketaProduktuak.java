@@ -21,8 +21,7 @@ import kudeaketak.kudeaketaProduktuak;
 
 public class aldaketaProduktuak extends JFrame {
 	private JPanel contentPane;
-	private JTextField txt_marka, txt_modeloa, txt_memoria, txt_ram, txt_prozesagailua, txt_tamaina,
-			txt_sistemaEragilea;
+	private JTextField txt_marka, txt_modeloa, txt_memoria, txt_ram, txt_prozesagailua, txt_tamaina, txt_sistemaEragilea;
 	private JLabel lblNewLabel;
 	private JButton btnAtzera;
 	private JLabel okIkonoa;
@@ -136,15 +135,13 @@ public class aldaketaProduktuak extends JFrame {
 				dispose();
 			}
 		});
-		btnAtzera.setIcon(
-				new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\atzera 2(2).png"));
+		btnAtzera.setIcon(new ImageIcon(aldaketaHornitzaileak.class.getResource("/media/atzera 2(2).png")));
 		btnAtzera.setBounds(0, 0, 55, 32);
 		contentPane.add(btnAtzera);
 
 		// Aldaketak baieztatzeko ikonoa
 		okIkonoa = new JLabel("");
-		okIkonoa.setIcon(
-				new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\ok(1).png"));
+		okIkonoa.setIcon(new ImageIcon(aldaketaHornitzaileak.class.getResource("/media/ok(1).png")));
 		okIkonoa.setBounds(877, 368, 35, 35);
 		contentPane.add(okIkonoa);
 
@@ -280,13 +277,10 @@ public class aldaketaProduktuak extends JFrame {
 
 		// Interfazean fondo baten gehitzea
 		lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon(
-				"C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\UTech java fondoa 1(2).png"));
+		lblNewLabel.setIcon(new ImageIcon(aldaketaHornitzaileak.class.getResource("/media/UTech java fondoa 1(2).png")));
 		lblNewLabel.setBounds(0, 0, 988, 445);
 		contentPane.add(lblNewLabel);
     }
 
-	public aldaketaProduktuak() {
-		// TODO Auto-generated constructor stub
-	}
+	
 }

@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.Timestamp;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -16,8 +15,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
-
 import erronka2.PiezaEskaera;
+import kudeaketak.kudeaketaPiezaEsk;
 
 public class aldaketaPiezenEsk extends JFrame {
     private JPanel contentPane;
@@ -35,6 +34,12 @@ public class aldaketaPiezenEsk extends JFrame {
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
         contentPane.setLayout(null);
+
+        // Verificar que el objeto piezaEsk no sea null
+        if (piezaEsk == null) {
+            JOptionPane.showMessageDialog(null, "El objeto PiezaEskaera es null. No se puede continuar.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
 
         // Testu-kampoak hornitzailearen datuekin betetzea
         JLabel lblidHornitzailea = new JLabel("idHornitzailea");
@@ -96,17 +101,17 @@ public class aldaketaPiezenEsk extends JFrame {
         btnAtzera = new JButton("");
         btnAtzera.addActionListener(new ActionListener() {
             @Override
-			public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e) {
                 dispose(); // Cerrar la ventana
             }
         });
-        btnAtzera.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\atzera 2(2).png"));
+        btnAtzera.setIcon(new ImageIcon(aldaketaPiezenEsk.class.getResource("/media/atzera 2(2).png")));
         btnAtzera.setBounds(0, 0, 55, 32);
         contentPane.add(btnAtzera);
 
         // Aldaketak baieztatzeko ikonoa
         okIkonoa = new JLabel("");
-        okIkonoa.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\ok(1).png"));
+        okIkonoa.setIcon(new ImageIcon(aldaketaPiezenEsk.class.getResource("/media/ok(1).png")));
         okIkonoa.setBounds(801, 306, 35, 35);
         contentPane.add(okIkonoa);
 
@@ -120,13 +125,20 @@ public class aldaketaPiezenEsk extends JFrame {
 
                 if (konfirmazioa == JOptionPane.YES_OPTION) {
                     // Testu-kampoetatik balioak lortu
-                    String idHornitzailea = txt_idHornitzailea.getText();
-                    String idPieza = txt_idPieza.getText();
-                    String kopurua = txt_kopurua.getText();
-                    String data = txt_data.getText();
+                    int idHornitzailea = Integer.parseInt(txt_idHornitzailea.getText());
+                    int idPieza = Integer.parseInt(txt_idPieza.getText());
+                    int kopurua = Integer.parseInt(txt_kopurua.getText());
+                    Timestamp data = Timestamp.valueOf(txt_data.getText()); 
 
                     // Realizar alguna acción con los datos (actualización de base de datos, etc.)
-
+                    piezaEsk.setHornitzaile_idHornitzailea(idHornitzailea);
+                    piezaEsk.setPieza_idPieza(idPieza); // Asegúrate de usar el método correcto
+                    piezaEsk.setKopurua(kopurua);
+                    piezaEsk.setData(data);
+                    
+                    kudeaketaPiezaEsk kudeaketa = new kudeaketaPiezaEsk();
+                    kudeaketa.eguneratuPiezaEskaera(piezaEsk);
+                            
                     // Mostrar mensaje de éxito
                     JOptionPane.showMessageDialog(null, "Aldaketak ondo gorde dira.");
                 }
@@ -135,7 +147,7 @@ public class aldaketaPiezenEsk extends JFrame {
 
         // Interfazean fondo baten gehitzea
         lblNewLabel = new JLabel("New label");
-        lblNewLabel.setIcon(new ImageIcon("C:\\Users\\benat\\OneDrive\\Desktop\\ERRONKAK\\ERRONKA2\\JAVA\\media\\UTech java fondoa 1(2).png"));
+        lblNewLabel.setIcon(new ImageIcon(aldaketaPiezenEsk.class.getResource("/media/UTech java fondoa 1(2).png")));
         lblNewLabel.setBounds(0, 0, 988, 445);
         contentPane.add(lblNewLabel);
     }

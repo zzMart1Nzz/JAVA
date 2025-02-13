@@ -68,7 +68,7 @@ public class kudeaketaLangileak {
 
 
     public void eguneratuLangilea(Langilea langilea) {
-        String sql = "UPDATE produktua SET lanspotua_idlanpostua = ?, lanpostua = ?, nan = ?, izena = ?, abizena = ?, telefonoZenbakia = ?, postaElektronikoa = ?, erabiltzaileIzena = ?, pasahitza=?, helbidea = ?, postaKodea = ? WHERE idlangilea = ?";
+        String sql = "UPDATE langilea SET lanpostua_idlanpostua = ?, lanpostua = ?, nan = ?, izena = ?, abizena = ?, telefonoZenbakia = ?, postaElektronikoa = ?, erabiltzaileIzena = ?, pasahitza=?, helbidea = ?, postaKodea = ? WHERE idlangilea = ?";
 
         try (Connection conn = DBKonexioa.konexioaEgin();
              PreparedStatement ps = conn.prepareStatement(sql)) {

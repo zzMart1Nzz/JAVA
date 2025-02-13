@@ -24,6 +24,7 @@ import javax.swing.border.EmptyBorder;
 import eragiketak.aldaketaHornitzaileak;
 import kudeaketak.kudeaketaHornitzaileak;
 import taulak.HornitzaileakTaula;
+import taulak.PiezaEskTaula;
 
 public class HornitzailePanela extends JFrame {
     private static final long serialVersionUID = 1L;
@@ -91,6 +92,7 @@ public class HornitzailePanela extends JFrame {
         	}
         });
         btnAtzera.setIcon(new ImageIcon(HornitzailePanela.class.getResource("/media/atzera 2(2).png")));
+        btnAtzera.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         btnAtzera.setBounds(0, 0, 55, 32);
         contentPane.add(btnAtzera);
 
@@ -104,29 +106,27 @@ public class HornitzailePanela extends JFrame {
         btnAtera.setIcon(new ImageIcon(HornitzailePanela.class.getResource("/media/itxi(2).png")));
         btnAtera.setForeground(Color.WHITE);
         btnAtera.setBackground(Color.WHITE);
+        btnAtera.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         btnAtera.setBounds(956, 0, 32, 32);
         contentPane.add(btnAtera);
 
         JLabel birkargatuIko = new JLabel("");
         birkargatuIko.setIcon(new ImageIcon(HornitzailePanela.class.getResource("/media/birkargatu(1).png")));
+        birkargatuIko.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         birkargatuIko.setBounds(888, 27, 35, 35);
         contentPane.add(birkargatuIko);
-        birkargatuIko.addMouseListener(new MouseAdapter () {
- 			@Override
- 			public void mouseClicked(MouseEvent e) {
- 				dispose();
-
- 				HornitzailePanela hp = new HornitzailePanela();
- 				hp.setVisible(true);
-
- 				List<Hornitzailea> lista = dao.lortuHornitzaileak();
- 		        HornitzaileakTaula model = new HornitzaileakTaula(lista);
-
- 			}
-    	});
+        birkargatuIko.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                List<Hornitzailea> lista = dao.lortuHornitzaileak();
+                HornitzaileakTaula model = new HornitzaileakTaula(lista);
+                table.setModel(model);
+            }
+        });
 
         JLabel ezabatuIkonoa = new JLabel("");
         ezabatuIkonoa.setIcon(new ImageIcon(HornitzailePanela.class.getResource("/media/ezabatu(1).png")));
+        ezabatuIkonoa.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         ezabatuIkonoa.setBounds(652, 392, 35, 35);
         contentPane.add(ezabatuIkonoa);
         ezabatuIkonoa.addMouseListener(new MouseAdapter() {
