@@ -179,10 +179,25 @@ public class fakturaEskaera {
             }
 
             edukia.close();
-            dokumentua.save("C:\\Users\\anere\\OneDrive - Goierri Eskola\\Escritorio\\UTechJava\\JAVA\\2Erronka\\resources\\fakturak\\faktura_" + fraZkia.replace("/", "_") + ".pdf");
-            dokumentua.close();
+            String localFilePath = "C:\\Users\\anere\\OneDrive - Goierri Eskola\\Escritorio\\UTechJava\\JAVA\\2Erronka\\resources\\fakturak\\faktura_" + fraZkia.replace("/", "_") + ".pdf";
+            dokumentua.save(localFilePath);
+            dokumentua.close();            dokumentua.close();
             System.out.println("Faktura sortu da: faktura_" + fraZkia + ".pdf");
 
+         // Subir el archivo al servidor FTP
+            String server = "172.16.242.138";
+            int port = 21;
+            String user = "6taldea";
+            String pass = "6taldea6";
+            String remoteFilePath = "faktura_" + fraZkia.replace("/", "_") + ".pdf";
+
+            boolean uploadSuccess = FTPUploader.uploadFile(server, port, user, pass, localFilePath, remoteFilePath);
+            if (uploadSuccess) {
+                System.out.println("✅ Archivo subido correctamente al servidor FTP.");
+            } else {
+                System.out.println("❌ Error al subir el archivo al servidor FTP.");
+            }	
+            
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Error al crear el PDF: " + e.getMessage());
