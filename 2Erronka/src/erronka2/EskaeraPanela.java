@@ -123,8 +123,6 @@ public class EskaeraPanela extends JFrame {
 					int idEskaera =Integer.parseInt(txt_id.getText());
 					kudeaketaEskaerak kudeaketa = new kudeaketaEskaerak();
 					kudeaketa.bidaliEskaera(idEskaera);
-					fakturaEskaera faktura = new fakturaEskaera();
-					faktura.sortuFaktura(idEskaera);
 					List<Eskaera> lista = dao.lortuEskaerak();
 	     	        EskaerakTaula model = new EskaerakTaula(lista);
 	     	        table.setModel(model);  // Taula eguneratu modelo berriarekin

@@ -123,8 +123,6 @@ public class GEskaeraPanela extends JFrame {
 					int idEskaera =Integer.parseInt(txt_id.getText());
 					kudeaketaEskaerak kudeaketa = new kudeaketaEskaerak();
 					kudeaketa.bidaliEskaera(idEskaera);
-					fakturaEskaera faktura = new fakturaEskaera();
-					faktura.sortuFaktura(idEskaera);
 				}else {}
 			}
 		});
