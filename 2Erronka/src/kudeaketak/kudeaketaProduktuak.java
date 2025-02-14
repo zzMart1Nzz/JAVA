@@ -125,7 +125,7 @@ public class kudeaketaProduktuak {
         ps.setString(11, produktua.getKolorea());
         ps.setDouble(12, produktua.getSalmentaPrezioa());
         ps.setInt(13, produktua.getStock());
-        ps.setInt(14, produktua.getProduktuMotaId());
+        //ps.setInt(14, produktua.getProduktuMotaId());
     }
 }
 

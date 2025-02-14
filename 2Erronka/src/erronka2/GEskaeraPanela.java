@@ -129,6 +129,7 @@ public class GEskaeraPanela extends JFrame {
 	     	        EskaerakTaula model = new EskaerakTaula(lista);
 	     	        table.setModel(model);  // Taula eguneratu modelo berriarekin
 	     	        txt_id.setText("");
+	     	        
 				}else {}
 			}
 		});

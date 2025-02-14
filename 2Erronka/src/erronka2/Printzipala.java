@@ -248,7 +248,7 @@ public class Printzipala extends JFrame {
 
 		JLabel lblFondoa = new JLabel("");
 		lblFondoa.setSize(100, 100);
-		lblFondoa.setIcon(new ImageIcon("C:\\Users\\benat\\Downloads\\UTech java fondoa 1(1).png"));
+		lblFondoa.setIcon(new ImageIcon(Printzipala.class.getResource("/media/UTech java fondoa 1(2).png")));
 		lblFondoa.setBounds(0, 0, 988, 445);
 		contentPane.add(lblFondoa);
 

@@ -215,17 +215,16 @@ public class LangileakPanela extends JFrame {
             boolean isDeleted = dao.ezabatuLangilea(idLangilea);  // Deitu `ezabatuProduktua` metodoari
 
             if (isDeleted) {
-
-                JOptionPane.showMessageDialog(null, "Errore bat gertatu da produktu ezabatu ezin izan delako.", "Errorea", JOptionPane.ERROR_MESSAGE);
-            } else {
-
-                JOptionPane.showMessageDialog(null, "Produktua ezabatuta izan da.");
-
                 // Taula berritu
                 List<Langilea> lista = dao.lortuLangilea();
                 LangileakTaula model = new LangileakTaula(lista);
                 table.setModel(model);  // Taula eguneratu modelo berriarekin
                 txt_id.setText("");
+                JOptionPane.showMessageDialog(null, "Produktua ezabatuta izan da.");
+            } else {
+                JOptionPane.showMessageDialog(null, "Errore bat gertatu da produktu ezabatu ezin izan delako.", "Errorea", JOptionPane.ERROR_MESSAGE);
+
+                
             }
         }
 

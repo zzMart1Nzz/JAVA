@@ -226,17 +226,18 @@ public class ProduktuakPanela extends JFrame {
             boolean isDeleted = dao.ezabatuProduktua(idProduktua);  // Deitu `ezabatuProduktua` metodoari
 
             if (isDeleted) {
+            	 // Taula berritu
+                List<Produktua> lista = dao.lortuProduktuak();
+                ProduktuakTaula model = new ProduktuakTaula(lista);
+                table.setModel(model);  // Taula eguneratu modelo berriarekin
+                txt_id.setText("");
                 JOptionPane.showMessageDialog(null, "Produktua ezabatuta izan da.");
 
             } else {
                 JOptionPane.showMessageDialog(null, "Errore bat gertatu da produktu ezabatu ezin izan delako.", "Errorea", JOptionPane.ERROR_MESSAGE);
 
 
-                // Taula berritu
-                List<Produktua> lista = dao.lortuProduktuak();
-                ProduktuakTaula model = new ProduktuakTaula(lista);
-                table.setModel(model);  // Taula eguneratu modelo berriarekin
-                txt_id.setText("");
+               
             }
         }
 

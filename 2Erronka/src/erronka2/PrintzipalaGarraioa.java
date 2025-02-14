@@ -24,6 +24,7 @@ import javax.swing.border.EmptyBorder;
 
 import kudeaketak.kudeaketaEskaerak;
 import taulak.EskaerakTaula;
+import taulak.ProduktuakTaula;
 
 public class PrintzipalaGarraioa extends JFrame {
 
@@ -122,6 +123,9 @@ public class PrintzipalaGarraioa extends JFrame {
 					int idEskaera =Integer.parseInt(txt_id.getText());
 					kudeaketaEskaerak kudeaketa = new kudeaketaEskaerak();
 					kudeaketa.entregatuEskaera(idEskaera);
+					List<Eskaera> lista = dao.lortuEskaerak();
+        	        EskaerakTaula model = new EskaerakTaula(lista);
+        	        table.setModel(model);  // Taula eguneratu modelo berriarekin
 				}else {}
 			}
 		});
@@ -153,13 +157,9 @@ public class PrintzipalaGarraioa extends JFrame {
          birkargatuIko.addMouseListener(new MouseAdapter () {
  			@Override
  			public void mouseClicked(MouseEvent e) {
- 				dispose();
-
- 				PrintzipalaGarraioa pg = new PrintzipalaGarraioa();
- 				pg.setVisible(true);
-
  				List<Eskaera> lista = dao.lortuEskaerak();
- 		        EskaerakTaula model = new EskaerakTaula(lista);
+    	        EskaerakTaula model = new EskaerakTaula(lista);
+    	        table.setModel(model);  // Taula eguneratu modelo berriarekin
 
  			}
  		});
